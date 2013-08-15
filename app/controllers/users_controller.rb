@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user,      only: [:show, :edit, :update, :destroy]
+
+  before_filter :store_location
+  before_filter :authenticate_user!
+  before_filter :correct_user?, only: [:edit, :update]
+  before_filter :admin?,        only: [:destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where(confirmation_token: nil)
   end
 
   # GET /users/1
@@ -28,6 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        # sign_in @user
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -69,6 +75,14 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params[:user]
+      params.require(:user).permit(:nom, :prenom, :email, :password, :password_confirmation)
+    end
+
+    def correct_user?
+      redirect_to root_url unless current_user == @user
+    end
+
+    def admin?
+      redirect_to root_url unless current_user.admin?
     end
 end
