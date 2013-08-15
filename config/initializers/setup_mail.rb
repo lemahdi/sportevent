@@ -26,4 +26,8 @@ elsif Rails.env.production? then
 	ActionMailer::Base.default_url_options[:host] = "lemahdi-sportevent.herokuapp.com"
 end
 
-Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+if Rails.env.development? then
+	Mail.register_interceptor(DevelopmentMailInterceptor, "[SportEvent-DEV]")
+elsif Rails.env.staging?
+	Mail.register_interceptor(DevelopmentMailInterceptor, "[SportEvent-STAGE]")
+end
