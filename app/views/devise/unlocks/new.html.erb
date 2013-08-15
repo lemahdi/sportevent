@@ -1,6 +1,6 @@
 <% provide(:title, 'Déblocage') %>
 
-<h1>Bloqué(e) ?</h1>
+<h1>Compte bloqué</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -12,6 +12,7 @@
       <div class="field">
       	<br />
         <%= f.label :email %>
+        <i>(débloquer mon compte)</i>
         <%= f.email_field :email, :autofocus => true %>
       </div>
 
@@ -20,7 +21,7 @@
       	<div class="span2">
       		<%= f.submit "Débloquer", class: "btn btn-large btn-primary" %>
       	</div>
-      	<div class="span2">
+      	<div class="span3">
       		<%= render "devise/shared/links" %>
       	</div>
       </div>
