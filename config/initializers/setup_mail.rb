@@ -9,15 +9,21 @@ ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.default content_type: "text/html"
 
 ActionMailer::Base.smtp_settings = {
-  address:              Rails.env.production? ? "smtp.sendgrid.net" : "smtp.gmail.com",
+  address:              Rails.env.development? ? "smtp.gmail.com" : "smtp.sendgrid.net",
   port:                 587,
-  domain:               Rails.env.production? ? "heroku.com" : "gmail.com",
-  user_name:            Rails.env.production? ? ENV['SENDGRID_USERNAME'] : "mahdi00",
-  password:             Rails.env.production? ? ENV['SENDGRID_PASSWORD'] : "paris0",
+  domain:               Rails.env.development? ? "gmail.com" : "heroku.com",
+  user_name:            Rails.env.development? ? "mahdi00" : ENV['SENDGRID_USERNAME'],
+  password:             Rails.env.development? ? "paris0" : ENV['SENDGRID_PASSWORD'],
   authentication:       :plain,
   enable_starttls_auto: true
 }
 
-ActionMailer::Base.default_url_options[:host] = Rails.env.production? ? "lemahdi-sportevent.herokuapp.com" : "localhost:3000"
+if Rails.env.development? then
+	ActionMailer::Base.default_url_options[:host] = "localhost:3000"
+elsif Rails.env.staging? then
+	ActionMailer::Base.default_url_options[:host] = "lemahdi-sportevent-s.herokuapp.com"
+elsif Rails.env.production? then
+	ActionMailer::Base.default_url_options[:host] = "lemahdi-sportevent.herokuapp.com"
+end
 
 Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
