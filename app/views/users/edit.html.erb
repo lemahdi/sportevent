@@ -1,6 +1,5 @@
-<h1>Editing user</h1>
+<% provide(:title, 'Mise à jour') %>
 
-<%= render 'form' %>
+<h1>Informations</h1>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= render partial: 'form', locals: { from: "edit" } %>

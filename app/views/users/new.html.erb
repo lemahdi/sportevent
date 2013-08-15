@@ -1,5 +1,6 @@
-<h1>New user</h1>
+<% provide(:title, 'Inscription') %>
 
-<%= render 'form' %>
+<h1>S'inscrire</h1>
 
-<%= link_to 'Back', users_path %>
+<%= render partial: 'form', locals: { from: "new" } %>
+

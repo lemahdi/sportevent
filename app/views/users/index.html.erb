@@ -1,34 +1,34 @@
-<h1>Listing users</h1>
+<% provide(:title, 'Sportizers') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Prenom</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h1>Tous les sportizers</h1>
 
-  <tbody>
-    <% is_current_admin = current_user.admin? %>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= user.nom %></td>
-      <td><%= user.prenom %></td>
-      <td><%= link_to 'Show', user %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td>
-        <% if is_current_admin && !current_user?(user) %>
-          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end%>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= will_paginate_fr @users %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <div class="row">
+      <div class="span1">
+        <%= link_to(gravatar_for(user), user_path(user)) %>
+      </div>
+      <div class="span3">
+        <div>
+          <strong><%= user.nom %></strong>
+          <strong><%= user.prenom %></strong>
+        </div>
+        <div class="nav nav-pills">
+          <!-- <%= link_to 'Contacter', "#" %> -->
+          <% if current_user.admin? && !current_user?(user) %>
+            <%= link_to 'Afficher', user %>
+            <%= link_to 'Modifier', edit_user_path(user) %>
+            <%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    </br>
+  <% end %>
+</ul>
 
 <br />
 
-<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<%= will_paginate_fr @users %>
