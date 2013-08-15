@@ -51,7 +51,3 @@ class AddDeviseToUsers < ActiveRecord::Migration
     raise ActiveRecord::IrreversibleMigration
   end
 end
-class AddDeviseToUsers < ActiveRecord::Migration
-  def change
-  end
-end
