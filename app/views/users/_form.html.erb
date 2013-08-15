@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :nom %><br />
+    <%= f.text_field :nom %>
+  </div>
+  <div class="field">
+    <%= f.label :prenom %><br />
+    <%= f.text_field :prenom %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

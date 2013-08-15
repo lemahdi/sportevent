@@ -3,6 +3,8 @@
 <table>
   <thead>
     <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
       <th></th>
       <th></th>
       <th></th>
@@ -10,11 +12,18 @@
   </thead>
 
   <tbody>
+    <% is_current_admin = current_user.admin? %>
     <% @users.each do |user| %>
     <tr>
+      <td><%= user.nom %></td>
+      <td><%= user.prenom %></td>
       <td><%= link_to 'Show', user %></td>
       <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <% if is_current_admin && !current_user?(user) %>
+          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end%>
+      </td>
     </tr>
     <% end %>
   </tbody>
@@ -22,4 +31,4 @@
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
