@@ -1,5 +1,5 @@
 class DevelopmentMailInterceptor
-	def self.delivering_email(message, prefix)
+	def self.delivering_email(message)
 		if Rails.env.development? then
 			prefix = "[SportEvent-DEV]"
 		elsif Rails.env.staging?
