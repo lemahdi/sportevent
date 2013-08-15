@@ -6,6 +6,7 @@ ruby "2.0.0"
 gem 'rails', '4.0.0.beta1'
 gem 'protected_attributes'
 gem 'devise', '3.0.0.rc'
+gem 'rails_12factor'
 
 gem 'pg'
 
