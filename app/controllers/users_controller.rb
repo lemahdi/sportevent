@@ -9,7 +9,19 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.where(confirmation_token: nil)
+    @users = User.where(confirmation_token: nil).asc("prenom").asc("nom").paginate(page: params[:page], per_page: 5)
+
+    respond_to do |format|
+      format.html { @users }
+      format.json {
+        render json: {
+          current_page:  @users.current_page,
+          per_page:      @users.per_page,
+          total_entries: @users.total_entries,
+          entries:       @users
+        }
+      }
+    end
   end
 
   # GET /users/1

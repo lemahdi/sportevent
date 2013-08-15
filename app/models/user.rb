@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 										 length:   { maximum: 50 }
 	validates :email , presence:   true,
 									 	 uniqueness: { case_sensitive: false }
+                     
+  scope :asc, -> attr { order("rameurs.#{attr} ASC") }
 
   def password_required?
   	super if confirmed?

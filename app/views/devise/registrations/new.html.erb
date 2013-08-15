@@ -1,12 +1,30 @@
-<h2>Sign up</h2>
+<% provide(:title, 'Inscription') %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<h1>S'inscrire</h1>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+  		<!-- <%= devise_error_messages! %> -->
+  		<%= render "devise/shared/errors" %>
 
-<%= render "devise/shared/links" %>
+      <div class="field">
+      	<br />
+        <%= f.label :email %>
+        <i>seul votre adresse email est nécessaire pour le moment</i>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+      <div class="actions">
+      	<br />
+      	<div class="span2">
+        	<%= f.submit "S'inscrire", class: "btn btn-large btn-primary" %>
+      	</div>
+      	<div class="span3">
+      		<%= render "devise/shared/links" %>
+      	</div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
