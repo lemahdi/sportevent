@@ -1,6 +1,5 @@
-<h1>Editing field</h1>
+<% provide(:title, 'Mise à jour du Field') %>
 
-<%= render 'form' %>
+<h1>Informations</h1>
 
-<%= link_to 'Show', @field %> |
-<%= link_to 'Back', fields_path %>
+<%= render partial: 'form', locals: { from: "edit" } %>

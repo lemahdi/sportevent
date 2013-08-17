@@ -1,35 +1,14 @@
-<h1>Listing fields</h1>
+<% provide(:title, 'Fields') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Street</th>
-      <th>City</th>
-      <th>Country</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h1>Tous les Fields</h1>
 
-  <tbody>
-    <% @fields.each do |field| %>
-    <tr>
-      <td><%= field.street %></td>
-      <td><%= field.city %></td>
-      <td><%= field.country %></td>
-      <td><%= field.latitude %></td>
-      <td><%= field.longitude %></td>
-      <td><%= link_to 'Show', field %></td>
-      <td><%= link_to 'Edit', edit_field_path(field) %></td>
-      <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="span6 offset3">
+    <%= gmaps4rails(@json) %>
 
-<br />
-
-<%= link_to 'New Field', new_field_path %>
+    <div class="actions">
+      <br />
+        <%= f.submit "Nouveau", class: "btn btn-large btn-primary" %>
+    </div>
+  </div>
+</div>
