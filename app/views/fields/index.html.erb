@@ -1,0 +1,35 @@
+<h1>Listing fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Street</th>
+      <th>City</th>
+      <th>Country</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fields.each do |field| %>
+    <tr>
+      <td><%= field.street %></td>
+      <td><%= field.city %></td>
+      <td><%= field.country %></td>
+      <td><%= field.latitude %></td>
+      <td><%= field.longitude %></td>
+      <td><%= link_to 'Show', field %></td>
+      <td><%= link_to 'Edit', edit_field_path(field) %></td>
+      <td><%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Field', new_field_path %>

@@ -1,4 +1,6 @@
 Sportevent::Application.routes.draw do
+  resources :fields
+
   devise_for :users, controllers: { registrations: "users/registrations", confirmations: "users/confirmations" }
   devise_scope :user do
     put "/confirm" => "users/confirmations#confirm"
