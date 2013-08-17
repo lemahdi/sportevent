@@ -1,5 +1,5 @@
 class CreateFields < ActiveRecord::Migration
-  def change
+  def up
     create_table :fields do |t|
       t.string :street
       t.string :city
@@ -9,5 +9,9 @@ class CreateFields < ActiveRecord::Migration
 
       t.timestamps
     end
+  end
+
+  def down
+    drop_table :fields
   end
 end
