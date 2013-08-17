@@ -5,11 +5,13 @@ class FieldsController < ApplicationController
   # GET /fields.json
   def index
     @fields = Field.all
+    @json = @fields.to_gmaps4rails
   end
 
   # GET /fields/1
   # GET /fields/1.json
   def show
+    @json = @field.to_gmaps4rails
   end
 
   # GET /fields/new
