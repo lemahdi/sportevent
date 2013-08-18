@@ -3,12 +3,18 @@
 <h1>Tous les Fields</h1>
 
 <div class="row">
+  
   <div class="span6 offset1">
+  
     <%= gmaps4rails(@json) %>
 
-    <div class="actions">
-      <br />
-      <%= link_to "Nouveau" , new_field_path, class: "btn btn-large btn-primary" %>
-    </div>
+		<% if current_user.admin? %>
+	    <div class="actions">
+	      <br />
+	      <%= link_to "Nouveau" , new_field_path, class: "btn btn-large btn-primary" %>
+	    </div>
+    <% end %>
+
   </div>
+
 </div>
