@@ -1,5 +1,9 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :edit, :update, :destroy]
+  before_action :set_match,           only: [:show, :update, :destroy]
+  
+  before_filter :authenticate_user!
+  # before_filter :check_params,        only: :create
+  # before_filter :subscribed_to_match, only: [:show, :destroy]
 
   # GET /matches
   # GET /matches.json
@@ -70,5 +74,20 @@ class MatchesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
       params.require(:match).permit(:start, :duration, :field_id)
+    end
+
+    # Check the conformity of the crenau with the aviron type
+    # def check_params
+    # end
+
+    # Verify that the current user is subscribed to the reservation he tries to show
+    def subscribed_to_match
+      # unless subscribed?(@reservation)
+      #   message = "Vous n'êtes pas inscrit(e) à cette réservation"
+      #   respond_to do |format|
+      #     format.html { redirect_to reservations_url, alert: message }
+      #     format.json { render 'show', status: :unauthorized, alert: message }
+      #   end
+      # end
     end
 end

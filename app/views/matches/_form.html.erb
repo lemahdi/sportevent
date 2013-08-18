@@ -1,29 +1,31 @@
-<%= form_for(@match) do |f| %>
-  <% if @match.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+<div class="row">
+  <div class="span9 offset2">
+    <%= form_for(@match) do |f| %>
 
-      <ul>
-      <% @match.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <!-- match_error_messages! -->
+      <%= render partial: 'layouts/errors', locals: { object: @match } %>
 
-  <div class="field">
-    <%= f.label :start %><br />
-    <%= f.date_select :start %>
+      <div class="row reservations">
+        <div class="span2 field">
+          <%= f.label :start, "Date/Horaire" %><br />
+          <%= f.text_field :start %>
+        </div>
+        <div class="span2 field">
+          <%= f.label :duration, "Durée" %><br />
+          <%= f.text_field :duration %>
+        </div>
+        <div class="span4 field">
+          <%= f.label :field_id %><br />
+          <%= f.select :field_id, ["field1", "field2", ".."] %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span2 offset3 actions">
+          <br />
+          <%= f.submit "Organiser", class: "btn btn-large btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :duration %><br />
-    <%= f.number_field :duration %>
-  </div>
-  <div class="field">
-    <%= f.label :field %><br />
-    <%= f.text_field :field %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
