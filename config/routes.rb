@@ -1,4 +1,6 @@
 Sportevent::Application.routes.draw do
+  resources :matches
+
   resources :fields
 
   devise_for :users, controllers: { registrations: "users/registrations", confirmations: "users/confirmations" }

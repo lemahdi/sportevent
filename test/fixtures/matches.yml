@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start: 2013-08-18
+  duration: 1
+  field_id: 
+
+two:
+  start: 2013-08-18
+  duration: 1
+  field_id: 
