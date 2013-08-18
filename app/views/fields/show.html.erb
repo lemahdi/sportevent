@@ -1,18 +1,19 @@
 <% provide(:title, "#{@field.gmaps4rails_address()}") %>
 
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= @field.street %>
-        <%= @field.city %>
-        <%= @field.country %>
-        <%= @field.latitude %>
-        <%= @field.longitude %>
-      </h1>
+  <div class="span6 offset1">
+    <p>
+      <strong><%= @field.gmaps4rails_address %></strong>
+      <br />
+      Lat: <%= @field.latitude %>
+      <br />
+      Lon: <%= @field.longitude %>
+    </p>
 
-      <%= gmaps4rails(@json) %>
+    <%= gmaps({
+      "map_options" => { "auto_zoom" => false, "zoom" => 15 },
+      "markers"     => { "data" => @json }
+    }) %>
 
-    </section>
-  </aside>
+  </div>
 </div>
