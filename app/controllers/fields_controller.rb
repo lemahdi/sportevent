@@ -7,7 +7,19 @@ class FieldsController < ApplicationController
   # GET /fields.json
   def index
     @fields = Field.all
-    @json = @fields.to_gmaps4rails
+    # @json = @fields.to_gmaps4rails
+
+    @json = Field.all.to_gmaps4rails do |field, marker|
+      marker.infowindow render_to_string(partial: "/fields/marker", locals: { :object => field})
+      # marker.picture({
+      #                 picture: "http://www.blankdots.com/img/github-32x32.png",
+      #                 width:   32,
+      #                 height:  32
+      #                })
+      # marker.title   "i'm the title"
+      # marker.sidebar "i'm the sidebar"
+      # marker.json({ :id => field.id, :foo => "bar" })
+    end
   end
 
   # GET /fields/1
