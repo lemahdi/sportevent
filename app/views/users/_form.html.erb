@@ -3,7 +3,7 @@
     <%= form_for(@user) do |f| %>
 
       <!-- <%= user_error_messages! %> -->
-      <%= render "users/errors" %>
+      <%= render partial: 'layouts/errors', locals: { object: @user } %>
 
       <div class="field">
         <br />
