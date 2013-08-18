@@ -3,12 +3,12 @@
 <h1>Tous les Fields</h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span6 offset1">
     <%= gmaps4rails(@json) %>
 
     <div class="actions">
       <br />
-        <%= f.submit "Nouveau", class: "btn btn-large btn-primary" %>
+      <%= link_to "Nouveau" , new_field_path, class: "btn btn-large btn-primary" %>
     </div>
   </div>
 </div>
