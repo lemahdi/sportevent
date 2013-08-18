@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20130818080609) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "gmaps"
-    t.string   "name"
+    t.string   "name",       default: "Trou Noir"
   end
 
   create_table "users", force: true do |t|

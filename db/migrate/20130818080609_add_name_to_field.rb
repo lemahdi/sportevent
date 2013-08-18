@@ -1,6 +1,6 @@
 class AddNameToField < ActiveRecord::Migration
   def up
-    add_column :fields, :name, :string
+    add_column :fields, :name, :string, default: "Trou Noir"
   end
 
   def down
