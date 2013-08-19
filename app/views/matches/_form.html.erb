@@ -8,7 +8,7 @@
       <div class="row reservations">
         <div class="span2 field">
           <%= f.label :jour %><br />
-          <%= f.text_field :jour %>
+          <%= f.text_field :jour, class: "input-append date datepicker", value: Date.today.strftime('%d-%m-%Y') %>
         </div>
         <div class="span2 field">
           <%= f.label :start, "Heure début" %><br />
