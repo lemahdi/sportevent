@@ -1,0 +1,35 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>N°</th>
+      <th></th>
+      <th>Jour</th>
+      <th>Durée</th>
+      <th>Field</th>
+      <th>Sportizers</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="reservation"><p>
+    <% @matches.each do |match| %>
+        <tr class="<%= resa_class(match) %>" >
+          <td><%= match.id %></td>
+          <td></td>
+          <td><%= match.jour.strftime("%d/%m/%y") %></td>
+          <td><%= match.duration.minutes %></td>
+          <td><%= match.field.name %></td>
+          <td></td>
+          <td><%= submit_tag "Participer", disabled: true, class: "btn btn-small" %></td>
+        </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= link_to "Proposer", new_match_path, class: "btn btn-small" %></td>
+    </tr>
+  </tbody>
+</table>

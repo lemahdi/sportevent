@@ -7,10 +7,14 @@
 
       <div class="row reservations">
         <div class="span2 field">
-          <%= f.label :start, "Date/Horaire" %><br />
-          <%= f.text_field :start %>
+          <%= f.label :jour %><br />
+          <%= f.text_field :jour %>
         </div>
         <div class="span2 field">
+          <%= f.label :start, "Heure début" %><br />
+          <%= f.text_field :start %>
+        </div>
+        <div class="span1 field">
           <%= f.label :duration, "Durée" %><br />
           <%= f.text_field :duration %>
         </div>

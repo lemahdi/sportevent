@@ -1,31 +1,13 @@
-<h1>Listing matches</h1>
+<% provide(:title, 'Matchs') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Start</th>
-      <th>Duration</th>
-      <th>Field</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h1>Liste des Matchs</h1>
 
-  <tbody>
-    <% @matches.each do |match| %>
-    <tr>
-      <td><%= match.start %></td>
-      <td><%= match.duration %></td>
-      <td><%= match.field %></td>
-      <td><%= link_to 'Show', match %></td>
-      <td><%= link_to 'Edit', edit_match_path(match) %></td>
-      <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= will_paginate_fr @matches %>
+
+<div class="center hero-unit">
+  <%= render 'table' %>
+</div>
 
 <br />
 
-<%= link_to 'New Match', new_match_path %>
+<%= will_paginate_fr @matches %>

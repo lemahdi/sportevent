@@ -8,7 +8,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.all
+    @matches = Match.recent.asc("jour").paginate(page: params[:page], per_page: 30)
   end
 
   # GET /matches/1
@@ -73,7 +73,7 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:start, :duration, :field_id)
+      params.require(:match).permit(:jour, :start, :duration, :field_id)
     end
 
     # Check the conformity of the crenau with the aviron type

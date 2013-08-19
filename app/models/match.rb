@@ -1,8 +1,9 @@
 class Match < ActiveRecord::Base
-	attr_accessible :start, :duration, :field_id
+	attr_accessible :jour, :start, :duration, :field_id
 
   belongs_to :field
 
+  validates :jour, presence: true
   validates :start, presence: true
   validates :field_id, presence: true
   validate :should_start_within_month
