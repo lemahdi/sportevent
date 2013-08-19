@@ -1,3 +1,5 @@
+include MatchesHelper
+
 class MatchesController < ApplicationController
   before_action :set_match,           only: [:show, :update, :destroy]
   
