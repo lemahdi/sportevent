@@ -13,6 +13,6 @@ class Match < ActiveRecord::Base
 
   private
   	def should_start_within_month
-  		errors.add(:jour, "ne peut pas être au delà d'une semaine") if self.start > (Date.today+1.month)
+  		errors.add(:jour, "ne peut pas être au delà d'un mois") if self.jour > (Date.today+1.month)
   	end
 end
