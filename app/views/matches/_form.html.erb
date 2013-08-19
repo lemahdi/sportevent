@@ -7,19 +7,19 @@
 
       <div class="row reservations">
         <div class="span2 field">
-          <%= f.label :jour %><br />
+          <%= f.label :jour %><br /><br />
           <%= f.text_field :jour, class: "input-append date datepicker", value: Date.today.strftime('%d-%m-%Y') %>
         </div>
-        <div class="span2 field">
-          <%= f.label :start, "Heure début" %><br />
-          <%= f.text_field :start %>
+        <div class="span1 field">
+          <%= f.label :start, "Début (hh:mm)" %><br />
+          <%= f.text_field :start, class: "time", value: Time.now.strftime('%H:%M') %>
         </div>
         <div class="span1 field">
-          <%= f.label :duration, "Durée" %><br />
-          <%= f.text_field :duration %>
+          <%= f.label :duration, "Durée (min)" %><br />
+          <%= f.text_field :duration, class: "time", value: 1.hour/60 %>
         </div>
-        <div class="span4 field">
-          <%= f.label :field_id %><br />
+        <div class="span5 field">
+          <%= f.label :field_id %><br /><br />
           <%= f.select :field_id, fields_names %>
         </div>
       </div>
