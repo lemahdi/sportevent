@@ -1,20 +1,53 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Match Event") %>
 
-<p>
-  <strong>Start:</strong>
-  <%= @match.start %>
-</p>
+<div class="row">
+  <div class="span6 offset1">
 
-<p>
-  <strong>Duration:</strong>
-  <%= @match.duration %>
-</p>
+  	<div class="row">
+  		<div class="span2">
+    		<strong>Jour</strong>
+    	</div>
+    	<div class="span4">
+    		<%= @match.jour.strftime('%d-%m-%Y') %>
+    	</div>
+    </div>
+    <br />
 
-<p>
-  <strong>Field:</strong>
-  <%= @match.field %>
-</p>
+  	<div class="row">
+  		<div class="span2">
+    		<strong>Heure de début</strong>
+    	</div>
+    	<div class="span4">
+    		<%= @match.start.strftime('%H:%M') %>
+    	</div>
+    </div>
+    <br />
 
+  	<div class="row">
+  		<div class="span2">
+    		<strong>Heure de fin</strong>
+    	</div>
+    	<div class="span4">
+    		<%= "#{match_end(@match)} (durée #{@match.duration} minutes)" %>
+    	</div>
+    </div>
+    <br />
 
-<%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', matches_path %>
+  	<div class="row">
+  		<div class="span2">
+    		<strong>Field</strong>
+    	</div>
+    	<div class="span4">
+    		<%= link_to @match.field.name, field_path(@match.field), "data-no-turbolink" => true %>
+    	</div>
+    </div>
+    <br />
+    <br />
+
+    <%= gmaps({
+      "map_options" => { "auto_zoom" => false, "zoom" => 15 },
+      "markers"     => { "data" => @match.field.to_gmaps4rails }
+    }) %>
+
+  </div>
+</div>
