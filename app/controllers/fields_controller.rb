@@ -3,6 +3,9 @@ include FieldsHelper
 class FieldsController < ApplicationController
   before_action :set_field, only: [:show, :edit, :update, :destroy]
 
+  before_filter :store_location
+  before_filter :authenticate_user!
+  
   # GET /fields
   # GET /fields.json
   def index

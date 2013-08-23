@@ -1,10 +1,11 @@
 include MatchesHelper
 
 class MatchesController < ApplicationController
-  before_action :set_match,           only: [:show, :update, :destroy]
+  before_action :set_match,                only: [:show, :update, :destroy]
   
+  before_filter :store_location
   before_filter :authenticate_user!
-  # before_filter :check_params,        only: :create
+  before_filter :rewrite_and_check_params, only: :create
   # before_filter :subscribed_to_match, only: [:show, :destroy]
 
   # GET /matches
@@ -79,11 +80,11 @@ class MatchesController < ApplicationController
     end
 
     # Check the conformity of the crenau with the aviron type
-    # def check_params
-    # end
+    def rewrite_and_check_params
+    end
 
     # Verify that the current user is subscribed to the reservation he tries to show
-    def subscribed_to_match
+    # def subscribed_to_match
       # unless subscribed?(@reservation)
       #   message = "Vous n'êtes pas inscrit(e) à cette réservation"
       #   respond_to do |format|
@@ -91,5 +92,5 @@ class MatchesController < ApplicationController
       #     format.json { render 'show', status: :unauthorized, alert: message }
       #   end
       # end
-    end
+    # end
 end
