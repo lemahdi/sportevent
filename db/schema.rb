@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130820201613) do
+ActiveRecord::Schema.define(version: 20130826113708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20130820201613) do
     t.datetime "updated_at"
     t.boolean  "gmaps"
     t.string   "name",       default: "Trou Noir"
+    t.string   "zone",       default: "+00:00"
   end
 
   create_table "matches", force: true do |t|
