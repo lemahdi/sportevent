@@ -5,14 +5,14 @@
       <!-- match_error_messages! -->
       <%= render partial: 'layouts/errors', locals: { object: @match } %>
 
-      <div class="row reservations">
+      <div class="row match">
         <div class="span2 field">
           <%= f.label :jour %><br /><br />
           <%= f.text_field :jour, class: "input-append date datepicker", value: Date.today.strftime('%d-%m-%Y') %>
         </div>
         <div class="span1 field">
-          <%= f.label :start, "Début (hh:mm)" %><br />
-          <%= f.text_field :start, class: "time", value: Time.now.strftime('%H:%M') %>
+          <%= f.label :start_str, "Début (hh:mm)" %><br />
+          <%= f.text_field :start_str, class: "time", value: Time.now.strftime('%H:%M') %>
         </div>
         <div class="span1 field">
           <%= f.label :duration, "Durée (min)" %><br />
@@ -22,6 +22,10 @@
           <%= f.label :field_id %><br /><br />
           <%= f.select :field_id, fields_names %>
         </div>
+
+          <%= f.hidden_field :start, value: 100.years.ago %>
+          <%= f.hidden_field :utc_offset, value: DateTime.now.formatted_offset %>
+
       </div>
       <div class="row">
         <div class="span2 offset3 actions">

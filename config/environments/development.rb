@@ -24,4 +24,7 @@ Sportevent::Application.configure do
 
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
+
+  # Set to :debug to see everything in the log.
+  config.log_level = :debug
 end
