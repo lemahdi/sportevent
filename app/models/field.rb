@@ -1,5 +1,5 @@
 class Field < ActiveRecord::Base
-	attr_accessible :street, :city, :country, :latitude, :longitude, :name
+	attr_accessible :street, :city, :country, :latitude, :longitude, :name, :utc_offset
 
 	validate :should_have_name
 

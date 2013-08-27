@@ -1,10 +1,11 @@
 include FieldsHelper
 
 class FieldsController < ApplicationController
-  before_action :set_field, only: [:show, :edit, :update, :destroy]
+  before_action :set_field,      only: [:show, :edit, :update, :destroy]
 
   before_filter :store_location
   before_filter :authenticate_user!
+  after_filter :set_utc_offset, only: :create
   
   # GET /fields
   # GET /fields.json
@@ -88,6 +89,13 @@ class FieldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_params
-      params.require(:field).permit(:street, :city, :country, :latitude, :longitude, :name)
+      params.require(:field).permit(:street, :city, :country, :latitude, :longitude, :name, :utc_offset)
+    end
+
+    # Get the UTC offset using google timezone api
+    def set_utc_offset
+      tz = GoogleTimezone.fetch(@field.latitude, @field.longitude)
+      @field.utc_offset = ActiveSupport::TimeZone.new(tz.time_zone_id).formatted_offset
+      @field.save
     end
 end

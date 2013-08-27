@@ -40,6 +40,8 @@
         <%= f.text_field :name %>
       </div>
 
+        <%= f.hidden_field :utc_offset, value: DateTime.now.formatted_offset %>
+
       <div class="actions">
         <br />
         <% if from == "new" %>

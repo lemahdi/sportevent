@@ -59,6 +59,7 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     gmaps4rails (1.5.6)
+    google_timezone (0.0.1)
     hike (1.2.3)
     i18n (0.6.4)
     jbuilder (1.0.2)
@@ -148,6 +149,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0.beta1)
   devise (= 3.0.0.rc)
   gmaps4rails
+  google_timezone
   jbuilder (~> 1.0.1)
   jquery-rails
   pg

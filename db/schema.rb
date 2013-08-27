@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20130826113708) do
     t.datetime "updated_at"
     t.boolean  "gmaps"
     t.string   "name",       default: "Trou Noir"
-    t.string   "zone",       default: "+00:00"
+    t.string   "utc_offset", default: "+00:00"
   end
 
   create_table "matches", force: true do |t|

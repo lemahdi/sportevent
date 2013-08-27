@@ -1,6 +1,6 @@
 class AddZoneToFields < ActiveRecord::Migration
   def up
-    add_column :fields, :zone, :string, default: "+00:00"
+    add_column :fields, :utc_offset, :string, default: "+00:00"
   end
 
   def down
