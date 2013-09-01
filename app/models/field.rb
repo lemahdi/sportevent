@@ -1,5 +1,7 @@
 class Field < ActiveRecord::Base
-	attr_accessible :street, :city, :country, :latitude, :longitude, :name, :utc_offset
+	attr_accessible :street, :city, :country, :latitude, :longitude, :name, :timezone
+
+	before_save :set_timezone
 
 	validate :should_have_name
 
@@ -15,6 +17,10 @@ class Field < ActiveRecord::Base
 	end
 
 	private
+		def set_timezone
+      self.timezone = GoogleTimezone.fetch(self.latitude, self.longitude).time_zone_id
+		end
+
 		def should_have_name
 			errors.add(:name, ": vous devez donner un nom au Field") if self.name.empty?
 		end

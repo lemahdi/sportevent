@@ -6,6 +6,12 @@ module MatchesHelper
 	end
 
 	def match_end(match)
-		(match.start + match.duration.minutes).strftime('%H:%M')
+		(match_start(match) + match.duration.minutes).strftime('%H:%M')
+	end
+
+	def match_start(match)
+		jour = match.jour
+		hour_min = match.start.split(":")
+		DateTime.new(jour.year, jour.month, jour.day, hour_min[0], hour_min[1], 0)
 	end
 end
