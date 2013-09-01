@@ -1,3 +1,5 @@
+include FieldsHelper
+
 module MatchesHelper
 
 	def fields_names
@@ -6,12 +8,17 @@ module MatchesHelper
 	end
 
 	def match_end(match)
-		(match_start(match) + match.duration.minutes).strftime('%H:%M')
+		hour_min = match.start.split(":")
+		st = DateTime.new(match.jour.year, match.jour.month, match.jour.day,
+								 			hour_min[0].to_i, hour_min[1].to_i, 0)
+		(st + match.duration.minutes).strftime('%H:%M')
 	end
 
 	def match_start(match)
-		jour = match.jour
 		hour_min = match.start.split(":")
-		DateTime.new(jour.year, jour.month, jour.day, hour_min[0], hour_min[1], 0)
+		utc_offset = 1.0 * timezone_object(match.field).dst_offset / 3600 / 24
+		DateTime.new(match.jour.year, match.jour.month, match.jour.day,
+								 hour_min[0].to_i, hour_min[1].to_i, 0,
+								 utc_offset)
 	end
 end

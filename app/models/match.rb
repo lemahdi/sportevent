@@ -28,9 +28,10 @@ class Match < ActiveRecord::Base
         errors.add(:start, "n'est pas un horaire valide") 
       else
         m = start.match(is_valid1 ? HOUR_MIN_1 : HOUR_MIN_2)
-        start_dt = DateTime.new(self.jour.year, self.jour.month, self.day, m[1].to_i, m[4].to_i, 0)
+        self.start = "#{m[1]}:#{m[4]}"
+        start_dt = match_start(self)
+        errors.add(:start, "#{self.start} ne peut pas être dans le passé") if start_dt < (Time.zone.now-10.seconds)
       end
-      errors.add(:start, "#{self.start} ne peut pas être dans le passé") if start_dt < (Time.zone.now-10.seconds)
   	end
 
     def rewrite_start

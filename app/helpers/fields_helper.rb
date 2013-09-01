@@ -8,4 +8,8 @@ module FieldsHelper
 	  	"#{field.name} - #{field.city}, #{field.country}"
 	  end
 	end
+
+	def timezone_object(field)
+		GoogleTimezone.fetch(field.latitude, field.longitude)
+	end
 end

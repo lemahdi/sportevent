@@ -18,6 +18,6 @@ class Field < ActiveRecord::Base
 
 	private
 		def set_timezone
-      self.timezone = GoogleTimezone.fetch(self.latitude, self.longitude).time_zone_id
+      self.timezone = timezone_object(self).time_zone_id
 		end
 end
