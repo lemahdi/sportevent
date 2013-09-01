@@ -1,7 +1,7 @@
 include FieldsHelper
 
 class FieldsController < ApplicationController
-  before_action :set_field,      only: [:show, :edit, :update, :destroy]
+  before_action :set_field, only: [:show, :edit, :update, :destroy]
 
   before_filter :store_location
   before_filter :authenticate_user!
@@ -13,7 +13,7 @@ class FieldsController < ApplicationController
     # @json = @fields.to_gmaps4rails
 
     @json = Field.all.to_gmaps4rails do |field, marker|
-      marker.infowindow render_to_string(partial: "/fields/marker", locals: { :object => field})
+      marker.infowindow render_to_string(partial: "/fields/marker", locals: { object: field })
       # marker.picture({
       #                 picture: "http://www.blankdots.com/img/github-32x32.png",
       #                 width:   32,

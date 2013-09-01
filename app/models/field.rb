@@ -3,25 +3,21 @@ class Field < ActiveRecord::Base
 
 	before_save :set_timezone
 
-	validate :should_have_name
+	validates :city, presence: true
+	validates :country, presence: true
+	validates :latitude, presence: true
+	validates :longitude, presence: true
+	validates :name, presence: true
 
 	acts_as_gmappable
 
+	#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
 	def gmaps4rails_address
-		#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-		if self.street!="" && self.city!="" && self.country!="" then
-	  	"#{self.street} - #{self.city}, #{self.country}"
-	  else
-	  	"#{self.latitude},#{self.longitude}"
-	  end
+		"#{self.latitude},#{self.longitude}"
 	end
 
 	private
 		def set_timezone
       self.timezone = GoogleTimezone.fetch(self.latitude, self.longitude).time_zone_id
-		end
-
-		def should_have_name
-			errors.add(:name, ": vous devez donner un nom au Field") if self.name.empty?
 		end
 end
