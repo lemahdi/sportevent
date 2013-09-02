@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 									:password, :password_confirmation,
 									:remember_me
 
+  has_many :registres, dependent: :destroy
+  has_many :matches, through: :registres
+
 	before_save { email.downcase! }
 
 	validates :nom   , presence: false,

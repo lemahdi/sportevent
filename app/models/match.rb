@@ -2,6 +2,8 @@ class Match < ActiveRecord::Base
 	attr_accessible :jour, :start, :duration, :field_id
 
   belongs_to :field
+  has_many :registres, dependent: :destroy
+  has_many :users, through: :registres
 
   before_save :rewrite_start
 
