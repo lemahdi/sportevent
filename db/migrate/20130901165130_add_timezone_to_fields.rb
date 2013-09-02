@@ -1,5 +1,4 @@
-class AddTimezoneToFields < ActiveRecord::Migration
-  
+class AddTimezoneToFields < ActiveRecord::Migration  
   def up
     add_column :fields, :timezone, :string, default: "UTC"
   end

@@ -1,5 +1,5 @@
 class CreateMatches < ActiveRecord::Migration
-  def change
+  def up
     create_table :matches do |t|
       t.date :start
       t.integer :duration
@@ -7,5 +7,9 @@ class CreateMatches < ActiveRecord::Migration
 
       t.timestamps
     end
+  end
+
+  def down
+  	drop_table :matches
   end
 end

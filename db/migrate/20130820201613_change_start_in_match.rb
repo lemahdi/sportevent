@@ -1,8 +1,7 @@
 class ChangeStartInMatch < ActiveRecord::Migration
-
   def up
   	change_table :matches do |t|
-  		t.change :start, :timestamp
+  		t.change :start, :string
   	end
   end
 
