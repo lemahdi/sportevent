@@ -7,6 +7,24 @@
 
       <div class="field">
         <br />
+        <%= f.label :latitude %>
+        <%= f.text_field :latitude %>
+      </div>
+      <div class="field">
+        <br />
+        <%= f.label :longitude %>
+        <%= f.text_field :longitude %>
+      </div>
+      <div class="field">
+        <br />
+        <%= f.label :name, "Donnez un nom à ce field" %>
+        <%= f.text_field :name %>
+      </div>
+      
+      <br />
+      
+      <div class="field">
+        <br />
         <%= f.label :street, "Nom de la voie (optionnel)" %>
         <%= f.text_field :street %>
       </div>
@@ -19,22 +37,6 @@
         <br />
         <%= f.label :country, "Pays" %>
         <%= f.text_field :country %>
-      </div>
-      <br />
-      <div class="field">
-        <br />
-        <%= f.label :latitude %><br />
-        <%= f.text_field :latitude %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :longitude %><br />
-        <%= f.text_field :longitude %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :name, "Donnez un nom à ce field" %><br />
-        <%= f.text_field :name %>
       </div>
 
       <div class="actions">
