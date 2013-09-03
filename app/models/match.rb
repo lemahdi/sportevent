@@ -18,6 +18,10 @@ class Match < ActiveRecord::Base
   scope :recent, -> { where("matches.jour >= ?", Date.today) }
   scope :asc,    -> attr { order("matches.#{attr} ASC") }
 
+  def sportizers
+    self.users
+  end
+
   private
   	def check_params
   		errors.add(:jour, "ne peut pas être au delà d'un mois") if self.jour > (Date.today+1.month)

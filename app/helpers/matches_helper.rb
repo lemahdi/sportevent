@@ -23,8 +23,39 @@ module MatchesHelper
 	end
 
 	def sportizers_name(match)
-		match.users.map do |sportizer|
+		match.sportizers.map do |sportizer|
       sportizer.prenom
     end.join(", ")
+	end
+
+	def subscribed?(match)
+		match.sportizers.each do |sportizer|
+			return true if current_user?(sportizer)
+		end
+		false
+	end
+
+	def empty_place?(match)
+		# match.aviron.nbplaces > match.rameurs.size
+		true
+	end
+
+	def play_match_button(match)
+		button_params = {}
+		button_params[:participate] = "yes"
+		button_params[:action]      = :put
+		button_params[:text]        = "  Jouer   "
+		button_params[:disabled]    = false
+
+		if subscribed?(match)
+			button_params[:participate] = "no"
+			button_params[:action]      = :delete if match.sportizers.size == 1
+			button_params[:text]        = "Annuler "
+		elsif !empty_place?(match)
+			button_params[:participate] = "no"
+			button_params[:disabled]    = true
+		end
+
+		button_params
 	end
 end
