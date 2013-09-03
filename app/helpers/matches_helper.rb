@@ -37,7 +37,7 @@ module MatchesHelper
 		true
 	end
 
-	def play_match_button(match)
+	def build_play_match_button(match)
 		button_params = {}
 		button_params[:participate] = "yes"
 		button_params[:action]      = :put

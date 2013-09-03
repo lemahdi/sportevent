@@ -22,7 +22,7 @@
           <td><%= match.field.name %></td>
           <td><%= sportizers_name(match) %></td>
 
-          <% play_match_button = play_match_button(match) %>
+          <% play_match_button = build_play_match_button(match) %>
           <%= form_tag match_path(match), method: play_match_button[:action] do %>
             <!-- < %= hidden_field_tag :from_page, "index" % > -->
             <%= hidden_field_tag :participate, play_match_button[:participate] %>
