@@ -29,10 +29,7 @@ module MatchesHelper
 	end
 
 	def subscribed?(match)
-		match.sportizers.each do |sportizer|
-			return true if current_user?(sportizer)
-		end
-		false
+		match.sportizers.include?(current_user)
 	end
 
 	def empty_place?(match)
