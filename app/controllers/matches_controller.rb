@@ -9,7 +9,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.recent.asc("jour").paginate(page: params[:page], per_page: 30)
+    @matches = Match.recent.asc("jour").asc("start").paginate(page: params[:page], per_page: 30)
   end
 
   # GET /matches/1
@@ -33,6 +33,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
+        @match.users << current_user
         format.html { redirect_to @match, notice: 'Match was successfully created.' }
         format.json { render action: 'show', status: :created, location: @match }
       else

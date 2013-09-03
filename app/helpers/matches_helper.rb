@@ -21,4 +21,10 @@ module MatchesHelper
 								 hour_min[0].to_i, hour_min[1].to_i, 0,
 								 utc_offset)
 	end
+
+	def sportizers_name(match)
+		match.users.map do |sportizer|
+      sportizer.prenom
+    end.join(", ")
+	end
 end

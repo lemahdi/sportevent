@@ -20,7 +20,7 @@
           <td><%= match.start %></td>
           <td><%= match_end(match) %></td>
           <td><%= match.field.name %></td>
-          <td></td>
+          <td><%= sportizers_name(match) %></td>
           <td><%= submit_tag "Participer", disabled: true, class: "btn btn-small" %></td>
         </tr>
     <% end %>
