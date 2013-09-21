@@ -177,27 +177,35 @@ fr:
       update: "Modifier ce(tte) %{model}"
       submit: "Enregistrer ce(tte) %{model}"
 
-  header:
-    my_account: "Mon compte"
-    profile: "Profil"
-    settings: "Paramètres"
-    logout: "Déconnexion"
-    signin: "S'identifier"
+  custom:
 
-  controller:
-    notice:
-      msg_sent: "Message envoyé"
-      create:
-        success: "%{element} ajouté avec succès"
-      update:
-        success: "%{element} mis à jour avec succès"
-    field:
-      admin:
-        alert: "Vous n'avez pas les droits pour ajouter/modifier les fields"
-    match:
-      update:
-        in_game: "Bienvenu à la partie"
-        out_game: "Vous avez quitté la partie"
+    form:
+      become_member: "Devenir membre"
+      logout: "Déconnexion"
+      signin: "S'identifier"
+
+    header:
+      my_account: "Mon compte"
+      profile: "Profil"
+      settings: "Paramètres"
+
+    home:
+      title: "Accueil"
+
+    controller:
+      notice:
+        msg_sent: "Message envoyé"
+        create:
+          success: "%{element} ajouté avec succès"
+        update:
+          success: "%{element} mis à jour avec succès"
+      field:
+        admin:
+          alert: "Vous n'avez pas les droits pour ajouter/modifier les fields"
+      match:
+        update:
+          in_game: "Bienvenu à la partie"
+          out_game: "Vous avez quitté la partie"
 
   errors: &errors
     format: "%{attribute} %{message}"

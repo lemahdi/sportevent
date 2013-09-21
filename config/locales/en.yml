@@ -22,24 +22,32 @@
 en:
   hello: "Hello world"
 
-  header:
-    my_account: "My account"
-    profile: "Profile"
-    settings: "Settings"
-    logout: "Logout"
-    signin: "Sign in"
+  custom:
 
-  controller:
-    notice:
-      msg_sent: "Message posted"
-      create:
-        success: "%{element} was successfully created"
-      update:
-        success: "%{element} was successfully updated"
-    field:
-      admin:
-        alert: "You don't have rights to create/update fields"
-    match:
-      update:
-        in_game: "Welcome to the game"
-        out_game: "You quit the game"
+    form:
+      become_member: "Become member"
+      logout: "Logout"
+      signin: "Sign in"
+
+    header:
+      my_account: "My account"
+      profile: "Profile"
+      settings: "Settings"
+
+    home:
+      title: "Home"
+
+    controller:
+      notice:
+        msg_sent: "Message posted"
+        create:
+          success: "%{element} was successfully created"
+        update:
+          success: "%{element} was successfully updated"
+      field:
+        admin:
+          alert: "You don't have rights to create/update fields"
+      match:
+        update:
+          in_game: "Welcome to the game"
+          out_game: "You quit the game"

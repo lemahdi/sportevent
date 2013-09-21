@@ -48,7 +48,7 @@ class FieldsController < ApplicationController
 
     respond_to do |format|
       if @field.save
-        format.html { redirect_to @field, notice: I18n.t(:success, scope: 'controller.notice.create', element: "Field") }
+        format.html { redirect_to @field, notice: I18n.t(:success, scope: 'custom.controller.notice.create', element: "Field") }
         format.json { render action: 'show', status: :created, location: @field }
       else
         format.html { render action: 'new' }
@@ -62,7 +62,7 @@ class FieldsController < ApplicationController
   def update
     respond_to do |format|
       if @field.update(field_params)
-        format.html { redirect_to @field, notice: I18n.t(:success, scope: 'controller.notice.update', element: "Field") }
+        format.html { redirect_to @field, notice: I18n.t(:success, scope: 'custom.controller.notice.update', element: "Field") }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -94,6 +94,6 @@ class FieldsController < ApplicationController
 
     # Only admins have the right to create, update or destroy fields
     def admin?
-      redirect_to root_url, alert: I18n.t(:alert, scope: 'controller.field.admin') unless current_user.admin?
+      redirect_to root_url, alert: I18n.t(:alert, scope: 'custom.controller.field.admin') unless current_user.admin?
     end
 end

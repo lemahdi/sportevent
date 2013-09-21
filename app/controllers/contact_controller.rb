@@ -11,7 +11,7 @@ class ContactController < ApplicationController
     respond_to do |format|
       if @contact.valid?
         UserMailer.contact_email(@contact).deliver
-        format.html { redirect_to root_url, notice: I18n.t(:msg_sent, scope: 'controller.notice') }
+        format.html { redirect_to root_url, notice: I18n.t(:msg_sent, scope: 'custom.controller.notice') }
         format.json { head :no_content, status: :success, location: root_url }
       else
         format.html { render action: 'new' }
