@@ -1,0 +1,15 @@
+<% provide(:title, I18n.t(:title, scope: 'custom.home')) %>
+
+<div class="center hero-unit">
+	<h1>Sport in the City</h1>
+
+	<h2>
+		Bienvenu sur le site du sport urbain!
+		Cherchez un terrain, inscrivez-vous et constituez votre équipe.
+	</h2>
+
+<% unless signed_in? %>
+	<%= link_to I18n.t(:become_member, scope: 'custom.form'), new_user_registration_path, class: "btn btn-large btn-primary" %>
+<% end %>
+
+</div>
