@@ -5,6 +5,7 @@ class FieldsController < ApplicationController
 
   before_filter :store_location
   before_filter :authenticate_user!
+  before_filter :admin?, only: [:new, :edit, :update, :destroy]
   
   # GET /fields
   # GET /fields.json
@@ -89,5 +90,10 @@ class FieldsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_params
       params.require(:field).permit(:street, :city, :country, :latitude, :longitude, :name)
+    end
+
+    # Only admins have the right to create, update or destroy fields
+    def admin?
+      redirect_to root_url, alert: "Vous n'avez pas les droits pour ajouter/modifier les fields." unless current_user.admin?
     end
 end
