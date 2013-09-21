@@ -1,0 +1,65 @@
+<% provide(:title, 'Contact') %>
+
+<h1>Contacter</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <%= form_for @contact, url: contact_path do |f| %>
+
+	  	<!-- field_error_messages! -->
+	    <%= render partial: 'layouts/errors', locals: { object: @contact } %>
+
+		  <% if signed_in? %>
+      	<div class="row">
+       		<div class="span6 field">
+          	<%= f.hidden_field :nom, value: "#{current_user.nom} #{current_user.prenom}" %>
+			    </div>
+			  </div>
+			    
+      	<div class="row">
+			    <div class="span6 field">
+	        	<%= f.hidden_field :email, value: current_user.email %>
+			    </div>
+			  </div>
+		  <% else %>
+		  	<div class="row">
+			    <div class="span6 field">
+			      <%= f.label :nom %><br />
+			      <%= f.text_field :nom %>
+			    </div>
+			  </div>
+			    
+		  	<div class="row">
+			    <div class="span6 field">
+			      <%= f.label :email %><br />
+			      <%= f.text_field :email %>
+			    </div>
+			  </div>
+		  <% end %>
+
+		  <div class="row">
+		    <div class="span6 field">
+		      <%= f.label :sujet %><br />
+		      <%= f.text_field :subject %>
+		    </div>
+		  </div>
+		    
+		  <div class="row">
+		    <div class="span6 field">
+		      <%= f.label :message %><br />
+		      <%= f.text_area :content %>
+		    </div>
+		  </div>
+		  
+		  <div class="row">
+		    <div class="span1">
+		      <div class="actions">
+		      	<br />
+		        <%= f.submit "Envoyer", class: "btn btn-large btn-primary" %>
+		      </div>
+		    </div>
+	    </div>
+		<% end %>
+  </div>
+</div>
