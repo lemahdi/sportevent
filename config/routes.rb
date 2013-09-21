@@ -1,21 +1,22 @@
 Sportevent::Application.routes.draw do
-  resources :matches
-
-  resources :fields
-
-  devise_for :users, controllers: { registrations: "users/registrations", confirmations: "users/confirmations" }
-  devise_scope :user do
-    put "/confirm" => "users/confirmations#confirm"
-  end
-
+  
   get "home/index"
 
-  resources :users, except: [:create, :new]
+  scope "(:locale)", locale: /en|fr/ do
+    resources :matches, :fields
+    
+    devise_for :users, controllers: { registrations: "users/registrations", confirmations: "users/confirmations" }
+    devise_scope :user do
+      put "/confirm" => "users/confirmations#confirm"
+    end
+    resources :users, except: [:create, :new]
+    
+    # You can have the root of your site routed with "root"
+    root to: 'home#index'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  root to: 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
