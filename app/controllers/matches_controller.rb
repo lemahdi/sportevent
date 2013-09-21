@@ -46,7 +46,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.save
         @match.sportizers << current_user
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to @match, notice: I18n.t(:success, scope: 'controller.notice.create', element: "Match") }
         format.json { render action: 'show', status: :created, location: @match }
       else
         format.html { render action: 'new' }
@@ -60,10 +60,10 @@ class MatchesController < ApplicationController
   def update
     if params[:participate] == "yes"
       @match.sportizers << current_user
-      message = "Félicitations, vous faites partie des joueurs"
+      message = I18n.t(:in_game, scope: 'controller.match.update')
     else
       @match.sportizers.delete(current_user)
-      message = "Vous avez quitté le match"
+      message = I18n.t(:out_game, scope: 'controller.match.update')
     end
 
     respond_to do |format|

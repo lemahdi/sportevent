@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         # sign_in @user
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: I18n.t(:success, scope: 'controller.notice.create', element: "User") }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: I18n.t(:success, scope: 'controller.notice.update', element: "User") }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

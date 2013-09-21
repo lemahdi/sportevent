@@ -10,16 +10,16 @@
             <li><%= link_to "Matchs",      matches_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Mon compte <b class="caret"></b>
+                <%= I18n.t(:my_account, scope: 'header') %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profil",      current_user %></li>
-                <li><%= link_to "Paramètres",  edit_user_registration_path %></li>
+                <li><%= link_to I18n.t(:profile, scope: 'header'), current_user %></li>
+                <li><%= link_to I18n.t(:settings, scope: 'header'),  edit_user_registration_path %></li>
                 <li class="diviser"></li>
-                <li><%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %></li>
+                <li><%= link_to I18n.t(:logout, scope: 'header'), destroy_user_session_path, method: "delete" %></li>
               </ul>
           <% else %>
-            <li><%= link_to "S'identifier", new_user_session_path %></li>
+            <li><%= link_to I18n.t(:signin, scope: 'header'), new_user_session_path %></li>
           <% end %>
         </ul>
       </nav>
