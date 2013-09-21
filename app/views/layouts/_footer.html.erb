@@ -4,8 +4,8 @@
   </small>
   <nav>
     <ul>
-      <li><%= link_to "Aide",    help_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
+      <li><%= link_to I18n.t(:help, scope: 'custom.footer'),    help_path %></li>
+      <li><%= link_to I18n.t(:contact, scope: 'custom.footer'), contact_path %></li>
     </ul>
   </nav>
 </footer>

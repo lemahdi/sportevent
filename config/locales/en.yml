@@ -34,8 +34,9 @@ en:
       profile: "Profile"
       settings: "Settings"
 
-    home:
-      title: "Home"
+    footer:
+      help: "Help"
+      contact: "Contact"
 
     controller:
       notice:
@@ -44,6 +45,8 @@ en:
           success: "%{element} was successfully created"
         update:
           success: "%{element} was successfully updated"
+      home:
+        title: "Home"
       field:
         admin:
           alert: "You don't have rights to create/update fields"

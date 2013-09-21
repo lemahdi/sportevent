@@ -189,8 +189,9 @@ fr:
       profile: "Profil"
       settings: "Paramètres"
 
-    home:
-      title: "Accueil"
+    footer:
+      help: "Aide"
+      contact: "Contact"
 
     controller:
       notice:
@@ -199,6 +200,8 @@ fr:
           success: "%{element} ajouté avec succès"
         update:
           success: "%{element} mis à jour avec succès"
+      home:
+        title: "Accueil"
       field:
         admin:
           alert: "Vous n'avez pas les droits pour ajouter/modifier les fields"
