@@ -3,10 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :set_locale
+
   # Force signout to prevent CSRF attacks
   def handle_unverified_request
   	sign_out
   	super
+  end
+
+  # Automatically including the locale in the query string
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { locale: I18n.locale }
   end
 
   protected
@@ -23,5 +31,10 @@ class ApplicationController < ActionController::Base
     # Redirect to root page on successful sign out
     def after_sign_out_path_for(resource)
       root_path
+    end
+
+  private
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
     end
 end

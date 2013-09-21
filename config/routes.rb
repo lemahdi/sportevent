@@ -1,7 +1,4 @@
 Sportevent::Application.routes.draw do
-  get "contact/new"
-  get "contact/create"
-  get "contact/update"
   resources :matches
 
   resources :fields
