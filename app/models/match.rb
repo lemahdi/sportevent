@@ -9,6 +9,7 @@ class Match < ActiveRecord::Base
 
   HOUR_MIN_1 = /^(([01]?[0-9])|(2[0-3]))\:([0-5][0-9])$/
   HOUR_MIN_2 = /^(([01]?[0-9])|(2[0-3]))([0-5][0-9])$/
+  HOUR_MIN_3 = /^([01]?[0-9])|(2[0-3])$/
 
   validates :jour, presence: true
   validates :start, presence: true
@@ -29,12 +30,20 @@ class Match < ActiveRecord::Base
 
       is_valid1 = self.start =~ HOUR_MIN_1
       is_valid2 = self.start =~ HOUR_MIN_2
-      is_invalid = is_valid1.nil? && is_valid2.nil?
+      is_valid3 = self.start =~ HOUR_MIN_3
+      is_invalid = is_valid1.nil? && is_valid2.nil? && is_valid3.nil?
       if is_invalid then
         errors.add(:start, "n'est pas un horaire valide") 
       else
-        m = start.match(is_valid1 ? HOUR_MIN_1 : HOUR_MIN_2)
-        self.start = "#{m[1]}:#{m[4]}"
+        if is_valid1 || is_valid2
+          m = self.start.match(is_valid1 ? HOUR_MIN_1 : HOUR_MIN_2)
+          self.start = "#{m[1]}:#{m[4]}"
+        else
+          self.start = "#{self.start}:00"
+        end
+        if self.start.length == 4
+          self.start = "0#{self.start}"
+        end
         start_dt = match_start(self)
         errors.add(:start, "#{self.start} ne peut pas être dans le passé") if start_dt < (Time.zone.now-10.seconds)
       end
