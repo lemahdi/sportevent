@@ -8,6 +8,8 @@
   
     <%= gmaps4rails(@json) %>
 
+    <%= link_to "Comment enregistrer un Field ?", help_path(anchor: "FAQ6") %>
+
 		<% if current_user.admin? %>
 	    <div class="actions">
 	      <br />
