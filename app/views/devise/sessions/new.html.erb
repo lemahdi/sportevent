@@ -1,6 +1,6 @@
-<% provide(:title, 'Identification') %>
+<% provide(:title, I18n.t(:signingin, scope: 'custom.form')) %>
 
-<h1>S'identifier</h1>
+<h1><%= I18n.t(:signin, scope: 'custom.form') %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -16,21 +16,22 @@
       </div>
       <div class="field">
       	<br />
-        <%= f.label :password, "Mot de passe" %>
+        <%= f.label :password, I18n.t(:password, scope: 'custom.form') %>
         <%= f.password_field :password %>
       </div>
 
 		  <% if devise_mapping.rememberable? -%>
 		    <div class="field">
+          <br />
 		    	<%= f.check_box :remember_me %>
-		    	<%= f.label :remember_me, "Rester connecté" %>
+		    	<%= f.label :remember_me, I18n.t(:remember_me, scope: 'custom.form') %>
 		    </div>
 		  <% end -%>
 
       <div class="actions">
       	<br />
       	<div class="span2">
-      		<%= f.submit "S'identifier", class: "btn btn-large btn-primary" %>
+      		<%= f.submit I18n.t(:signin, scope: 'custom.form'), class: "btn btn-large btn-primary" %>
       	</div>
       	<div class="span3">
       		<%= render "devise/shared/links" %>

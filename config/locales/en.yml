@@ -28,6 +28,17 @@ en:
       become_member: "Become member"
       logout: "Logout"
       signin: "Sign in"
+      signup: "Sign up"
+      signingin: "Signing in"
+      signingup: "Signing up"
+      forgot_pwd: "Forgot your password"
+      forgot_pwd_q: "Forgot your password?"
+      no_confirm_instruction_q: "Didn't receive confirmation instructions?"
+      no_unlock_instruction_q: "Didn't receive unlock instructions?"
+      nom: "Name"
+      password: "Password"
+      remember_me: "Remember me"
+      reset: "Reset"
 
     header:
       my_account: "My account"
@@ -37,6 +48,12 @@ en:
     footer:
       help: "Help"
       contact: "Contact"
+
+    view:
+      devise:
+        only_email: "only your email address is needed"
+        signin_with: "Sign in with"
+        resend_pwd: "send password"
 
     controller:
       notice:

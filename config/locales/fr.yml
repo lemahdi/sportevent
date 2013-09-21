@@ -183,6 +183,17 @@ fr:
       become_member: "Devenir membre"
       logout: "Déconnexion"
       signin: "S'identifier"
+      signup: "S'inscrire"
+      signingin: "Identification"
+      signingup: "Inscription"
+      forgot_pwd: "Mot de passe oublié"
+      forgot_pwd_q: "Mot de passe oublié ?"
+      no_confirm_instruction_q: "Instructions de confirmation non reçues ?"
+      no_unlock_instruction_q: "Instructions de débloquage non reçues ?"
+      nom: "Nom"
+      password: "Mot de passe"
+      remember_me: "Rester connecté"
+      reset: "Ré-initialiser"
 
     header:
       my_account: "Mon compte"
@@ -192,6 +203,12 @@ fr:
     footer:
       help: "Aide"
       contact: "Contact"
+
+    view:
+      devise:
+        only_email: "seul votre adresse email est nécessaire"
+        signin_with: "S'inscrire avec"
+        resend_pwd: "renvoie du mot de passe"
 
     controller:
       notice:

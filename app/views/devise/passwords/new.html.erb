@@ -1,6 +1,6 @@
-<% provide(:title, 'Mot de passe') %>
+<% provide(:title, I18n.t(:password, scope: 'custom.form')) %>
 
-<h1>Mot de passe oublié</h1>
+<h1><%= I18n.t(:forgot_pwd, scope: 'custom.form') %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -12,13 +12,13 @@
       <div class="field">
       	<br />
         <%= f.label :email %>
-        <i>(renvoie du mot de passe)</i>
+        <i>(<%= I18n.t(:resend_pwd, scope: 'custom.view.devise') %>)</i>
         <%= f.email_field :email, autofocus: true %>
       </div>
       <div class="actions">
       	<br />
       	<div class="span2">
-        	<%= f.submit "Ré-initialiser", class: "btn btn-large btn-primary" %>
+        	<%= f.submit I18n.t(:reset, scope: 'custom.form'), class: "btn btn-large btn-primary" %>
       	</div>
       	<div class="span3">
       		<%= render "devise/shared/links" %>
