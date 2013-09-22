@@ -10,8 +10,8 @@ module ApplicationHelper
 		end
 	end
 
-	# Overwrite will_paginate to specify previous and next labels in french
-	def will_paginate_fr(list)
-		will_paginate list, previous_label: "Précédent", next_label: "Suivant"
+	# Overwrite will_paginate to specify previous and next labels
+	def will_paginate(list)
+		will_paginate list, previous_label: I18n.t(:previous, scope: 'custom.form'), next_label: I18n.t(:next, scope: 'custom.form')
 	end
 end

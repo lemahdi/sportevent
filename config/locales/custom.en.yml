@@ -16,6 +16,9 @@ en:
       display: "Display"
       modify: "Modify"
       delete: "Delete"
+      organize: "Organize"
+      play: "Play"
+      cancel: "Cancel"
 
     noun:
       logout: "Logout"
@@ -23,6 +26,7 @@ en:
       signup: "Signing up"
       unlock: "Unlocking"
       update: "Updating"
+      new: "New"
 
     form:
       become_member: "Become member"
@@ -33,6 +37,12 @@ en:
       new_pwd: "New password"
       new_pwd_confirm: "Confirm new password"
       cur_pwd: "Current password"
+      jour: "Day"
+      start: "Start"
+      duration: "Duration"
+      end: "End"
+      next: "Next"
+      previous: "Previous"
 
     header:
       my_account: "My account"
@@ -69,6 +79,12 @@ en:
         already_subs: "Already subscribed?"
         connect: "Connect"
         sure: "Are you sure?"
+      match:
+        match_info: "Match Infos"
+        match_list: "Matches list"
+        new_match: "New Match"
+        start_time: "Start time"
+        end_time: "End time"
 
     controller:
       notice:

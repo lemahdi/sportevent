@@ -1,5 +1,5 @@
-<% provide(:title, 'Mise à jour du Match') %>
+<% provide(:title, I18n.t(:update, scope: 'custom.noun')) %>
 
-<h1>Infos Match</h1>
+<h1><%= I18n.t(:match_info, scope: 'custom.view.match') %></h1>
 
 <%= render partial: 'form' %>

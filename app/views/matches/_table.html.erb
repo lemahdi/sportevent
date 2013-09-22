@@ -3,9 +3,9 @@
     <tr>
       <th>N°</th>
       <th></th>
-      <th>Jour</th>
-      <th>Début</th>
-      <th>Fin</th>
+      <th><%= I18n.t(:jour, scope: 'custom.form') %></th>
+      <th><%= I18n.t(:start, scope: 'custom.form') %></th>
+      <th><%= I18n.t(:end, scope: 'custom.form') %></th>
       <th>Field</th>
       <th>Sportizers</th>
       <th></th>
@@ -40,7 +40,7 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><%= link_to "Nouveau", new_match_path, class: "btn btn-small" %></td>
+      <td><%= link_to I18n.t(:new, scope: 'custom.noun'), new_match_path, class: "btn btn-small" %></td>
     </tr>
   </tbody>
 </table>

@@ -1,8 +1,8 @@
 <% provide(:title, 'Matchs') %>
 
-<h1>Liste des Matchs</h1>
+<h1><%= I18n.t(:match_list, scope: 'custom.view.match') %></h1>
 
-<%= will_paginate_fr @matches %>
+<%= will_paginate @matches %>
 
 <div class="center hero-unit">
   <%= render 'table' %>
@@ -10,4 +10,4 @@
 
 <br />
 
-<%= will_paginate_fr @matches %>
+<%= will_paginate @matches %>

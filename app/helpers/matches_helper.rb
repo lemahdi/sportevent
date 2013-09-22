@@ -41,13 +41,13 @@ module MatchesHelper
 		button_params = {}
 		button_params[:participate] = "yes"
 		button_params[:action]      = :put
-		button_params[:text]        = "  Jouer   "
+		button_params[:text]        = "  #{I18n.t(:play, scope: 'custom.verb')}   "
 		button_params[:disabled]    = false
 
 		if subscribed?(match)
 			button_params[:participate] = "no"
 			button_params[:action]      = :delete if match.sportizers.size == 1
-			button_params[:text]        = "Annuler "
+			button_params[:text]        = "#{I18n.t(:cancel, scope: 'custom.verb')} "
 		elsif !empty_place?(match)
 			button_params[:participate] = "no"
 			button_params[:disabled]    = true

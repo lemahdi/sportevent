@@ -5,7 +5,7 @@
 
   	<div class="row">
   		<div class="span2">
-    		<strong>Jour</strong>
+    		<strong><%= I18n.t(:jour, scope: 'custom.form') %></strong>
     	</div>
     	<div class="span4">
     		<%= @match.jour.strftime('%d-%m-%Y') %>
@@ -15,7 +15,7 @@
 
   	<div class="row">
   		<div class="span2">
-    		<strong>Heure de début</strong>
+    		<strong><%= I18n.t(:start_time, scope: 'custom.form') %></strong>
     	</div>
     	<div class="span4">
     		<%= @match.start %>
@@ -25,10 +25,10 @@
 
   	<div class="row">
   		<div class="span2">
-    		<strong>Heure de fin</strong>
+    		<strong><%= I18n.t(:end_time, scope: 'custom.form') %></strong>
     	</div>
     	<div class="span4">
-    		<%= "#{match_end(@match)} (durée #{@match.duration} minutes)" %>
+    		<%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %>
     	</div>
     </div>
     <br />

@@ -24,6 +24,9 @@ fr:
       display: "Afficher"
       modify: "Modifier"
       delete: "Supprimer"
+      organize: "Organiser"
+      play: "Jouer"
+      cancel: "Annuler"
 
     noun:
       logout: "Déconnexion"
@@ -31,6 +34,7 @@ fr:
       signup: "Inscription"
       unlock: "Déblocage"
       update: "Mise à jour"
+      new: "Nouveau"
 
     form:
       become_member: "Devenir membre"
@@ -41,6 +45,12 @@ fr:
       new_pwd: "Nouveau mot de passe"
       new_pwd_confirm: "Confirmation du nouveau mot de passe"
       cur_pwd: "Mot de passe actuel"
+      jour: "Jour"
+      start: "Début"
+      duration: "Durée"
+      end: "Fin"
+      next: "Suivant"
+      previous: "Précédent"
 
     header:
       my_account: "Mon compte"
@@ -77,6 +87,12 @@ fr:
         already_subs: "Déjà inscrit(e) ?"
         connect: "Identifiez-vous"
         sure: "Etes-vous sûr(e) ?"
+      match:
+        match_infos: "Infos Match"
+        match_list: "Liste des Matches"
+        new_match: "Nouveau Match"
+        start_time: "Heure de début"
+        end_time: "Heure de fin"
 
     controller:
       notice:
