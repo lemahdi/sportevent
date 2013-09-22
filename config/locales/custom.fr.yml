@@ -21,6 +21,9 @@ fr:
       validate: "Valider"
       unlock: "Débloquer"
       change: "Changer"
+      display: "Afficher"
+      modify: "Modifier"
+      delete: "Supprimer"
 
     noun:
       logout: "Déconnexion"
@@ -61,6 +64,7 @@ fr:
         locked_account: "Compte bloqué"
         forgot_pwd: "Mot de passe oublié"
         info: "Informations"
+        all_sportizers: "Tous les sportizers"
       helper:
         only_email: "seul votre adresse email est nécessaire"
         unlock_account: "débloquer mon compte"
@@ -70,6 +74,9 @@ fr:
         need_pwd: "nous avons besoin de votre mot de passe actuel pour valider vos modifications"
         reset_pwd: "Ré-initialisation du mot de passe"
         create_pwd: "créer votre mot de passe pour accéder à votre compte en toute sécurité"
+        already_subs: "Déjà inscrit(e) ?"
+        connect: "Identifiez-vous"
+        sure: "Etes-vous sûr(e) ?"
 
     controller:
       notice:

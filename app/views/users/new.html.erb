@@ -1,6 +1,6 @@
-<% provide(:title, 'Inscription') %>
+<% provide(:title, I18n.t(:signup, scope: 'custom.noun')) %>
 
-<h1>S'inscrire</h1>
+<h1><%= I18n.t(:signup, scope: 'custom.verb') %></h1>
 
 <%= render partial: 'form', locals: { from: "new" } %>
 

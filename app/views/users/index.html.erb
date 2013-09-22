@@ -1,6 +1,6 @@
 <% provide(:title, 'Sportizers') %>
 
-<h1>Tous les sportizers</h1>
+<h1><%= I18n.t(:all_sportizers, scope: 'custom.view.title') %></h1>
 
 <%= will_paginate_fr @users %>
 
@@ -18,9 +18,9 @@
         <div class="nav nav-pills">
           <!-- <%= link_to 'Contacter', "#" %> -->
           <% if current_user.admin? && !current_user?(user) %>
-            <%= link_to 'Afficher', user %>
-            <%= link_to 'Modifier', edit_user_path(user) %>
-            <%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %>
+            <%= link_to I18n.t(:display, scope: 'custom.verb'), user %>
+            <%= link_to I18n.t(:modify, scope: 'custom.verb'), edit_user_path(user) %>
+            <%= link_to I18n.t(:delete, scope: 'custom.verb'), user, method: :delete, data: { confirm: I18n.t(:sure, scope: 'custom.view.helper') } %>
           <% end %>
         </div>
       </div>

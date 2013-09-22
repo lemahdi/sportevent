@@ -7,12 +7,12 @@
 
       <div class="field">
         <br />
-        <%= f.label :nom %>
+        <%= f.label :nom, I18n.t(:nom, scope: 'custom.form') %>
         <%= f.text_field :nom %>
       </div>
       <div class="field">
         <br />
-        <%= f.label :prenom %>
+        <%= f.label :prenom, I18n.t(:prenom, scope: 'custom.form') %>
         <%= f.text_field :prenom %>
       </div>
       <div class="field">
@@ -22,28 +22,28 @@
       </div>
       <div class="field">
         <br />
-        <%= f.label :password, "Mot de passe" %>
+        <%= f.label :password, I18n.t(:password, scope: 'custom.form') %>
         <%= f.password_field :password %>
       </div>
       <div class="field">
         <br />
-        <%= f.label :password_confirmation, "Confirmation du mot de passe" %>
+        <%= f.label :password_confirmation, I18n.t(:pwd_confirm, scope: 'custom.form') %>
         <%= f.password_field :password_confirmation %>
       </div>
 
       <div class="actions">
         <br />
         <% if from == "new" %>
-          <%= f.submit "S'inscrire", class: "btn btn-large btn-primary" %>
+          <%= f.submit I18n.t(:signup, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
         <% elsif from == "edit" %>
-          <%= f.submit "Changer", class: "btn btn-large btn-primary" %>
+          <%= f.submit I18n.t(:change, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
         <% end %>
       </div>
       
     <% end %>
 
     <% if from == "new" %>
-      <p>Déjà inscrit(e) ? <%= link_to "Identifiez-vous.", signin_path %></p>
+      <p><%= I18n.t(:already_subs, scope: 'custom.view.helper') %> <%= link_to "#{I18n.t(:connect, scope: 'custom.view.helper')}.", signin_path %></p>
     <% end %>
 
   </div>
