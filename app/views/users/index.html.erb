@@ -2,7 +2,7 @@
 
 <h1><%= I18n.t(:all_sportizers, scope: 'custom.view.title') %></h1>
 
-<%= will_paginate @users %>
+<%= will_paginate_helper @users %>
 
 <ul class="users">
   <% @users.each do |user| %>
@@ -31,6 +31,6 @@
 
 <br />
 
-<%= will_paginate @users %>
+<%= will_paginate_helper @users %>
 
 <!-- %= link_to "Comment ajouter ma photo ?", help_path(anchor: "FAQ3") % -->

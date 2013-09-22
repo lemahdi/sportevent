@@ -11,7 +11,7 @@ module ApplicationHelper
 	end
 
 	# Overwrite will_paginate to specify previous and next labels
-	def will_paginate(list)
+	def will_paginate_helper(list)
 		will_paginate list, previous_label: I18n.t(:previous, scope: 'custom.form'), next_label: I18n.t(:next, scope: 'custom.form')
 	end
 end

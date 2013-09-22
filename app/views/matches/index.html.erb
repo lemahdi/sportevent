@@ -2,7 +2,7 @@
 
 <h1><%= I18n.t(:match_list, scope: 'custom.view.match') %></h1>
 
-<%= will_paginate @matches %>
+<%= will_paginate_helper @matches %>
 
 <div class="center hero-unit">
   <%= render 'table' %>
@@ -10,4 +10,4 @@
 
 <br />
 
-<%= will_paginate @matches %>
+<%= will_paginate_helper @matches %>
