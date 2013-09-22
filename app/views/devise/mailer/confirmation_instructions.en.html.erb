@@ -1,0 +1,11 @@
+<p>Welcome <%= @email %>!</p>
+
+<p>You can activcate your account (*) by following the link below:</p>
+
+<p><%= link_to 'Activate my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
+<p>
+	<i>
+		(*) By activating my account, I accept to share my photo and my names <strong>with other members of this site</strong>. I accept also to exchange by mails with these latters.
+	</i>
+</p>

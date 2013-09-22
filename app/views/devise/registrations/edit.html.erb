@@ -1,6 +1,6 @@
-<% provide(:title, 'Mise à jour') %>
+<% provide(:title, I18n.t(:update, scope: 'custom.noun')) %>
 
-<h1>Informations</h1>
+<h1><%= I18n.t(:info, scope: 'custom.view.title') %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -11,12 +11,12 @@
 
       <div class="field">
         <br />
-        <%= f.label :nom %>
+        <%= f.label :nom, I18n.t(:nom, scope: 'custom.form') %>
         <%= f.text_field :nom %>
       </div>
       <div class="field">
         <br />
-        <%= f.label :prenom %>
+        <%= f.label :prenom, I18n.t(:prenom, scope: 'custom.form') %>
         <%= f.text_field :prenom %>
       </div>
       <div class="field">
@@ -26,39 +26,39 @@
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <div><%= "#{I18n.t(:nom, scope: 'custom.view.devise')} #{resource.unconfirmed_email}" %></div>
       <% end %>
 
       <div class="field">
         <br />
-        <%= f.label :password, "Nouveau mot de passe" %> <i>(laissez vide si vous ne voulez pas le modifier)</i>
+        <%= f.label :password, I18n.t(:new_pwd, scope: 'custom.form') %> <i>(<%= I18n.t(:leave_blank, scope: 'custom.view.helper') %>)</i>
         <%= f.password_field :password, :autocomplete => "off" %>
       </div>
       <div class="field">
         <br />
-        <%= f.label :password_confirmation, "Confirmation du nouveau mot de passe" %>
+        <%= f.label :password_confirmation, I18n.t(:new_pwd_confirm, scope: 'custom.form') %>
         <%= f.password_field :password_confirmation %>
       </div>
       <div class="field">
         <br />
-        <%= f.label :current_password, "Mot de passe actuel" %> <i>(nous avons besoin de votre mot de passe actuel pour valider vos modifications)</i>
+        <%= f.label :current_password, I18n.t(:cur_pwd, scope: 'custom.form') %> <i>(<%= I18n.t(:need_pwd, scope: 'custom.view.helper') %>)</i>
         <%= f.password_field :current_password %>
       </div>
 
       <div class="actions">
         <br />
         <div class="span2">
-          <%= f.submit "Changer", class: "btn btn-large btn-primary" %>
+          <%= f.submit I18n.t(:change, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
         </div>
       </div>
     <% end %>
 
     <div>
       <br /><br /><br />
-      <%= label_tag "Vous n'êtes pas content(e) ?" %>
+      <!-- %= label_tag "Vous n'êtes pas content(e) ?" %>
       <div class="span2">
         <%= button_to "Supprimer mon compte", registration_path(resource_name), :data => { :confirm => "Êtes-vous sûr(e) ?" }, :method => :delete, class: "btn btn-large" %>
-      </div>
+      </div -->
     </div>
 
   </div>

@@ -24,21 +24,31 @@ en:
 
   custom:
 
-    form:
-      become_member: "Become member"
-      logout: "Logout"
+    verb:
       signin: "Sign in"
       signup: "Sign up"
-      signingin: "Signing in"
-      signingup: "Signing up"
-      forgot_pwd: "Forgot your password"
-      forgot_pwd_q: "Forgot your password?"
-      no_confirm_instruction_q: "Didn't receive confirmation instructions?"
-      no_unlock_instruction_q: "Didn't receive unlock instructions?"
-      nom: "Name"
-      password: "Password"
-      remember_me: "Remember me"
       reset: "Reset"
+      confirm: "Confirm"
+      validate: "Validate"
+      unlock: "Unlock"
+      change: "Change"
+
+    noun:
+      logout: "Logout"
+      signin: "Signing in"
+      signup: "Signing up"
+      unlock: "Unlocking"
+      update: "Updating"
+
+    form:
+      become_member: "Become member"
+      nom: "Last name"
+      prenom: "First name"
+      password: "Password"
+      pwd_confirm: "Confirm password"
+      new_pwd: "New password"
+      new_pwd_confirm: "Confirm new password"
+      cur_pwd: "Current password"
 
     header:
       my_account: "My account"
@@ -51,9 +61,26 @@ en:
 
     view:
       devise:
-        only_email: "only your email address is needed"
+        remember_me: "Remember me"
+        forgot_pwd: "Forgot your password?"
+        no_confirm_instruction: "Didn't receive confirmation instructions?"
+        no_unlock_instruction: "Didn't receive unlock instructions?"
         signin_with: "Sign in with"
+        wait_confirm: "Currently waiting confirmation for:"
+      title:
+        new_confirm: "New confirmation"
+        locked_account: "Locked account"
+        forgot_pwd: "Forgot your password"
+        info: "Informations"
+      helper:
+        only_email: "only your email address is needed"
+        unlock_account: "unlock my account"
+        send_confirm: "re-send confirmation instructions"
         resend_pwd: "send password"
+        leave_blank: "leave blank if you don't want to change it"
+        need_pwd: "we need your current password in order to validate your modifications"
+        reset_pwd: "Reset password"
+        create_pwd: "create your password in order to access to your account safely"
 
     controller:
       notice:

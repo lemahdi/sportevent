@@ -1,6 +1,6 @@
-<% provide(:title, 'Ré-initialisation du mot de passe') %>
+<% provide(:title, I18n.t(:reset_pwd, scope: 'custom.view.title')) %>
 
-<h1>Mot de passe</h1>
+<h1><%= I18n.t(:password, scope: 'custom.form') %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -13,18 +13,18 @@
 
       <div class="field">
       	<br />
-        <%= f.label :password, "Nouveau mot de passe" %>
+        <%= f.label :password, I18n.t(:new_pwd, scope: 'custom.form') %>
         <%= f.password_field :password, autofocus: true %>
       </div>
       <div class="field">
       	<br />
-        <%= f.label :password_confirmation, "Confirmer le nouveau mot de passe" %>
+        <%= f.label :password_confirmation, I18n.t(:new_pwd_confirm, scope: 'custom.form') %>
         <%= f.password_field :password_confirmation %>
       </div>
       <div class="actions">
       	<br />
       	<div class="span2">
-        	<%= f.submit "Changer", class: "btn btn-large btn-primary" %>
+        	<%= f.submit I18n.t(:change, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
       	</div>
       	<div class="span3">
       		<%= render "devise/shared/links" %>

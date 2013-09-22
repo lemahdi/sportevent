@@ -179,21 +179,31 @@ fr:
 
   custom:
 
-    form:
-      become_member: "Devenir membre"
-      logout: "Déconnexion"
+    verb:
       signin: "S'identifier"
       signup: "S'inscrire"
-      signingin: "Identification"
-      signingup: "Inscription"
-      forgot_pwd: "Mot de passe oublié"
-      forgot_pwd_q: "Mot de passe oublié ?"
-      no_confirm_instruction_q: "Instructions de confirmation non reçues ?"
-      no_unlock_instruction_q: "Instructions de débloquage non reçues ?"
-      nom: "Nom"
-      password: "Mot de passe"
-      remember_me: "Rester connecté"
       reset: "Ré-initialiser"
+      confirm: "Confirmer"
+      validate: "Valider"
+      unlock: "Débloquer"
+      change: "Changer"
+
+    noun:
+      logout: "Déconnexion"
+      signin: "Identification"
+      signup: "Inscription"
+      unlock: "Déblocage"
+      update: "Mise à jour"
+
+    form:
+      become_member: "Devenir membre"
+      nom: "Nom"
+      prenom: "Prenom"
+      password: "Mot de passe"
+      pwd_confirm: "Confirmation du mot de passe"
+      new_pwd: "Nouveau mot de passe"
+      new_pwd_confirm: "Confirmation du nouveau mot de passe"
+      cur_pwd: "Mot de passe actuel"
 
     header:
       my_account: "Mon compte"
@@ -206,9 +216,26 @@ fr:
 
     view:
       devise:
-        only_email: "seul votre adresse email est nécessaire"
+        remember_me: "Rester connecté"
+        forgot_pwd: "Mot de passe oublié ?"
+        no_confirm_instruction: "Instructions de confirmation non reçues ?"
+        no_unlock_instruction: "Instructions de débloquage non reçues ?"
         signin_with: "S'inscrire avec"
+        wait_confirm: "En attente d'une confirmation pour :"
+      title:
+        new_confirm: "Nouvelle confirmation"
+        locked_account: "Compte bloqué"
+        forgot_pwd: "Mot de passe oublié"
+        info: "Informations"
+      helper:
+        only_email: "seul votre adresse email est nécessaire"
+        unlock_account: "débloquer mon compte"
+        send_confirm: "renvoie des instructions de confirmation"
         resend_pwd: "renvoie du mot de passe"
+        leave_blank: "laissez vide si vous ne voulez pas le modifier"
+        need_pwd: "nous avons besoin de votre mot de passe actuel pour valider vos modifications"
+        reset_pwd: "Ré-initialisation du mot de passe"
+        create_pwd: "créer votre mot de passe pour accéder à votre compte en toute sécurité"
 
     controller:
       notice:

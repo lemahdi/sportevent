@@ -1,6 +1,6 @@
-<% provide(:title, 'Déblocage') %>
+<% provide(:title, I18n.t(:unlock, scope: 'custom.noun')) %>
 
-<h1>Compte bloqué</h1>
+<h1><%= I18n.t(:locked_account, scope: 'custom.view.title') %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -12,14 +12,14 @@
       <div class="field">
       	<br />
         <%= f.label :email %>
-        <i>(débloquer mon compte)</i>
+        <i>(<%= I18n.t(:unlock_account, scope: 'custom.view.helper') %>)</i>
         <%= f.email_field :email, :autofocus => true %>
       </div>
 
       <div class="actions">
       	<br />
       	<div class="span2">
-      		<%= f.submit "Débloquer", class: "btn btn-large btn-primary" %>
+      		<%= f.submit I18n.t(:unlock, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
       	</div>
       	<div class="span3">
       		<%= render "devise/shared/links" %>

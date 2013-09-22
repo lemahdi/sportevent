@@ -16,10 +16,10 @@
                 <li><%= link_to I18n.t(:profile, scope: 'custom.header'), current_user %></li>
                 <li><%= link_to I18n.t(:settings, scope: 'custom.header'),  edit_user_registration_path %></li>
                 <li class="diviser"></li>
-                <li><%= link_to I18n.t(:logout, scope: 'custom.form'), destroy_user_session_path, method: "delete" %></li>
+                <li><%= link_to I18n.t(:logout, scope: 'custom.noun'), destroy_user_session_path, method: "delete" %></li>
               </ul>
           <% else %>
-            <li><%= link_to I18n.t(:signin, scope: 'custom.form'), new_user_session_path %></li>
+            <li><%= link_to I18n.t(:signin, scope: 'custom.verb'), new_user_session_path %></li>
           <% end %>
         </ul>
       </nav>

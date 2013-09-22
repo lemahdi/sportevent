@@ -1,6 +1,6 @@
-<% provide(:title, I18n.t(:signingup, scope: 'custom.form')) %>
+<% provide(:title, I18n.t(:signup, scope: 'custom.noun')) %>
 
-<h1><%= I18n.t(:signup, scope: 'custom.form') %></h1>
+<h1><%= I18n.t(:signup, scope: 'custom.verb') %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -12,13 +12,13 @@
       <div class="field">
       	<br />
         <%= f.label :email %>
-        <i><%= I18n.t(:only_email, scope: 'custom.view.devise') %></i>
+        <i>(<%= I18n.t(:only_email, scope: 'custom.view.helper') %>)</i>
         <%= f.email_field :email, autofocus: true %>
       </div>
       <div class="actions">
       	<br />
       	<div class="span2">
-        	<%= f.submit I18n.t(:signup, scope: 'custom.form'), class: "btn btn-large btn-primary" %>
+        	<%= f.submit I18n.t(:signup, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
       	</div>
       	<div class="span3">
       		<%= render "devise/shared/links" %>
