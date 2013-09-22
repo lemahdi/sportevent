@@ -29,9 +29,9 @@ class User < ActiveRecord::Base
   end
 
   def password_match?
-    self.errors[:password] << "ne peut pas être vide" if password.blank?
-    self.errors[:password_confirmation] << "ne peut pas être vide" if password_confirmation.blank?
-    self.errors[:password_confirmation] << "ne correspond pas au mot de passe" if password != password_confirmation
+    self.errors[:password] << I18n.t(:no_blank, scope: 'custom.model.error') if password.blank?
+    self.errors[:password_confirmation] << I18n.t(:no_blank, scope: 'custom.model.error') if password_confirmation.blank?
+    self.errors[:password_confirmation] << I18n.t(:no_pwd_match, scope: 'custom.model.error') if password != password_confirmation
     password == password_confirmation && !password.blank?
   end
 end

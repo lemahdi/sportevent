@@ -58,6 +58,15 @@ en:
       help: "Help"
       contact: "Contact"
 
+    model:
+      error:
+        no_blank: "cannot be empty"
+        no_pwd_match: "does not match the password"
+      match:
+        later_than_month: "cannot be later than a month"
+        invalid_time: "is an invalid time"
+        not_in_past: "cannot be in the past"
+
     view:
       devise:
         remember_me: "Remember me"

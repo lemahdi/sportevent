@@ -66,6 +66,15 @@ fr:
       help: "Aide"
       contact: "Contact"
 
+    model:
+      error:
+        no_blank: "ne peut pas être vide"
+        no_pwd_match: "ne correspond pas au mot de passe"
+      match:
+        later_than_month: "ne peut pas être au delà d'un mois"
+        invalid_time: "n'est pas un horaire valide"
+        not_in_past: "ne peut pas être dans le passé"
+
     view:
       devise:
         remember_me: "Rester connecté"
