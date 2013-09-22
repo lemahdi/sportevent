@@ -1,6 +1,6 @@
-<% provide(:title, 'Poster un Field') %>
+<% provide(:title, I18n.t(:save_field, scope: 'custom.view.field')) %>
 
-<h1>Poster</h1>
+<h1><%= I18n.t(:post, scope: 'custom.view.field') %></h1>
 
 <%= render partial: 'form', locals: { from: "new" } %>
 

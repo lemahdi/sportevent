@@ -19,6 +19,7 @@ en:
       organize: "Organize"
       play: "Play"
       cancel: "Cancel"
+      save: "Save"
 
     noun:
       logout: "Logout"
@@ -43,6 +44,8 @@ en:
       end: "End"
       next: "Next"
       previous: "Previous"
+      city: "City"
+      country: "Country"
 
     header:
       my_account: "My account"
@@ -85,6 +88,13 @@ en:
         new_match: "New Match"
         start_time: "Start time"
         end_time: "End time"
+      field:
+        give_name: "Give a name to this field"
+        path_name: "Path name (optional)"
+        all_fields: "All Fields"
+        how_save_field: "How to save a Field?"
+        save_field: "Save Field"
+        post: "Post"
 
     controller:
       notice:

@@ -1,5 +1,5 @@
-<% provide(:title, 'Mise à jour du Field') %>
+<% provide(:title, I18n.t(:update, scope: 'custom.noun')) %>
 
-<h1>Informations</h1>
+<h1><%= I18n.t(:info, scope: 'custom.view.title') %></h1>
 
 <%= render partial: 'form', locals: { from: "edit" } %>

@@ -1,6 +1,6 @@
 <% provide(:title, 'Fields') %>
 
-<h1>Tous les Fields</h1>
+<h1><%= I18n.t(:all_fields, scope: 'custom.view.field') %></h1>
 
 <div class="row">
   
@@ -8,12 +8,12 @@
   
     <%= gmaps4rails(@json) %>
 
-    <%= link_to "Comment enregistrer un Field ?", help_path(anchor: "FAQ6") %>
+    <%= link_to I18n.t(:how_save_field, scope: 'custom.view.field'), help_path(anchor: "FAQ6") %>
 
 		<% if current_user.admin? %>
 	    <div class="actions">
 	      <br />
-	      <%= link_to "Nouveau" , new_field_path, class: "btn btn-large btn-primary" %>
+	      <%= link_to I18n.t(:new, scope: 'custom.noun') , new_field_path, class: "btn btn-large btn-primary" %>
 	    </div>
     <% end %>
 
