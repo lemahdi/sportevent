@@ -94,6 +94,6 @@ class FieldsController < ApplicationController
 
     # Only admins have the right to create, update or destroy fields
     def admin?
-      redirect_to root_url, alert: I18n.t(:alert, scope: 'custom.controller.field.admin') unless current_user.admin?
+      redirect_to fields_url, alert: I18n.t(:alert, scope: 'custom.controller.field.admin') unless current_user.admin?
     end
 end
