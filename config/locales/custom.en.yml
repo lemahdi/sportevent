@@ -48,6 +48,7 @@ en:
       city: "City"
       country: "Country"
       sujet: "Subject"
+      participants: "Participants"
 
     header:
       my_account: "My account"

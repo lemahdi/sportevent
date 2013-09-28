@@ -24,8 +24,8 @@ module MatchesHelper
 
 	def sportizers_name(match)
 		match.sportizers.map do |sportizer|
-      sportizer.prenom
-    end.join(", ")
+      link_to sportizer.prenom, user_path(sportizer)
+    end.join(", ").html_safe
 	end
 
 	def subscribed?(match)
