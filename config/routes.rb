@@ -4,7 +4,7 @@ Sportevent::Application.routes.draw do
 
   scope "(:locale)", locale: /en|fr/ do
     resources :matches do
-      resources :comments
+      resources :comments, except: [:update, :destroy]
     end
     resources :fields
     
