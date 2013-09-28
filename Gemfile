@@ -21,6 +21,12 @@ gem 'google_timezone'
 
 gem 'pg'
 
+# Heroku
+group :staging, :production do
+	gem 'rails_12factor' # enable features such as static asset serving and logging
+	gem 'unicorn' # webserver, as recommended on Cedar
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
