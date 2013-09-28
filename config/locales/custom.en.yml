@@ -21,6 +21,7 @@ en:
       cancel: "Cancel"
       save: "Save"
       send: "Send"
+      comment: "Comment"
 
     noun:
       logout: "Logout"
@@ -48,7 +49,8 @@ en:
       city: "City"
       country: "Country"
       sujet: "Subject"
-      participants: "Participants"
+      participant: "Participants"
+      comment: "Comments"
 
     header:
       my_account: "My account"

@@ -59,10 +59,39 @@
         
         <div class="row">
           <div class="span1">
-            <strong><%= I18n.t(:participants, scope: 'custom.form') %></strong>
+            <strong><%= I18n.t(:participant, scope: 'custom.form') %></strong>
           </div>
           <div class="span3 offset1">
             <%= sportizers_name(@match) %>
+          </div>
+        </div>
+
+        <br/>
+        
+        <div class="row">
+          <div class="span5">
+            <strong><%= I18n.t(:comments, scope: 'custom.form') %></strong>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span5">
+            <% unless @match.comments.nil? %>
+              <% @match.comments.each do |c| %>
+                <p><%= c.body %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span5">
+            <%= form_for([@match, @match.comments.build]) do |f| %>
+              <div class="field">
+                <%= f.text_area :body %>
+              </div>
+              <div class="actions offset1">
+                <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
+              </div>
+            <% end %>
           </div>
         </div>
 
