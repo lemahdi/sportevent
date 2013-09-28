@@ -14,7 +14,7 @@
   <tbody class="match"><p>
     <% @matches.each do |match| %>
         <tr>
-          <td><%= match.id %></td>
+          <td><%= link_to match.id, match_path(match), "data-no-turbolink" => true %></td>
           <td></td>
           <td><%= match.jour.strftime("%d/%m/%y") %></td>
           <td><%= match.start %></td>

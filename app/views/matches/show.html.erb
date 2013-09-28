@@ -15,7 +15,7 @@
 
   	<div class="row">
   		<div class="span2">
-    		<strong><%= I18n.t(:start_time, scope: 'custom.form') %></strong>
+    		<strong><%= I18n.t(:start, scope: 'custom.form') %></strong>
     	</div>
     	<div class="span4">
     		<%= @match.start %>
@@ -25,7 +25,7 @@
 
   	<div class="row">
   		<div class="span2">
-    		<strong><%= I18n.t(:end_time, scope: 'custom.form') %></strong>
+    		<strong><%= I18n.t(:end, scope: 'custom.form') %></strong>
     	</div>
     	<div class="span4">
     		<%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %>
