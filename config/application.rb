@@ -20,6 +20,6 @@ module Sportevent
     config.i18n.default_locale = :fr
 
     config.assets.initialize_on_precompile = false
-    config.assets.precompile += %w[ gmaps4rails/*.css gmaps4rails/*.js ]
+    config.assets.precompile += %w[ gmaps4rails.css gmaps4rails/*.js ]
   end
 end
