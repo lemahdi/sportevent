@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902100656) do
+ActiveRecord::Schema.define(version: 20130928152748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "match_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["match_id"], name: "index_comments_on_match_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "fields", force: true do |t|
     t.string   "street"
