@@ -70,7 +70,7 @@
         
         <div class="row">
           <div class="span5">
-            <strong><%= I18n.t(:comments, scope: 'custom.form') %></strong>
+            <strong><%= I18n.t(:comment, scope: 'custom.form') %></strong>
           </div>
         </div>
         <div class="row">
@@ -88,8 +88,8 @@
               <div class="field">
                 <%= f.text_area :body %>
               </div>
-              <div class="actions offset1">
-                <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
+              <div class="actions span1">
+                <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-small btn-primary" %>
               </div>
             <% end %>
           </div>
