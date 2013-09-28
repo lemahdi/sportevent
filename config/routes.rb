@@ -3,7 +3,10 @@ Sportevent::Application.routes.draw do
   get "home/index"
 
   scope "(:locale)", locale: /en|fr/ do
-    resources :matches, :fields
+    resources :matches do
+      resources :comments
+    end
+    resources :fields
     
     devise_for :users, controllers: { registrations: "users/registrations", confirmations: "users/confirmations" }
     devise_scope :user do
