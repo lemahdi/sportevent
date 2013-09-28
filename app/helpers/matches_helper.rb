@@ -22,10 +22,11 @@ module MatchesHelper
 								 utc_offset)
 	end
 
+	# CAUTION: if prenom contains some html, this function may be dangerous
 	def sportizers_name(match)
 		match.sportizers.map do |sportizer|
       link_to sportizer.prenom, user_path(sportizer)
-    end.join(", ").html_safe
+    end.reverse.join(", ").html_safe
 	end
 
 	def subscribed?(match)

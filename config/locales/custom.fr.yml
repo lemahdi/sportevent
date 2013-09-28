@@ -130,5 +130,5 @@ fr:
           alert: "Vous n'avez pas les droits pour ajouter/modifier les fields"
       match:
         update:
-          in_game: "Bienvenu à la partie"
+          in_game: "Bienvenu dans la partie"
           out_game: "Vous avez quitté la partie"
