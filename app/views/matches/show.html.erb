@@ -78,7 +78,7 @@
             <% unless @match.comments.nil? %>
               <table class="table table-striped table-condensed">
                 <tbody class="comment">
-                  <% @match.comments.each do |comment| %>
+                  <% @match.comments.older.each do |comment| %>
                     <tr>
                       <td class="body"><%= comment.body %></td>
                       <td class="commenter">
