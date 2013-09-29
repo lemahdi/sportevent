@@ -1,9 +1,7 @@
-<h3><%= @contact.nom %> commented the match <%= link_to @match.id, match_url(@match), "data-no-turbolink" => true %></h3>
-
 <p>
   <%= @contact.nom %> wrote,<br/>
-  <%= @comment %><br/>
-  <%= link_to "See comment", match_url(@match), "data-no-turbolink" => true %>
+  <%= @comment.body %><br/>
+  <%= link_to "Read comment", "#{root_url}#{url_for(controller: 'matches', action: 'show', id: @match.id)}", "data-no-turbolink" => true %>
   <br/><br/>
 </p>
 

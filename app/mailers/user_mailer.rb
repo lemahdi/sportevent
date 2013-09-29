@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def contact_email(contact)
   	@contact = contact
   	mail(to:      @contact.email,
-  			 subject: "[LYP-Contact]: #{@contact.subject}")
+  			 subject: "[SportEvent-Contact]: #{@contact.subject}")
   end
 
   def notify_match_comment(contact, match, comment, recipient)
@@ -12,6 +12,6 @@ class UserMailer < ActionMailer::Base
     @match = match
     @comment = comment
     mail(to:      recipient.email,
-         subject: "[SportEvent]: #{@contact.subject}")
+         subject: "[SportEvent-Comment]: #{@contact.subject}")
   end
 end
