@@ -213,3 +213,14 @@ input {
 .time {
   text-align: center;
 }
+
+/* new comments */
+
+.comment {
+  .body {
+    text-align: left;
+  }
+  .commenter {
+    text-align: right;
+  }
+}
