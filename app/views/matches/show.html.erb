@@ -89,20 +89,20 @@
             <% end %>
           </div>
         </div>
-        <div class="row">
-          <div class="span5">
-            <%= form_for([@match, @match.comments.build]) do |f| %>
-              <div class="field">
-                <%= f.text_area :body %>
-              </div>
-              <% if playing_user?(@match, current_user) %>
+        <% if playing_user?(@match, current_user) %>
+          <div class="row">
+            <div class="span5">
+              <%= form_for([@match, @match.comments.build]) do |f| %>
+                <div class="field">
+                  <%= f.text_area :body %>
+                </div>
                 <div class="actions span1">
                   <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-small btn-primary" %>
                 </div>
               <% end %>
-            <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
       </div>
 
