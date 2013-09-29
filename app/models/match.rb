@@ -4,7 +4,7 @@ class Match < ActiveRecord::Base
   belongs_to :field
   has_many :registres, dependent: :destroy
   has_many :users, through: :registres
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   before_save :rewrite_start
 

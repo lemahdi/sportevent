@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :registres, dependent: :destroy
   has_many :matches, through: :registres
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
 	before_save { email.downcase! }
 
