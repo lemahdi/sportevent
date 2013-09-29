@@ -39,6 +39,10 @@ fr:
       update: "Mise à jour"
       new: "Nouveau"
 
+    preposition:
+      at: "à"
+      on_time: "le"
+
     form:
       become_member: "Devenir membre"
       nom: "Nom"

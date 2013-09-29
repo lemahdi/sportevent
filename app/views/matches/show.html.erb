@@ -80,7 +80,10 @@
                 <tbody class="comment">
                   <% @match.comments.older.each do |comment| %>
                     <tr>
-                      <td class="body"><%= comment.body %></td>
+                      <td class="body">
+                        <%= comment.body %>
+                        <div class="comment_time"><%= "#{I18n.t(:on_time, scope: 'custom.preposition')} #{comment.created_at.strftime('%d/%m/%Y')} #{I18n.t(:at, scope: 'custom.preposition')} #{comment.created_at.strftime('%H:%M')}" %></div>
+                      </td>
                       <td class="commenter">
                         <%= link_to comment.user.prenom, user_path(comment.user) %>
                       <% if current_user.admin? %>
