@@ -126,3 +126,8 @@ en:
         update:
           in_game: "Welcome to the game"
           out_game: "You quit the game"
+      comment:
+        playing:
+          alert: "Only participant sportizers can write comments"
+        blank:
+          alert: "You cannot post a blank comment"

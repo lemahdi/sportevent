@@ -134,3 +134,8 @@ fr:
         update:
           in_game: "Bienvenu dans la partie"
           out_game: "Vous avez quitté la partie"
+      comment:
+        playing:
+          alert: "Seuls les sportizers participants peuvent écrire des commentaires"
+        blank:
+          alert: "Vous ne pouvez pas poster un commentaire vide"

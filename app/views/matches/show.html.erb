@@ -77,7 +77,7 @@
           <div class="span5">
             <% unless @match.comments.nil? %>
               <% @match.comments.each do |c| %>
-                <p><%= c.body %></p>
+                <p><%= c.body %> | <%= link_to c.user.prenom, user_path(c.user) %></p>
               <% end %>
             <% end %>
           </div>
@@ -88,9 +88,11 @@
               <div class="field">
                 <%= f.text_area :body %>
               </div>
-              <div class="actions span1">
-                <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-small btn-primary" %>
-              </div>
+              <% if playing_user?(@match, current_user) %>
+                <div class="actions span1">
+                  <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-small btn-primary" %>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
