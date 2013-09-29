@@ -131,3 +131,7 @@ en:
           alert: "Only participant sportizers can write comments"
         blank:
           alert: "You cannot post a blank comment"
+        subject: "New comment from %{nom}"
+        added: "Comment added"
+        admin:
+          alert: "Vous n'avez les droits pour supprimer les commentaires"

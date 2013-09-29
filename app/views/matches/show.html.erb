@@ -78,10 +78,15 @@
             <% unless @match.comments.nil? %>
               <table class="table table-striped table-condensed">
                 <tbody class="comment">
-                  <% @match.comments.each do |c| %>
+                  <% @match.comments.each do |comment| %>
                     <tr>
-                      <td class="body"><%= c.body %></td>
-                      <td class="commenter"><%= link_to c.user.prenom, user_path(c.user) %></td>
+                      <td class="body"><%= comment.body %></td>
+                      <td class="commenter">
+                        <%= link_to comment.user.prenom, user_path(comment.user) %>
+                      <% if current_user.admin? %>
+                        | <%= link_to I18n.t(:delete, scope: 'custom.verb'), match_comment_path(@match, comment), method: :delete, data: { confirm: I18n.t(:sure, scope: 'custom.view.helper') } %>
+                      <% end %>
+                    </td>
                     </tr>
                   <% end %>
                 </tbody>

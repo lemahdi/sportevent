@@ -4,8 +4,9 @@ class CommentsController < ApplicationController
   before_action :set_match
 
   before_filter :authenticate_user!
-  before_filter :blank?
-  before_filter :playing?
+  before_filter :blank?,   except: :destroy
+  before_filter :playing?, except: :destroy
+  before_filter :admin?,   only:   :destroy
 
   # GET /comments/new
   def new
@@ -16,7 +17,24 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = @match.comments.create(body: comment_params[:body], user_id: current_user.id)
-    redirect_to match_path(@match)
+    contact = Contact.new
+    subject = I18n.t(:subject, scope: 'custom.controller.comment', nom: "#{current_user.nom} #{current_user.prenom}")
+    contact.build(current_user, subject)
+    @match.users.each do |u|
+      UserMailer.notify_match_comment(contact, @match, @comment, u).deliver if u.id != current_user.id
+    end
+    redirect_to match_path(@match), notice: I18n.t(:added, scope: 'custom.controller.comment')
+  end
+
+  # DELETE /comments/1
+  # DELETE /comments/1.json
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to match_url(@match) }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -38,5 +56,9 @@ class CommentsController < ApplicationController
     # Only admins have the right to create, update or destroy fields
     def playing?
       redirect_to matche_url(@match), alert: I18n.t(:alert, scope: 'custom.controller.comment.playing') unless playing_user?(@match, current_user)
+    end
+
+    def admin?
+      redirect_to match_url(@match), alert: I18n.t(:alert, scope: 'custom.controller.comment.admin') unless current_user.admin?
     end
 end

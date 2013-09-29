@@ -139,3 +139,7 @@ fr:
           alert: "Seuls les sportizers participants peuvent écrire des commentaires"
         blank:
           alert: "Vous ne pouvez pas poster un commentaire vide"
+        subject: "Nouveau commentaire de %{nom}"
+        added: "Commentaire ajouté"
+        admin:
+          alert: "Vous n'avez les droits pour supprimer les commentaires"

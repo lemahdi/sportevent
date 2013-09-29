@@ -1,0 +1,17 @@
+<h3><%= @contact.nom %> commented the match <%= link_to @match.id, match_url(@match), "data-no-turbolink" => true %></h3>
+
+<p>
+  <%= @contact.nom %> wrote,<br/>
+  <%= @comment %><br/>
+  <%= link_to "See comment", match_url(@match), "data-no-turbolink" => true %>
+  <br/><br/>
+</p>
+
+<p class="details">
+  Match details:<br/>
+  <strong>Day:</strong> <%= @match.jour.strftime('%d-%m-%Y') %><br/>
+  <strong>Start:</strong> <%= @match.start %><br/>
+  <strong>End:</strong> <%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %><br/>
+  <strong>Field:</strong> <%= @match.field.name %>
+</p>
+
