@@ -12,8 +12,8 @@ ActionMailer::Base.smtp_settings = {
   address:              Rails.env.development? ? "smtp.gmail.com" : "smtp.sendgrid.net",
   port:                 587,
   domain:               Rails.env.development? ? "gmail.com" : "heroku.com",
-  user_name:            Rails.env.development? ? "mahdi00" : ENV['SENDGRID_USERNAME'],
-  password:             Rails.env.development? ? "paris0" : ENV['SENDGRID_PASSWORD'],
+  user_name:            Rails.env.development? ? ENV['GMAIL_USERNAME'] : ENV['SENDGRID_USERNAME'],
+  password:             Rails.env.development? ? ENV['GMAIL_PASSWORD'] : ENV['SENDGRID_PASSWORD'],
   authentication:       :plain,
   enable_starttls_auto: true
 }
