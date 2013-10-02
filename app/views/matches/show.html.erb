@@ -90,21 +90,23 @@
         <br/>
         <br/>
 
-        <div class="row">
-          <div class="span4">
-            <strong><%= I18n.t(:contact_all_others, scope: 'custom.form') %></strong>
+        <% if is_member %>
+          <div class="row">
+            <div class="span4">
+              <strong><%= I18n.t(:contact_all_others, scope: 'custom.form') %></strong>
+            </div>
+            <%= form_tag contact_path, method: :put do %>
+              <div class="span5">
+                <%= text_area_tag :content %>
+              </div>
+              <%= hidden_field_tag :match_id, @match.id %>
+              <%= hidden_field_tag :destination, "all" %>
+              <div class="actions span1">
+                <%= submit_tag I18n.t(:send, scope: 'custom.verb'), class: "btn btn-small btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
+              </div>
+            <% end %>
           </div>
-          <%= form_tag contact_path, method: :put do %>
-            <div class="span5">
-              <%= text_area_tag :content %>
-            </div>
-            <%= hidden_field_tag :match_id, @match.id %>
-            <%= hidden_field_tag :destination, "all" %>
-            <div class="actions span1">
-              <%= submit_tag I18n.t(:send, scope: 'custom.verb'), class: "btn btn-small btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
-            </div>
-          <% end %>
-        </div>
+        <% end %>
 
         <br/>
       </div>

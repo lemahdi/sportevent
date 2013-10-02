@@ -24,8 +24,8 @@ class ContactController < ApplicationController
     match = Match.find_by_id(params[:match_id])
     if !match.users.include?(current_user)
       respond_to do |format|
-        format.html { redirect_to matches_path, notice: I18n.t(:alert, scope: 'custom.controller.contact.member') }
-        format.json { render action: 'index', status: :updated, location: match }
+        format.html { redirect_to matches_path, notice: I18n.t(:alert, scope: 'custom.controller.contact.member') and return }
+        format.json { render action: 'index', status: :updated, location: match and return }
      end
     end
 
