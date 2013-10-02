@@ -1,7 +1,6 @@
 <p>
-  <%= @contact.nom %> a écrit,<br/>
-  <%= @contact.content.body %><br/>
-  <%= link_to "Lire le commentaire", "#{root_url}#{url_for(controller: 'matches', action: 'show', id: @match.id)}", "data-no-turbolink" => true %>
+  <%= @contact.nom %> vous invite au Match <%= link_to @match.id, "#{root_url}#{url_for(controller: 'matches', action: 'show', id: @match.id)}", "data-no-turbolink" => true %>, voici son message:<br/>
+  <%= @contact.content %><br/>
   <br/><br/>
 </p>
 

@@ -30,6 +30,7 @@ fr:
       save: "Enregistrer"
       send: "Envoyer"
       comment: "Commenter"
+      post: "Poster"
 
     noun:
       logout: "Déconnexion"
@@ -63,6 +64,7 @@ fr:
       sujet: "Sujet"
       participant: "Participants"
       comment: "Commentaires"
+      contact_all: "Contacter tous les membres"
 
     header:
       my_account: "Mon compte"
@@ -120,7 +122,6 @@ fr:
         all_fields: "Tous les Fields"
         how_save_field: "Comment enregistrer un Field ?"
         save_field: "Poster un Field"
-        post: "Poster"
 
     controller:
       notice:
@@ -129,6 +130,8 @@ fr:
           success: "%{element} ajouté avec succès"
         update:
           success: "%{element} mis à jour avec succès"
+      alert:
+        msg_blank: "Votre message est vide, il ne pas être envoyé"
       home:
         title: "Accueil"
       field:
@@ -147,3 +150,8 @@ fr:
         added: "Commentaire ajouté"
         admin:
           alert: "Vous n'avez les droits pour supprimer les commentaires"
+      contact:
+        sure_contact_all: "Êtes vous sûre de vouloir contacter tous les membres ?"
+        invite_subject: "Invitation à jouer au Match"
+        member:
+          alert: "Seuls les participants ont le droit d'inviter au Match"

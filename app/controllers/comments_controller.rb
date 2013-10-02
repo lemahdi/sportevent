@@ -19,9 +19,9 @@ class CommentsController < ApplicationController
     @comment = @match.comments.create(body: comment_params[:body], user_id: current_user.id)
     contact = Contact.new
     subject = I18n.t(:subject, scope: 'custom.controller.comment', nom: "#{current_user.nom} #{current_user.prenom}")
-    contact.build(current_user, subject)
+    contact.build(current_user, subject, @comment)
     @match.users.each do |u|
-      UserMailer.notify_match_comment(contact, @match, @comment, u).deliver if u.id != current_user.id
+      UserMailer.notify_match_comment(contact, @match, u).deliver if u.id != current_user.id
     end
     redirect_to match_path(@match), notice: I18n.t(:added, scope: 'custom.controller.comment')
   end

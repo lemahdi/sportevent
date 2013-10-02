@@ -1,5 +1,5 @@
 class ContactController < ApplicationController
-  before_filter :authenticate_rameur!, only: :update
+  before_filter :authenticate_user!, only: :update
 
   def new
   	@contact = Contact.new
@@ -21,33 +21,39 @@ class ContactController < ApplicationController
   end
 
   def update
-    # @contact = Contact.new
-    # @contact.build(current_user, "")
-    # @contact.content = params[:content]
-    # reservation = Reservation.find_by_id(params[:reservation_id])
-    # destination = params[:destination]
+    match = Match.find_by_id(params[:match_id])
+    if !match.users.include?(current_user)
+      respond_to do |format|
+        format.html { redirect_to matches_path, notice: I18n.t(:alert, scope: 'custom.controller.contact.member') }
+        format.json { render action: 'index', status: :updated, location: match }
+     end
+    end
 
-    # unless @contact.content.empty?
-    #   if destination == "group"
-    #     reservation.rameurs.each do |rameur|
-    #       UserMailer.notify_group_email(@contact, rameur, reservation).deliver if rameur.id != current_user.id
-    #     end
-    #   elsif destination == "all"
-    #     Rameur.all.each do |rameur|
-    #       UserMailer.notify_group_email(@contact, rameur, reservation).deliver unless reservation.rameurs.include?(rameur)
-    #     end
-    #   end
+    @contact = Contact.new
+    @contact.build(current_user, I18n.t(:invite_subject, scope: 'custom.controller.contact'), params[:content])
+    destination = params[:destination]
 
-    #   respond_to do |format|
-    #     format.html { redirect_to reservation_path(reservation), notice: "Message envoyé" }
-    #     format.json { render action: 'show', status: :updated, location: reservation }
-    #  end
-    # else
-    #   respond_to do |format|
-    #     format.html { redirect_to reservation_path(reservation), alert: "Votre message est vide, il n'a pas été envoyé" }
-    #     format.json { render action: 'show', status: :unprocessable_entity, alert: "Votre message est vide, il n'a pas été envoyé", location: reservation }
-    #   end
-    # end
+    unless @contact.content.blank?
+      # if destination == "group"
+      #   reservation.rameurs.each do |rameur|
+      #     UserMailer.notify_group_email(@contact, rameur, reservation).deliver if rameur.id != current_user.id
+      #   end
+      # elsif destination == "all"
+        User.all.each do |u|
+          UserMailer.invite_play_match(@contact, match, u).deliver unless match.users.include?(u)
+        end
+      # end
+
+      respond_to do |format|
+        format.html { redirect_to match_path(match), notice: I18n.t(:msg_sent, scope: 'custom.controller.notice') }
+        format.json { render action: 'show', status: :updated, location: match }
+     end
+    else
+      respond_to do |format|
+        format.html { redirect_to reservation_path(reservation), alert: I18n.t(:msg_blank, scope: 'custom.controller.alert') }
+        format.json { render action: 'show', status: :unprocessable_entity, alert: I18n.t(:msg_blank, scope: 'custom.controller.alert'), location: reservation }
+      end
+    end
   end
 
   private

@@ -13,10 +13,11 @@ class Contact
 	validates_length_of :subject, maximum: 50
 	validates :content, presence: true, length: { maximum: 500 }
 
-	def build(user, subject)
+	def build(user, subject, content)
 		self.nom = "#{user.nom} #{user.prenom}"
 		self.email = user.email
 		self.subject = subject
+		self.content = content
 		self.user = user
 	end
 end

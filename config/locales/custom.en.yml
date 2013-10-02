@@ -22,6 +22,7 @@ en:
       save: "Save"
       send: "Send"
       comment: "Comment"
+      post: "Post"
 
     noun:
       logout: "Logout"
@@ -55,6 +56,7 @@ en:
       sujet: "Subject"
       participant: "Participants"
       comment: "Comments"
+      contact_all: "Contact all members"
 
     header:
       my_account: "My account"
@@ -112,7 +114,6 @@ en:
         all_fields: "All Fields"
         how_save_field: "How to save a Field?"
         save_field: "Save Field"
-        post: "Post"
 
     controller:
       notice:
@@ -121,6 +122,8 @@ en:
           success: "%{element} was successfully created"
         update:
           success: "%{element} was successfully updated"
+      alert:
+        msg_blank: "Your message is blank, it cannot be sent"
       home:
         title: "Home"
       field:
@@ -139,3 +142,8 @@ en:
         added: "Comment added"
         admin:
           alert: "Vous n'avez les droits pour supprimer les commentaires"
+      contact:
+        sure_contact_all: "Are you sure you want to contact all members?"
+        invite_subject: "Invitation to play Match"
+        member:
+          alert: "Only participants have the right to invite"

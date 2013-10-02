@@ -7,11 +7,17 @@ class UserMailer < ActionMailer::Base
   			 subject: "[SportEvent-Contact]: #{@contact.subject}")
   end
 
-  def notify_match_comment(contact, match, comment, recipient)
+  def notify_match_comment(contact, match, recipient)
     @contact = contact
     @match = match
-    @comment = comment
     mail(to:      recipient.email,
          subject: "[SportEvent-Comment]: #{@contact.subject}")
+  end
+
+  def invite_play_match(contact, match, recipient)
+    @contact = contact
+    @match = match
+    mail(to:      recipient.email,
+         subject: "[SportEvent-Invitation]: #{@contact.subject}")
   end
 end
