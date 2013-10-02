@@ -64,7 +64,7 @@ fr:
       sujet: "Sujet"
       participant: "Participants"
       comment: "Commentaires"
-      contact_all: "Contacter tous les membres"
+      contact_all_others: "Contacter tous les autres membres"
 
     header:
       my_account: "Mon compte"
@@ -116,6 +116,8 @@ fr:
         new_match: "Nouveau Match"
         start_time: "Heure de début"
         end_time: "Heure de fin"
+        in_match: "Participer au Match"
+        out_match: "Quitter le Match"
       field:
         give_name: "Donnez un nom à ce field"
         path_name: "Nom de la voie (optionnel)"

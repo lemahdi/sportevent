@@ -74,8 +74,8 @@ class MatchesController < ApplicationController
       #   format.html { render action: 'edit' }
       #   format.json { render json: @match.errors, status: :unprocessable_entity }
       # end
-      format.html { redirect_to matches_url, notice: message }
-      format.json { render action: 'index', status: :updated, location: matches_url }
+      format.html { redirect_to @match, notice: message }
+      format.json { render action: 'index', status: :updated, location: @match }
     end
   end
 

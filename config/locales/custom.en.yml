@@ -56,7 +56,7 @@ en:
       sujet: "Subject"
       participant: "Participants"
       comment: "Comments"
-      contact_all: "Contact all members"
+      contact_all_others: "Contact all other members"
 
     header:
       my_account: "My account"
@@ -108,6 +108,8 @@ en:
         new_match: "New Match"
         start_time: "Start time"
         end_time: "End time"
+        in_match: "Participate to Match"
+        out_match: "Quit Match"
       field:
         give_name: "Give a name to this field"
         path_name: "Path name (optional)"
