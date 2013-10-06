@@ -112,7 +112,7 @@ fr:
         sure: "Etes-vous sûr(e) ?"
       match:
         match_infos: "Infos Match"
-        match_list: "Liste des Matches"
+        match_list: "Liste des Matchs"
         new_match: "Nouveau Match"
         start_time: "Heure de début"
         end_time: "Heure de fin"
