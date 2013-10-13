@@ -61,12 +61,20 @@ class MatchesController < ApplicationController
     if params[:participate] == "yes"
       @match.sportizers << current_user
       message = I18n.t(:in_game, scope: 'custom.controller.match.update')
+      respond_to do |format|
+        format.html { redirect_to @match, notice: message }
+        format.json { render action: 'show', status: :updated, location: @match }
+      end
     else
       @match.sportizers.delete(current_user)
       message = I18n.t(:out_game, scope: 'custom.controller.match.update')
+      respond_to do |format|
+        format.html { redirect_to matches_url, notice: message }
+        format.json { render action: 'index', status: :updated }
+      end
     end
 
-    respond_to do |format|
+    # respond_to do |format|
       # if @match.update(match_params)
       #   format.html { redirect_to @match, notice: message }
       #   format.json { head :no_content }
@@ -74,9 +82,9 @@ class MatchesController < ApplicationController
       #   format.html { render action: 'edit' }
       #   format.json { render json: @match.errors, status: :unprocessable_entity }
       # end
-      format.html { redirect_to @match, notice: message }
-      format.json { render action: 'index', status: :updated, location: @match }
-    end
+    #   format.html { redirect_to @match, notice: message }
+    #   format.json { render action: 'index', status: :updated, location: @match }
+    # end
   end
 
   # DELETE /matches/1

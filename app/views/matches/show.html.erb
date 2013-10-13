@@ -24,8 +24,7 @@
             <strong><%= I18n.t(is_member ? :out_match : :in_match, scope: 'custom.view.match') %></strong>
           </div>
           <div class="span1">
-            <% play_match_button = build_play_match_button(@match) %>
-            <%= form_tag match_path(@match), method: @match.users.size==1 ? :delete : :put do %>
+            <%= form_tag match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do %>
               <!-- < %= hidden_field_tag :from_page, "index" % > -->
               <%= hidden_field_tag :participate, is_member ? "no" : "yes" %>
               <div class="actions">
