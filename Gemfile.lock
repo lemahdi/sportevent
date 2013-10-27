@@ -5,12 +5,6 @@ GIT
     bootstrap-datepicker-rails (1.1.1.6)
       railties (>= 3.0)
 
-GIT
-  remote: git://github.com/apneadiving/Google-Maps-for-Rails.git
-  revision: ebee4c6ceca88ebccd8bb505ecc15a6a18a048d7
-  specs:
-    gmaps4rails (2.0.0.pre)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -74,6 +68,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.0)
     kgio (2.8.1)
+    leaflet-rails (0.6.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -159,10 +154,10 @@ DEPENDENCIES
   bootstrap-will_paginate
   coffee-rails (~> 4.0.0.beta1)
   devise (= 3.0.0.rc)
-  gmaps4rails!
   google_timezone
   jbuilder (~> 1.0.1)
   jquery-rails
+  leaflet-rails
   pg
   protected_attributes
   rails (= 4.0.0.beta1)

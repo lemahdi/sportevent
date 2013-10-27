@@ -1,19 +1,16 @@
 <% provide(:title, print_field(@field)) %>
 
 <div class="row">
-  <div class="span6 offset1">
+  <div class="span8 offset1">
     <p>
-      <strong><%= @field.print_field(@field) %></strong>
-      <br />
-      Lat: <%= @field.latitude %>
-      <br />
-      Lon: <%= @field.longitude %>
+      <strong><%= print_field(@field) %></strong><br/>
+      <u>Lat:</u> <%= @field.latitude %><br/>
+      <u>Lon:</u> <%= @field.longitude %><br/>
     </p>
 
-    <%= gmaps({
-      "map_options" => { "auto_zoom" => false, "zoom" => 15 },
-      "markers"     => { "data" => @json }
-    }) %>
+    <%= tag 'div', class: "field", data: { latitude: @field.latitude, longitude: @field.longitude, description: print_field(@field), address: field_path(@field) } %>
+    <%= tag '/div' %>
+    <div id="map"></div>
 
   </div>
 </div>

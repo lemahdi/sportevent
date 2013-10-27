@@ -7,15 +7,8 @@
 
       <div class="span2">
 
-        <div class="map_container_field">
-          <div id="map" class="gmaps4rails_map_field">
-            <%= gmaps({
-              "map_options" => { "auto_zoom" => false, "zoom" => 15 },
-              "markers"     => { "data" => @match.field.to_gmaps4rails }
-            }) %>
-          </div>
-        </div>
-
+        <div id="map"></div>
+        
         <br/>
 
         <div class="row">
