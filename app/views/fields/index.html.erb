@@ -6,10 +6,10 @@
   <div class="span8 offset1">
 
     <% @fields.each do |field| %>
-      <%= tag 'div', class: "field", data: { latitude: field.latitude, longitude: field.longitude, description: print_field(field), address: field_path(field) } %>
-      <%= tag '/div' %>
+      <%= content_tag :div, class: "field_in_map", data: { latitude: field.latitude, longitude: field.longitude, description: print_field(field), address: field_path(field) } do %>
+      <% end %>
     <% end %>
-  	<div id="map"></div>
+  	<div id="map" class="map_with_all_fields"></div>
 
     <br/>
 

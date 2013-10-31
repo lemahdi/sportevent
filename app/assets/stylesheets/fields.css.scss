@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#map {
+.map_with_all_fields {
+	height: 400px;
+	width: 800px;
+}
+
+.map_with_one_field {
 	height: 400px;
 	width: 800px;
 }
