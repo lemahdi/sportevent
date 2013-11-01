@@ -7,14 +7,9 @@
 
       <div class="span2">
 
-        <div class="map_container_field">
-          <div id="map" class="gmaps4rails_map_field">
-            <%= gmaps({
-              "map_options" => { "auto_zoom" => false, "zoom" => 15 },
-              "markers"     => { "data" => @match.field.to_gmaps4rails }
-            }) %>
-          </div>
-        </div>
+        <%= content_tag :div, class: "field_in_map", data: { latitude: @match.field.latitude, longitude: @match.field.longitude, description: print_field(@match.field), address: field_path(@match.field), zoom: 15 } do %>
+        <% end %>
+        <div id="map" class="map_for_match"></div>
 
         <br/>
 
@@ -25,7 +20,6 @@
           </div>
           <div class="span1">
             <%= form_tag match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do %>
-              <!-- < %= hidden_field_tag :from_page, "index" % > -->
               <%= hidden_field_tag :participate, is_member ? "no" : "yes" %>
               <div class="actions">
                 <%= submit_tag I18n.t(:validate, scope: 'custom.verb'), class: "btn btn-small" %>
@@ -116,6 +110,7 @@
     <div class="row">
       <strong><%= I18n.t(:comment, scope: 'custom.form') %></strong>
     </div>
+
     <div class="row">
       <% unless @match.comments.nil? %>
         <table class="table table-striped table-condensed">
@@ -138,6 +133,7 @@
         </table>
       <% end %>
     </div>
+
     <% if playing_user?(@match, current_user) %>
       <div class="row">
         <%= form_for([@match, @match.comments.build]) do |f| %>

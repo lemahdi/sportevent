@@ -73,18 +73,6 @@ class MatchesController < ApplicationController
         format.json { render action: 'index', status: :updated }
       end
     end
-
-    # respond_to do |format|
-      # if @match.update(match_params)
-      #   format.html { redirect_to @match, notice: message }
-      #   format.json { head :no_content }
-      # else
-      #   format.html { render action: 'edit' }
-      #   format.json { render json: @match.errors, status: :unprocessable_entity }
-      # end
-    #   format.html { redirect_to @match, notice: message }
-    #   format.json { render action: 'index', status: :updated, location: @match }
-    # end
   end
 
   # DELETE /matches/1
@@ -107,15 +95,4 @@ class MatchesController < ApplicationController
     def match_params
       params.require(:match).permit(:jour, :start, :duration, :field_id)
     end
-
-    # Verify that the current user is subscribed to the match he tries to show
-    # def subscribed_to_match
-      # unless subscribed?(@match)
-      #   message = "Vous n'êtes pas inscrit(e) à cette réservation"
-      #   respond_to do |format|
-      #     format.html { redirect_to matchs_url, alert: message }
-      #     format.json { render 'show', status: :unauthorized, alert: message }
-      #   end
-      # end
-    # end
 end
