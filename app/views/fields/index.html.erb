@@ -3,10 +3,17 @@
 <h1><%= I18n.t(:all_fields, scope: 'custom.view.field') %></h1>
 
 <div class="row">
-  
-  <div class="span6 offset1">
-  
-    <%= gmaps4rails(@json) %>
+  <div class="span8 offset1">
+
+    <% @fields.each do |field| %>
+      <%= content_tag :div, class: "field_in_map", data: { latitude: field.latitude, longitude: field.longitude, description: print_field(field), address: field_path(field) } do %>
+      <% end %>
+    <% end %>
+    <div class="map_container">
+      <div id="map" class="map_with_all_fields"></div>
+    </div>
+
+    <br/>
 
     <%= link_to I18n.t(:how_save_field, scope: 'custom.view.field'), help_path(anchor: "FAQ6") %>
 
@@ -18,5 +25,4 @@
     <% end %>
 
   </div>
-
 </div>
