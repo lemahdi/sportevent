@@ -9,7 +9,9 @@
 
         <%= content_tag :div, class: "field_in_map", data: { latitude: @match.field.latitude, longitude: @match.field.longitude, description: print_field(@match.field), address: field_path(@match.field), zoom: 15 } do %>
         <% end %>
-        <div id="map" class="map_for_match"></div>
+        <div class="map_container2">
+          <div id="map" class="map_for_match"></div>
+        </div>
 
         <br/>
 

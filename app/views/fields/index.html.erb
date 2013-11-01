@@ -9,7 +9,9 @@
       <%= content_tag :div, class: "field_in_map", data: { latitude: field.latitude, longitude: field.longitude, description: print_field(field), address: field_path(field) } do %>
       <% end %>
     <% end %>
-  	<div id="map" class="map_with_all_fields"></div>
+    <div class="map_container">
+      <div id="map" class="map_with_all_fields"></div>
+    </div>
 
     <br/>
 

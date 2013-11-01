@@ -11,7 +11,9 @@
 
     <%= content_tag :div, class: "field_in_map", data: { latitude: @field.latitude, longitude: @field.longitude, description: print_field(@field), address: field_path(@field) } do %>
     <% end %>
-    <div id="map" class="map_with_one_field"></div>
+    <div class="map_container">
+      <div id="map" class="map_with_one_field"></div>
+    </div>
 
   </div>
 </div>
