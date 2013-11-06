@@ -8,9 +8,10 @@ namespace :bdt do # bdt: before deploy tasks
 	desc "Precompiling assets before deployment"
 	task precompile: :clean do
 		Sportevent::Application.load_local_env()
-		sh "rake assets:precompile RAILS_ENV=$RAILS_ENV"
+		sh "rake assets:precompile RAILS_ENV=staging"
+		sh "rake assets:precompile RAILS_ENV=production"
 		sh "git add ."
-		sh "git commit -a -m'precompiling assets for $RAILS_ENV'"
+		sh "git commit -a -m'precompiling assets for staging and production'"
 	end
 
 end
