@@ -6,7 +6,7 @@
 </div>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="col-sm-6 col-md-6 col-lg-offset-3">
     <%= form_for(resource, :as => resource_name, :url => confirm_path, :html => { :method => :put }) do |f| %>
     
       <!-- <%= devise_error_messages! %> -->
@@ -35,10 +35,10 @@
       <%= f.hidden_field :confirmation_token %>
       <div class="actions">
         <br />
-        <div class="span2">
+        <div class="col-sm-2 col-md-2">
           <%= f.submit I18n.t(:confirm, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
         </div>
-        <!-- div class="span3">
+        <!-- div class="col-sm-3 col-md-3">
           <%= render "devise/shared/links" %>
         </div -->
       </div>

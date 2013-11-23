@@ -1,11 +1,11 @@
 <% provide(:title, "Match Event") %>
 
 <div class="row">
-  <div class="span9 offset1">
+  <div class="col-sm-9 col-md-9 col-lg-offset-1">
 
     <div class="row">
 
-      <div class="span2">
+      <div class="col-sm-2 col-md-2">
 
         <%= content_tag :div, class: "field_in_map", data: { latitude: @match.field.latitude, longitude: @match.field.longitude, description: print_field(@match.field), address: field_path(@match.field), zoom: 15 } do %>
         <% end %>
@@ -17,10 +17,10 @@
 
         <div class="row">
           <% is_member = @match.users.include?(current_user) %>
-          <div class="span2 danger">
+          <div class="col-sm-2 col-md-2 danger">
             <strong><%= I18n.t(is_member ? :out_match : :in_match, scope: 'custom.view.match') %></strong>
           </div>
-          <div class="span1">
+          <div class="col-sm-1 col-md-1">
             <%= form_tag match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do %>
               <%= hidden_field_tag :participate, is_member ? "no" : "yes" %>
               <div class="actions">
@@ -32,41 +32,41 @@
 
       </div>
 
-      <div class="span5 offset2">
+      <div class="col-sm-5 col-md-5 col-lg-offset-2">
         <br/><br/>
 
         <div class="row">
-          <div class="span1">
+          <div class="col-sm-1 col-md-1">
             <strong><%= I18n.t(:jour, scope: 'custom.form') %></strong>
           </div>
-          <div class="span3 offset1">
+          <div class="col-sm-3 col-md-3 col-lg-offset-1">
             <%= @match.jour.strftime('%d-%m-%Y') %>
           </div>
         </div>
         
         <div class="row">
-          <div class="span1">
+          <div class="col-sm-1 col-md-1">
             <strong><%= I18n.t(:start, scope: 'custom.form') %></strong>
           </div>
-          <div class="span3 offset1">
+          <div class="col-sm-3 col-md-3 col-lg-offset-1">
             <%= @match.start %>
           </div>
         </div>
         
         <div class="row">
-          <div class="span1">
+          <div class="col-sm-1 col-md-1">
             <strong><%= I18n.t(:end, scope: 'custom.form') %></strong>
           </div>
-          <div class="span3 offset1">
+          <div class="col-sm-3 col-md-3 col-lg-offset-1">
             <%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %>
           </div>
         </div>
         
         <div class="row">
-          <div class="span1">
+          <div class="col-sm-1 col-md-1">
             <strong>Field</strong>
           </div>
-          <div class="span3 offset1">
+          <div class="col-sm-3 col-md-3 col-lg-offset-1">
             <%= link_to @match.field.name, field_path(@match.field), "data-no-turbolink" => true %>
           </div>
         </div>
@@ -74,10 +74,10 @@
         <br/>
         
         <div class="row">
-          <div class="span1">
+          <div class="col-sm-1 col-md-1">
             <strong><%= I18n.t(:participant, scope: 'custom.form') %></strong>
           </div>
-          <div class="span3 offset1">
+          <div class="col-sm-3 col-md-3 col-lg-offset-1">
             <%= sportizers_name(@match) %>
           </div>
         </div>
@@ -87,16 +87,16 @@
 
         <% if is_member %>
           <div class="row">
-            <div class="span4">
+            <div class="col-sm-4 col-md-4">
               <strong><%= I18n.t(:contact_all_others, scope: 'custom.form') %></strong>
             </div>
             <%= form_tag contact_path, method: :put do %>
-              <div class="span5">
+              <div class="col-sm-5 col-md-5">
                 <%= text_area_tag :content %>
               </div>
               <%= hidden_field_tag :match_id, @match.id %>
               <%= hidden_field_tag :destination, "all" %>
-              <div class="actions span1">
+              <div class="actions col-sm-1 col-md-1">
                 <%= submit_tag I18n.t(:send, scope: 'custom.verb'), class: "btn btn-small btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
               </div>
             <% end %>
@@ -142,7 +142,7 @@
           <div class="field">
             <%= f.text_area :body %>
           </div>
-          <div class="actions span1">
+          <div class="actions col-sm-1 col-md-1">
             <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-small btn-primary" %>
           </div>
         <% end %>

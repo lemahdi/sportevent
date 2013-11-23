@@ -7,10 +7,10 @@
 <ul class="users">
   <% @users.each do |user| %>
     <div class="row">
-      <div class="span1">
+      <div class="col-sm-1 col-md-1">
         <%= link_to(gravatar_for(user), user_path(user)) %>
       </div>
-      <div class="span3">
+      <div class="col-sm-3 col-md-3">
         <div>
           <strong><%= user.nom %></strong>
           <strong><%= user.prenom %></strong>

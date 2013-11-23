@@ -1,31 +1,31 @@
 <div class="row">
-  <div class="span9 offset2">
+  <div class="col-sm-9 col-md-9 col-lg-offset-2">
     <%= form_for(@match) do |f| %>
 
       <!-- match_error_messages! -->
       <%= render partial: 'layouts/errors', locals: { object: @match } %>
 
       <div class="row match">
-        <div class="span2 field">
+        <div class="col-sm-2 col-md-2 field">
           <%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %><br /><br />
           <%= f.text_field :jour, class: "input-append date datepicker", value: Date.today.strftime('%d-%m-%Y') %>
         </div>
-        <div class="span1 field">
+        <div class="col-sm-1 col-md-1 field">
           <%= f.label :start, "#{I18n.t(:start, scope: 'custom.form')} (hh:mm)" %><br />
           <%= f.text_field :start, class: "time", value: Time.now.strftime('%H:%M') %>
         </div>
-        <div class="span1 field">
+        <div class="col-sm-1 col-md-1 field">
           <%= f.label :duration, "#{I18n.t(:duration, scope: 'custom.form')} (min)" %><br />
           <%= f.text_field :duration, class: "time", value: 1.hour/60 %>
         </div>
-        <div class="span5 field">
+        <div class="col-sm-5 col-md-5 field">
           <%= f.label :field_id %><br /><br />
           <%= f.select :field_id, fields_names %>
         </div>
 
       </div>
       <div class="row">
-        <div class="span2 offset3 actions">
+        <div class="col-sm-2 col-md-2 col-lg-offset-3 actions">
           <br />
           <%= f.submit I18n.t(:organize, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
         </div>

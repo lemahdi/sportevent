@@ -3,7 +3,7 @@
 <h1><%= I18n.t(:confirm, scope: 'custom.verb') %></h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="col-sm-6 col-md-6 col-lg-offset-3">
     <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
     
   		<!-- <%= devise_error_messages! %> -->
@@ -17,10 +17,10 @@
       </div>
       <div class="actions">
       	<br />
-      	<div class="span2">
+      	<div class="col-sm-2 col-md-2">
         	<%= f.submit I18n.t(:validate, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
       	</div>
-      	<div class="span3">
+      	<div class="col-sm-3 col-md-3">
       		<%= render "devise/shared/links" %>
       	</div>
       </div>
