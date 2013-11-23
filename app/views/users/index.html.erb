@@ -2,35 +2,40 @@
 
 <h1><%= I18n.t(:all_sportizers, scope: 'custom.view.title') %></h1>
 
-<%= will_paginate_helper @users %>
+<div class="row">
+  <div class="col-lg-offset-2">
+    
+    <%= will_paginate_helper @users %>
 
-<ul class="users">
-  <% @users.each do |user| %>
-    <div class="row">
-      <div class="col-sm-1 col-md-1">
-        <%= link_to(gravatar_for(user), user_path(user)) %>
-      </div>
-      <div class="col-sm-3 col-md-3">
-        <div>
-          <strong><%= user.nom %></strong>
-          <strong><%= user.prenom %></strong>
+    <ul class="users">
+      <% @users.each do |user| %>
+        <div class="row">
+          <div class="col-sm-2 col-md-2">
+            <%= link_to(gravatar_for(user), user_path(user)) %>
+          </div>
+          <div class="col-sm-3 col-md-3">
+            <strong><%= user.nom %></strong>
+            <strong><%= user.prenom %></strong>
+            
+            <% if current_user.admin? && !current_user?(user) %>
+              <div class="nav nav-pills">
+                <!-- <%= link_to 'Contacter', "#" %> -->
+                <%= link_to I18n.t(:display, scope: 'custom.verb'), user %>
+                <%= link_to I18n.t(:modify, scope: 'custom.verb'), edit_user_path(user) %>
+                <%= link_to I18n.t(:delete, scope: 'custom.verb'), user, method: :delete, data: { confirm: I18n.t(:sure, scope: 'custom.view.helper') } %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="nav nav-pills">
-          <!-- <%= link_to 'Contacter', "#" %> -->
-          <% if current_user.admin? && !current_user?(user) %>
-            <%= link_to I18n.t(:display, scope: 'custom.verb'), user %>
-            <%= link_to I18n.t(:modify, scope: 'custom.verb'), edit_user_path(user) %>
-            <%= link_to I18n.t(:delete, scope: 'custom.verb'), user, method: :delete, data: { confirm: I18n.t(:sure, scope: 'custom.view.helper') } %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    </br>
-  <% end %>
-</ul>
+        </br>
+      <% end %>
+    </ul>
 
-<br />
+    <br />
 
-<%= will_paginate_helper @users %>
+    <%= will_paginate_helper @users %>
 
-<!-- %= link_to "Comment ajouter ma photo ?", help_path(anchor: "FAQ3") % -->
+    <!-- %= link_to "Comment ajouter ma photo ?", help_path(anchor: "FAQ3") % -->
+
+  </div>
+</div>
