@@ -31,14 +31,7 @@
 		  <% end %>
 
       <br />
-      <div class="row">
-      	<div class="col-sm-4 col-md-4">
-      		<%= f.submit I18n.t(:signin, scope: 'custom.verb'), class: "btn btn-lg btn-primary" %>
-      	</div>
-      	<div class="col-sm-8 col-md-8">
-      		<%= render "devise/shared/links" %>
-      	</div>
-      </div>
+      <%= render partial: 'devise/shared/submit', locals: { form: f, action: I18n.t(:signin, scope: 'custom.verb') } %>
 
     <% end %>
 
