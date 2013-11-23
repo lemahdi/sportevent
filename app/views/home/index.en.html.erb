@@ -1,15 +1,17 @@
 <% provide(:title, I18n.t(:title, scope: 'custom.controller.home')) %>
 
-<div class="center hero-unit">
+<div class="center jumbotron">
 	<h1>Sport in the City</h1>
 
 	<h2>
-		Welcome to Spintcy, your urban sport site!
-		Find a field, subscribe and build up your own team.
+		<blockquote>
+			Welcome to Spintcy, your urban sport site!
+			Find a field, subscribe and build up your own team.
+		</blockquote>
 	</h2>
 
 	<% unless signed_in? %>
-		<%= link_to I18n.t(:become_member, scope: 'custom.form'), new_user_registration_path, class: "btn btn-large btn-primary" %>
+		<%= link_to I18n.t(:become_member, scope: 'custom.form'), new_user_registration_path, class: "btn btn-lg btn-primary" %>
 	<% end %>
 </div>
 
@@ -32,14 +34,14 @@
 
 <div class="row">
 	<div class="col-sm-4 col-md-4">
-		<p><%= link_to "Organize", '#', class: "btn" %></p>
+		<p><%= link_to "Organize", '#', class: "btn btn-default", role: "button" %></p>
 	</div>
 
 	<div class="col-sm-4 col-md-4">
-		<p><%= link_to "  Find  ", '#', class: "btn" %></p>
+		<p><%= link_to "  Find  ", '#', class: "btn btn-default", role: "button" %></p>
 	</div>
 	
 	<div class="col-sm-4 col-md-4">
-		<p><%= link_to "Register", '#', class: "btn" %></p>
+		<p><%= link_to "Register", '#', class: "btn btn-default", role: "button" %></p>
 	</div>
 </div>
