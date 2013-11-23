@@ -1,9 +1,13 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-      <%= link_to "Spintcy", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
+
+      <div class="navbar-header">
+        <%= link_to "Spintcy", root_path, id: "logo" %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
           <% if signed_in? %>
             <li><%= link_to "Sportizers",  users_path %></li>
             <li><%= link_to "Fields",      fields_path, "data-no-turbolink" => true %></li>
@@ -18,11 +22,13 @@
                 <li class="diviser"></li>
                 <li><%= link_to I18n.t(:logout, scope: 'custom.noun'), destroy_user_session_path, method: "delete" %></li>
               </ul>
+            </li>
           <% else %>
             <li><%= link_to I18n.t(:signin, scope: 'custom.verb'), new_user_session_path %></li>
           <% end %>
         </ul>
-      </nav>
+      </div>
+
     </div>
-  </div>
+  </nav>
 </header>
