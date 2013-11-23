@@ -1,6 +1,6 @@
 <% provide(:title, 'Contact') %>
 
-<h1>Contacter</h1>
+<h1><%= I18n.t(:contact, scope: 'custom.verb') %></h1>
 
 <div class="row">
   <div class="col-sm-6 col-md-6 col-md-offset-3 form-horizontal">
@@ -17,42 +17,22 @@
 
 		  <% else %>
 
-		  	<div class="row">
-			    <div class="col-sm-12 col-md-12 form-group">
-			      <%= f.label :nom, I18n.t(:nom, scope: 'custom.form') %><br />
-			      <%= f.text_field :nom, class: "form-control" %>
-			    </div>
-			  </div>
-			    
-		  	<div class="row">
-			    <div class="col-sm-12 col-md-12 form-group">
-			      <%= f.label :email %><br />
-			      <%= f.email_field :email, class: "form-control" %>
-			    </div>
-			  </div>
+	      <%= f.label :nom, I18n.t(:nom, scope: 'custom.form') %><br />
+	      <%= f.text_field :nom, class: "form-control" %>
+	    
+	      <%= f.label :email %><br />
+	      <%= f.email_field :email, class: "form-control" %>
 			  
 		  <% end %>
 
-		  <div class="row">
-		    <div class="col-sm-12 col-md-12 form-group">
-		      <%= f.label :sujet, I18n.t(:sujet, scope: 'custom.form') %><br />
-		      <%= f.text_field :subject, class: "form-control" %>
-		    </div>
-		  </div>
-		    
-		  <div class="row">
-		    <div class="col-sm-12 col-md-12 form-group">
-		      <%= f.label :message %><br />
-		      <%= f.text_area :content, class: "form-control" %>
-		    </div>
-		  </div>
-		  
-		  <div class="row">
-		    <div class="col-sm-3 col-md-3 form-group">
-	      	<br />
-	        <%= f.submit I18n.t(:send, scope: 'custom.verb'), class: "btn btn-lg btn-primary" %>
-		    </div>
-	    </div>
+      <%= f.label :sujet, I18n.t(:sujet, scope: 'custom.form') %><br />
+      <%= f.text_field :subject, class: "form-control" %>
+
+      <%= f.label :message %><br />
+      <%= f.text_area :content, class: "form-control input-lg" %>
+  
+    	<br />
+      <%= f.submit I18n.t(:send, scope: 'custom.verb'), class: "btn btn-lg btn-primary" %>
 
 		<% end %>
 

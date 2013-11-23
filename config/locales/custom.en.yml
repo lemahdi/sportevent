@@ -23,6 +23,7 @@ en:
       send: "Send"
       comment: "Comment"
       post: "Post"
+      contact: "Contacter"
 
     noun:
       logout: "Logout"
