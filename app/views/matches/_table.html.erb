@@ -27,7 +27,7 @@
             <!-- < %= hidden_field_tag :from_page, "index" % > -->
             <%= hidden_field_tag :participate, play_match_button[:participate] %>
             <td>
-              <%= submit_tag play_match_button[:text], disabled: play_match_button[:disabled], class: "btn btn-small" %>
+              <%= submit_tag play_match_button[:text], disabled: play_match_button[:disabled], class: "btn btn-sm" %>
             </td>
           <% end %>
         </tr>
@@ -40,7 +40,7 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><%= link_to I18n.t(:new, scope: 'custom.noun'), new_match_path, class: "btn btn-small" %></td>
+      <td><%= link_to I18n.t(:new, scope: 'custom.noun'), new_match_path, class: "btn btn-sm" %></td>
     </tr>
   </tbody>
 </table>

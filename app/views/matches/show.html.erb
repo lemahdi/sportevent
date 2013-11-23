@@ -24,7 +24,7 @@
             <%= form_tag match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do %>
               <%= hidden_field_tag :participate, is_member ? "no" : "yes" %>
               <div class="actions">
-                <%= submit_tag I18n.t(:validate, scope: 'custom.verb'), class: "btn btn-small" %>
+                <%= submit_tag I18n.t(:validate, scope: 'custom.verb'), class: "btn btn-sm" %>
               </div>
             <% end %>
           </div>
@@ -97,7 +97,7 @@
               <%= hidden_field_tag :match_id, @match.id %>
               <%= hidden_field_tag :destination, "all" %>
               <div class="actions col-sm-1 col-md-1">
-                <%= submit_tag I18n.t(:send, scope: 'custom.verb'), class: "btn btn-small btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
+                <%= submit_tag I18n.t(:send, scope: 'custom.verb'), class: "btn btn-sm btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
               </div>
             <% end %>
           </div>
@@ -143,7 +143,7 @@
             <%= f.text_area :body %>
           </div>
           <div class="actions col-sm-1 col-md-1">
-            <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-small btn-primary" %>
+            <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-sm btn-primary" %>
           </div>
         <% end %>
       </div>
