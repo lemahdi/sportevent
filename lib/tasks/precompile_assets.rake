@@ -2,7 +2,7 @@ namespace :bdt do # bdt: before deploy tasks
 
 	desc "Clean public assets"
 	task :clean do
-		sh "git rm -rf public/assets/"
+		sh "rake assets:clean RAILS_ENV=#{ENV['RAILS_ENV']} RAILS_GROUPS=assets"
 	end
 
 	desc "Precompiling assets before deployment"
