@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user,           only: [:show, :edit, :update, :destroy]
 
   before_filter :store_location
-  before_filter :authenticate_user!, except: [:show]
+  before_filter :authenticate_user!
   before_filter :correct_user?,      only: [:edit, :update]
   before_filter :admin?,             only: [:destroy]
 
