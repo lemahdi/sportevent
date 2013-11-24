@@ -21,7 +21,7 @@ class ContactController < ApplicationController
   end
 
   def update
-    match = Match.find_by_id(params[:match_id])
+    match = Match.find_by_id(contact_params[:match_id])
     if !match.users.include?(current_user)
       respond_to do |format|
         format.html { redirect_to matches_path, notice: I18n.t(:alert, scope: 'custom.controller.contact.member') and return }
@@ -30,8 +30,8 @@ class ContactController < ApplicationController
     end
 
     @contact = Contact.new
-    @contact.build(current_user, I18n.t(:invite_subject, scope: 'custom.controller.contact'), params[:content])
-    destination = params[:destination]
+    @contact.build(current_user, I18n.t(:invite_subject, scope: 'custom.controller.contact'), contact_params[:content])
+    destination = contact_params[:destination]
 
     unless @contact.content.blank?
       # if destination == "group"
@@ -59,6 +59,7 @@ class ContactController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:nom, :email, :subject, :content)
+      # params.require(:contact).permit(:nom, :email, :subject, :content)
+      params.require(:contact)
     end
 end
