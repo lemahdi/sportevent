@@ -17,6 +17,7 @@ gem 'bootstrap-datepicker-rails',
   git:     'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'google_timezone'
 gem 'leaflet-rails'
+gem 'bootstrap-sass', '~> 3.0.2.0'
 
 gem 'pg'
 
@@ -30,7 +31,6 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'bootstrap-sass', '~> 3.0.2.0'
 
   gem 'coffee-rails', '~> 4.0.0.beta1'
 
