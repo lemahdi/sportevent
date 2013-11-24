@@ -32,6 +32,7 @@ en:
       unlock: "Unlocking"
       update: "Updating"
       new: "New"
+      warning: "Warning"
 
     preposition:
       at: "at"

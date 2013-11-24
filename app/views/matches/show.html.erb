@@ -21,12 +21,12 @@
         <div class="row">
           <% is_member = @match.users.include?(current_user) %>
           <div class="col-sm-5 col-md-5 caution">
-            <%= form_tag match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do %>
-              <%= hidden_field_tag :participate, is_member ? "no" : "yes" %>
+            <%= form_for @match, url: match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do |f| %>
+              <%= f.hidden_field :participate, value: is_member ? "no" : "yes" %>
               <% if is_member %>
-                <%= submit_tag I18n.t(:out_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-danger" %>
+                <%= f.submit I18n.t(:out_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-danger" %>
               <% else %>
-                <%= submit_tag I18n.t(:in_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-success" %>
+                <%= f.submit I18n.t(:in_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-success" %>
               <% end %>
             <% end %>
           </div>

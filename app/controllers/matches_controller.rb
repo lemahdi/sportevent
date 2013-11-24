@@ -58,7 +58,7 @@ class MatchesController < ApplicationController
   # PATCH/PUT /matches/1
   # PATCH/PUT /matches/1.json
   def update
-    if params[:participate] == "yes"
+    if match_params[:participate] == "yes"
       @match.sportizers << current_user
       message = I18n.t(:in_game, scope: 'custom.controller.match.update')
       respond_to do |format|
@@ -93,6 +93,6 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:jour, :start, :duration, :field_id)
+      params.require(:match).permit(:jour, :start, :duration, :field_id, :participate)
     end
 end

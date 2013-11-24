@@ -23,14 +23,13 @@
           <td><%= match.field.name %></td>
           <td><%= sportizers_name(match) %></td>
 
-          <% play_match_button = build_play_match_button(match) %>
-          <%= form_tag match_path(match), method: play_match_button[:action] do %>
-            <!-- < %= hidden_field_tag :from_page, "index" % > -->
-            <%= hidden_field_tag :participate, play_match_button[:participate] %>
-            <td>
-              <%= submit_tag play_match_button[:text], disabled: play_match_button[:disabled], class: "btn btn-sm btn-default" %>
-            </td>
-          <% end %>
+          <td>
+            <% play_match_button = build_play_match_button(match) %>
+            <%= form_for match, url: match_path(match), method: play_match_button[:action] do |f| %>
+              <%= f.hidden_field :participate, value: play_match_button[:participate] %>
+              <%= f.submit play_match_button[:text], class: "btn btn-sm btn-default", disabled: play_match_button[:disabled] %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
       <tr>
