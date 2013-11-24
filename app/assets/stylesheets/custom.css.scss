@@ -204,6 +204,8 @@ input {
 /* new matches */
 
 .match {
+  text-align: left;
+  font-size: 1.2em;
   .field {
     text-align: center;
     /*color: blue;*/
@@ -214,7 +216,7 @@ input {
 }
 
 .new_match {
-  font-weight: bold;
+  text-align: center;
 }
 
 .time {
