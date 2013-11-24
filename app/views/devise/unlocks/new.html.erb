@@ -2,29 +2,23 @@
 
 <h1><%= I18n.t(:locked_account, scope: 'custom.view.title') %></h1>
 
-<div class="row">
-  <div class="span6 offset3">
+<div class="row form-horizontal">
+  <div class="col-sm-6 col-md-6 col-lg-offset-3">
+
     <%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
 
   		<!-- <%= devise_error_messages! %> -->
   		<%= render "devise/shared/errors" %>
 
-      <div class="field">
-      	<br />
-        <%= f.label :email %>
-        <i>(<%= I18n.t(:unlock_account, scope: 'custom.view.helper') %>)</i>
-        <%= f.email_field :email, :autofocus => true %>
-      </div>
+      <br />
+      <%= f.label :email %>
+      <i>(<%= I18n.t(:unlock_account, scope: 'custom.view.helper') %>)</i>
+      <%= f.email_field :email, :autofocus => true, class: "form-control" %>
 
-      <div class="actions">
-      	<br />
-      	<div class="span2">
-      		<%= f.submit I18n.t(:unlock, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
-      	</div>
-      	<div class="span3">
-      		<%= render "devise/shared/links" %>
-      	</div>
-      </div>
+    	<br />
+      <%= render partial: 'devise/shared/submit', locals: { form: f, action: I18n.t(:unlock, scope: 'custom.verb') } %>
+
     <% end %>
+
   </div>
 </div>

@@ -2,62 +2,52 @@
 
 <h1><%= I18n.t(:info, scope: 'custom.view.title') %></h1>
 
-<div class="row">
-  <div class="span6 offset3">
+<div class="row form-horizontal">
+  <div class="col-sm-6 col-md-6 col-lg-offset-3">
+
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 
       <!-- <%= devise_error_messages! %> -->
       <%= render "devise/shared/errors" %>
 
-      <div class="field">
-        <br />
-        <%= f.label :nom, I18n.t(:nom, scope: 'custom.form') %>
-        <%= f.text_field :nom %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :prenom, I18n.t(:prenom, scope: 'custom.form') %>
-        <%= f.text_field :prenom %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </div>
+      <br />
+      <%= f.label :nom, I18n.t(:nom, scope: 'custom.form') %>
+      <%= f.text_field :nom, class: "form-control" %>
+
+      <br />
+      <%= f.label :prenom, I18n.t(:prenom, scope: 'custom.form') %>
+      <%= f.text_field :prenom, class: "form-control" %>
+
+      <br />
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div><%= "#{I18n.t(:nom, scope: 'custom.view.devise')} #{resource.unconfirmed_email}" %></div>
       <% end %>
 
-      <div class="field">
-        <br />
-        <%= f.label :password, I18n.t(:new_pwd, scope: 'custom.form') %> <i>(<%= I18n.t(:leave_blank, scope: 'custom.view.helper') %>)</i>
-        <%= f.password_field :password, :autocomplete => "off" %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :password_confirmation, I18n.t(:new_pwd_confirm, scope: 'custom.form') %>
-        <%= f.password_field :password_confirmation %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :current_password, I18n.t(:cur_pwd, scope: 'custom.form') %> <i>(<%= I18n.t(:need_pwd, scope: 'custom.view.helper') %>)</i>
-        <%= f.password_field :current_password %>
-      </div>
+      <br />
+      <%= f.label :password, I18n.t(:new_pwd, scope: 'custom.form') %> <i>(<%= I18n.t(:leave_blank, scope: 'custom.view.helper') %>)</i>
+      <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
 
-      <div class="actions">
-        <br />
-        <div class="span2">
-          <%= f.submit I18n.t(:change, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
-        </div>
-      </div>
+      <br />
+      <%= f.label :password_confirmation, I18n.t(:new_pwd_confirm, scope: 'custom.form') %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+
+      <br />
+      <%= f.label :current_password, I18n.t(:cur_pwd, scope: 'custom.form') %> <i>(<%= I18n.t(:need_pwd, scope: 'custom.view.helper') %>)</i>
+      <%= f.password_field :current_password, class: "form-control" %>
+
+      <br />
+      <%= f.submit I18n.t(:change, scope: 'custom.verb'), class: "btn btn-lg btn-primary" %>
+      
     <% end %>
 
     <div>
       <br /><br /><br />
       <!-- %= label_tag "Vous n'êtes pas content(e) ?" %>
-      <div class="span2">
-        <%= button_to "Supprimer mon compte", registration_path(resource_name), :data => { :confirm => "Êtes-vous sûr(e) ?" }, :method => :delete, class: "btn btn-large" %>
+      <div class="col-sm-2 col-md-2">
+        <%= button_to "Supprimer mon compte", registration_path(resource_name), :data => { :confirm => "Êtes-vous sûr(e) ?" }, :method => :delete, class: "btn btn-lg" %>
       </div -->
     </div>
 

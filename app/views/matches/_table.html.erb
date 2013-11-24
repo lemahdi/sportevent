@@ -1,18 +1,19 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>N°</th>
-      <th></th>
-      <th><%= I18n.t(:jour, scope: 'custom.form') %></th>
-      <th><%= I18n.t(:start, scope: 'custom.form') %></th>
-      <th><%= I18n.t(:end, scope: 'custom.form') %></th>
-      <th>Field</th>
-      <th>Sportizers</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody class="match"><p>
-    <% @matches.each do |match| %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th></th>
+        <th><%= I18n.t(:jour, scope: 'custom.form') %></th>
+        <th><%= I18n.t(:start, scope: 'custom.form') %></th>
+        <th><%= I18n.t(:end, scope: 'custom.form') %></th>
+        <th>Field</th>
+        <th>Sportizers</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="match">
+      <% @matches.each do |match| %>
         <tr>
           <td><%= link_to match.id, match_path(match), "data-no-turbolink" => true %></td>
           <td></td>
@@ -22,25 +23,33 @@
           <td><%= match.field.name %></td>
           <td><%= sportizers_name(match) %></td>
 
-          <% play_match_button = build_play_match_button(match) %>
-          <%= form_tag match_path(match), method: play_match_button[:action] do %>
-            <!-- < %= hidden_field_tag :from_page, "index" % > -->
-            <%= hidden_field_tag :participate, play_match_button[:participate] %>
-            <td>
-              <%= submit_tag play_match_button[:text], disabled: play_match_button[:disabled], class: "btn btn-small" %>
-            </td>
-          <% end %>
+          <td>
+            <% if signed_in? %>
+              <% play_match_button = build_play_match_button(match) %>
+              <%= form_for match, url: match_path(match), method: play_match_button[:action] do |f| %>
+                <%= f.hidden_field :participate, value: play_match_button[:participate] %>
+                <%= f.submit play_match_button[:text], class: "btn btn-sm btn-default", disabled: play_match_button[:disabled] %>
+              <% end %>
+            <% end %>
+          </td>
         </tr>
-    <% end %>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><%= link_to I18n.t(:new, scope: 'custom.noun'), new_match_path, class: "btn btn-small" %></td>
-    </tr>
-  </tbody>
-</table>
+      <% end %>
+
+      <% if signed_in? %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <%= link_to I18n.t(:new, scope: 'custom.noun'), new_match_path, class: "btn btn-sm btn-default" %>
+          </td>
+        </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+</div>

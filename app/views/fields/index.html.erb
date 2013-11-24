@@ -3,7 +3,7 @@
 <h1><%= I18n.t(:all_fields, scope: 'custom.view.field') %></h1>
 
 <div class="row">
-  <div class="span8 offset1">
+  <div class="col-sm-8 col-md-8 col-lg-offset-1">
 
     <% @fields.each do |field| %>
       <%= content_tag :div, class: "field_in_map", data: { latitude: field.latitude, longitude: field.longitude, description: print_field(field), address: field_path(field) } do %>
@@ -13,16 +13,13 @@
       <div id="map" class="map_with_all_fields"></div>
     </div>
 
-    <br/>
-
-    <%= link_to I18n.t(:how_save_field, scope: 'custom.view.field'), help_path(anchor: "FAQ6") %>
-
-		<% if current_user.admin? %>
-	    <div class="actions">
-	      <br />
-	      <%= link_to I18n.t(:new, scope: 'custom.noun') , new_field_path, class: "btn btn-large btn-primary" %>
-	    </div>
+		<% if !current_user.nil? && current_user.admin? %>
+      <br />
+      <%= link_to I18n.t(:new, scope: 'custom.noun') , new_field_path, class: "btn btn-lg btn-primary" %>
     <% end %>
+
+    <br/>
+    <%= link_to I18n.t(:how_save_field, scope: 'custom.view.field'), help_path(anchor: "FAQ6") %>
 
   </div>
 </div>

@@ -5,43 +5,36 @@
   <i>(<%= I18n.t(:create_pwd, scope: 'custom.view.helper') %>)</i>
 </div>
 
-<div class="row">
-  <div class="span6 offset3">
+<div class="row form-horizontal">
+  <div class="col-sm-6 col-md-6 col-lg-offset-3">
+
     <%= form_for(resource, :as => resource_name, :url => confirm_path, :html => { :method => :put }) do |f| %>
     
       <!-- <%= devise_error_messages! %> -->
       <%= render "devise/shared/errors" %>
 
-      <div class="field">
-        <br />
-        <%= f.label :nom, I18n.t(:nom, scope: 'custom.form') %>
-        <%= f.text_field :nom %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :prenom, I18n.t(:prenom, scope: 'custom.form') %>
-        <%= f.text_field :prenom %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :password, I18n.t(:password, scope: 'custom.form') %>
-        <%= f.password_field :password %>
-      </div>
-      <div class="field">
-        <br />
-        <%= f.label :password_confirmation, I18n.t(:pwd_confirm, scope: 'custom.form') %>
-        <%= f.password_field :password_confirmation %>
-      </div>
+      <br />
+      <%= f.label :nom, I18n.t(:nom, scope: 'custom.form') %>
+      <%= f.text_field :nom, class: "form-control" %>
+
+      <br />
+      <%= f.label :prenom, I18n.t(:prenom, scope: 'custom.form') %>
+      <%= f.text_field :prenom, class: "form-control" %>
+
+      <br />
+      <%= f.label :password, I18n.t(:password, scope: 'custom.form') %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <br />
+      <%= f.label :password_confirmation, I18n.t(:pwd_confirm, scope: 'custom.form') %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+
       <%= f.hidden_field :confirmation_token %>
-      <div class="actions">
-        <br />
-        <div class="span2">
-          <%= f.submit I18n.t(:confirm, scope: 'custom.verb'), class: "btn btn-large btn-primary" %>
-        </div>
-        <!-- div class="span3">
-          <%= render "devise/shared/links" %>
-        </div -->
-      </div>
+
+      <br />
+      <%= render partial: 'devise/shared/submit', locals: { form: f, action: I18n.t(:confirm, scope: 'custom.verb') } %>
+
     <% end %>
+
   </div>
 </div>
