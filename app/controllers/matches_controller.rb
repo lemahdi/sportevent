@@ -1,10 +1,10 @@
 include MatchesHelper
 
 class MatchesController < ApplicationController
-  before_action :set_match,         only: [:show, :update, :destroy]
+  before_action :set_match,          only: [:show, :update, :destroy]
   
   before_filter :store_location
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index, :show]
 
   # GET /matches
   # GET /matches.json

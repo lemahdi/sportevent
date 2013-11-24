@@ -4,7 +4,7 @@ class FieldsController < ApplicationController
   before_action :set_field, only: [:show, :edit, :update, :destroy]
 
   before_filter :store_location
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index, :show]
   before_filter :admin?, only: [:new, :edit, :update, :destroy]
   
   # GET /fields

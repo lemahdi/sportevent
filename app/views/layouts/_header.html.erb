@@ -10,8 +10,10 @@
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? %>
             <li><%= link_to "Sportizers",  users_path %></li>
-            <li><%= link_to "Fields",      fields_path, "data-no-turbolink" => true %></li>
-            <li><%= link_to "Matchs",      matches_path %></li>
+          <% end %>
+          <li><%= link_to "Fields",      fields_path, "data-no-turbolink" => true %></li>
+          <li><%= link_to "Matchs",      matches_path %></li>
+          <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= I18n.t(:my_account, scope: 'custom.header') %> <b class="caret"></b>

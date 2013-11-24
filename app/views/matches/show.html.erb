@@ -134,7 +134,7 @@
               <td class="body"><%= comment.body %></td>
               <td class="commenter">
                 <%= link_to comment.user.prenom, user_path(comment.user) %>
-                <% if current_user.admin? %>
+                <% if !current_user.nil? && current_user.admin? %>
                   | <%= link_to I18n.t(:delete, scope: 'custom.verb'), match_comment_path(@match, comment), method: :delete, data: { confirm: I18n.t(:sure, scope: 'custom.view.helper') } %>
                 <% end %>
                 <div class="comment_time">

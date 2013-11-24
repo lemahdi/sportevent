@@ -13,7 +13,7 @@
       <div id="map" class="map_with_all_fields"></div>
     </div>
 
-		<% if current_user.admin? %>
+		<% if !current_user.nil? && current_user.admin? %>
       <br />
       <%= link_to I18n.t(:new, scope: 'custom.noun') , new_field_path, class: "btn btn-lg btn-primary" %>
     <% end %>
