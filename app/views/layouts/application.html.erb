@@ -15,9 +15,11 @@
 
     <% if notice %>
       <div class="row">
-        <div class="span8">
+        <div class="col-sm-8 col-md-8">
           <div id="notice">
-            <p class="alert alert-success"><%= notice %></p>
+            <p class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <%= notice %></p>
           </div>
         </div>
       </div>
@@ -25,9 +27,13 @@
 
     <% if alert %>
       <div class="row">
-        <div class="span8">
+        <div class="col-sm-8 col-md-8">
           <div id="notice">
-            <p class="alert alert-block"><%= alert %></p>
+            <p class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <strong><%= I18n.t(:warning, scope: 'custom.noun') %>!</strong>
+              <%= alert %>
+            </p>
           </div>
         </div>
       </div>

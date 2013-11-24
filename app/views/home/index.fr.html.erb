@@ -1,45 +1,47 @@
 <% provide(:title, I18n.t(:title, scope: 'custom.controller.home')) %>
 
-<div class="center hero-unit">
+<div class="center jumbotron">
 	<h1>Sport in the City</h1>
 
 	<h2>
-		Bienvenue sur Spintcy, le site du sport urbain!
-		Cherchez un terrain, inscrivez-vous et constituez votre équipe.
+		<blockquote>
+			Bienvenue sur Spintcy, le site du sport urbain!
+			Cherchez un terrain, inscrivez-vous et constituez votre équipe.
+		<blockquote>
 	</h2>
 
 	<% unless signed_in? %>
-		<%= link_to I18n.t(:become_member, scope: 'custom.form'), new_user_registration_path, class: "btn btn-large btn-primary" %>
+		<%= link_to I18n.t(:become_member, scope: 'custom.form'), new_user_registration_path, class: "btn btn-lg btn-primary" %>
 	<% end %>
 </div>
 
 <div class="row">
-	<div class="span4">
+	<div class="col-sm-4 col-md-4">
 		<h3>Organiser un Match</h3>
 		<p class="justify">Organisez votre propre Match. Choisissez un Field, lancez des invitations et constituez votre équipe. Une fois le Match organisé, vous pourrez échanger des commentaires avec les autres participants.</p>
 	</div>
 
-	<div class="span4">
+	<div class="col-sm-4 col-md-4">
 		<h3>Chercher un Match</h3>
 		<p class="justify">Vous voulez participer à un Match ? Allez dans le menu Match et choisissez-en un dans la liste. Vous pourrez alors accéder à la page du Match et lire les commentaires des autres participants. N'hésitez pas à leur poser vos questions si vous ne les connaissez pas encore. </p>
 	</div>
 
-	<div class="span4">
+	<div class="col-sm-4 col-md-4">
 		<h3>Enregistrer un Field</h3>
 		<p class="justify">Vous ne trouvez pas votre terrain préféré dans la liste des Fields, enregistrez-le! Votre Field sera dans premier temps en attente de validation, et vous serez le seul à pouvoir y organiser un Match. Une fois votre premier Match joué, les participants valideront le terrain et tous les Sportizers pourront l'utiliser par la suite.</p>
 	</div>
 </div>
 
 <div class="row">
-	<div class="span4">
-		<p><%= link_to " Organiser ", '#', class: "btn" %></p>
+	<div class="col-sm-4 col-md-4">
+		<p><%= link_to " Organiser ", '#', class: "btn btn-default", role: "button" %></p>
 	</div>
 
-	<div class="span4">
-		<p><%= link_to " Chercher  ", '#', class: "btn" %></p>
+	<div class="col-sm-4 col-md-4">
+		<p><%= link_to " Chercher  ", '#', class: "btn btn-default", role: "button" %></p>
 	</div>
 	
-	<div class="span4">
-		<p><%= link_to "Enregistrer", '#', class: "btn" %></p>
+	<div class="col-sm-4 col-md-4">
+		<p><%= link_to "Enregistrer", '#', class: "btn btn-default", role: "button" %></p>
 	</div>
 </div>
