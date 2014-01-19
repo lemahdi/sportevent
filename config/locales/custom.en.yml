@@ -79,16 +79,6 @@ en:
         not_in_past: "cannot be in the past"
 
     view:
-      carousel:
-        item1:
-          title: "Fencing"
-          text: "Looking for rivals? .. they're waiting for you!"
-        item2:
-          title: "Football"
-          text: "This is a team game!"
-        item3:
-          title: "Kayak"
-          text: "Need some arms?"
       devise:
         remember_me: "Remember me"
         forgot_pwd: "Forgot your password?"

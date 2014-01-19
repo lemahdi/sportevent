@@ -87,16 +87,6 @@ fr:
         not_in_past: "ne peut pas être dans le passé"
 
     view:
-      carousel:
-        item1:
-          title: "Escrime"
-          text: "En quête d'adversaires ? .. ils vous attendent !"
-        item2:
-          title: "Football"
-          text: "C'est un sport d'équipe !"
-        item3:
-          title: "Kayak"
-          text: "Besoin de bras?"
       devise:
         remember_me: "Rester connecté"
         forgot_pwd: "Mot de passe oublié ?"
