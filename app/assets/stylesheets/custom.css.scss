@@ -75,7 +75,7 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2.2em;
   color: $blueLighter;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -87,6 +87,18 @@ p {
 #logo:hover {
   color: green;
   text-decoration: none;
+}
+
+.navbar-collapse .nav > li > a {
+    font-size: 1.2em;
+    color: black;
+}
+
+.navbar-collapse .nav > li > a:focus,
+.navbar-collapse .nav > li > a:hover {
+  color:  white;
+  text-decoration: none;
+  background-color: $blueLighter;
 }
 
 /* footer */
