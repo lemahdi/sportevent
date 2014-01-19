@@ -11,6 +11,7 @@
 $grayMediumLight: #eaeaea;
 $blueLighter: rgba(0, 100, 200, 1);
 // $blueLighter: rgba(blue, 1);
+$grayLighter: rgba(190, 190, 190, 0.3);
 
 /* universal */
 
@@ -278,6 +279,7 @@ input {
 .panel .panel-body {
   padding-left: 150px;
   padding-right: 150px;
+  background-color: $grayLighter;
 
   .sport {
     float: left;
