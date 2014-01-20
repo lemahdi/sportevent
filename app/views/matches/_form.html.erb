@@ -23,13 +23,13 @@
 
       <div class="row">
         <div class="col-sm-2 col-md-2">
-          <%= f.text_field :jour, class: "new_match input-append date datepicker form-control", value: Date.today.strftime('%d-%m-%Y') %>
+          <%= f.text_field :jour, class: "center input-append date datepicker form-control", value: Date.today.strftime('%d-%m-%Y') %>
         </div>
         <div class="col-sm-2 col-md-2">
-          <%= f.text_field :start, class: "new_match form-control", value: Time.now.strftime('%H:%M') %>
+          <%= f.text_field :start, class: "center form-control", value: Time.now.strftime('%H:%M') %>
         </div>
         <div class="col-sm-2 col-md-2">
-          <%= f.text_field :duration, class: "new_match form-control", value: 1.hour/60 %>
+          <%= f.text_field :duration, class: "center form-control", value: 1.hour/60 %>
         </div>
         <div class="col-sm-5 col-md-5">
           <%= f.select :field_id, fields_names, class: "form-control" %>
