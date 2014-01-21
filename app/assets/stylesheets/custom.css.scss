@@ -39,6 +39,28 @@ textarea {
   margin-bottom: 10px;
 }
 
+.justify {
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.lead {
+  font-size: 21px
+}
+
+.text-muted {
+  color: #999999;
+}
+
+.divider15 {
+  margin: 15px 0; /* Space out the Bootstrap <hr> more */
+}
+
+.divider80 {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,23 +81,6 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: $gray-light;
-}
-
-.justify {
-  text-align: justify;
-  line-height: 1.5;
-}
-
-.center {
-  text-align: center;
-}
-
-.lead {
-  font-size: 21px
-}
-
-.text-muted {
-  color: #999999;
 }
 
 p {
@@ -236,10 +241,6 @@ input {
   }
 }
 
-.time {
-  text-align: center;
-}
-
 .caution {
   color: red;
   font-weight: bold;
@@ -281,10 +282,6 @@ input {
 /* Featurettes */
 
 .featurette {
-}
-
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
 }
 
 .featurette-heading { /* Thin out the marketing headings */
