@@ -12,6 +12,7 @@ $grayMediumLight: #eaeaea;
 $blueLighter: rgba(0, 100, 200, 1);
 // $blueLighter: rgba(blue, 1);
 $grayLighter: rgba(190, 190, 190, 0.3);
+$grayDarker: rgba(190, 190, 190, 1);
 
 /* universal */
 
@@ -211,6 +212,15 @@ input {
   @extend .form-group;
   @extend .danger;
 }
+
+.grayme label {
+  color: $grayDarker;
+  font-weight: normal;
+}
+
+.rightme {
+  text-align: right;
+} 
 
 /* users index */
 
