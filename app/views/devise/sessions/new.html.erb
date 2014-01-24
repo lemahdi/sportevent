@@ -3,7 +3,11 @@
 <h1><%= I18n.t(:signin, scope: 'custom.verb') %></h1>
 
 <div class="row form-horizontal">
-  <div class="col-sm-6 col-md-6 col-lg-offset-3">
+
+  <div class="col-sm-6 col-md-6">
+  </div>
+
+  <div class="col-sm-4 col-md-4 col-lg-offset-1">
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
@@ -21,17 +25,17 @@
 		  <% if devise_mapping.rememberable? -%>
         <br />
         <div class="row">
-          <div class="col-sm-1">
+          <div class="col-sm-1 col-md-1">
   	    	  <%= f.check_box :remember_me %>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3 col-md-3">
   	    	  <%= f.label :remember_me, I18n.t(:remember_me, scope: 'custom.view.devise') %>
           </div>
         </div>
 		  <% end %>
 
       <br />
-      <%= render partial: 'devise/shared/submit', locals: { form: f, action: I18n.t(:signin, scope: 'custom.verb') } %>
+      <%= render partial: 'devise/shared/submit', locals: { form: f, action: I18n.t(:signin, scope: 'custom.verb'), content: "light" } %>
 
     <% end %>
 
