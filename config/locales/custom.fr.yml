@@ -32,6 +32,7 @@ fr:
       comment: "Commenter"
       post: "Poster"
       contact: "Contacter"
+      subscribe: "Inscrivez-vous"
 
     noun:
       logout: "Déconnexion"
@@ -94,6 +95,7 @@ fr:
         no_unlock_instruction: "Instructions de débloquage non reçues ?"
         signin_with: "S'inscrire avec"
         wait_confirm: "En attente d'une confirmation pour :"
+        new_to_spintcy: "Nouveau sur SPINTCY ?"
       title:
         new_confirm: "Nouvelle confirmation"
         locked_account: "Compte bloqué"

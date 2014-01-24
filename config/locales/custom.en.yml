@@ -23,7 +23,8 @@ en:
       send: "Send"
       comment: "Comment"
       post: "Post"
-      contact: "Contacter"
+      contact: "Contact"
+      subscribe: "Subscribe"
 
     noun:
       logout: "Logout"
@@ -86,6 +87,7 @@ en:
         no_unlock_instruction: "Didn't receive unlock instructions?"
         signin_with: "Sign in with"
         wait_confirm: "Currently waiting confirmation for:"
+        new_to_spintcy: "New to SPINTCY?"
       title:
         new_confirm: "New confirmation"
         locked_account: "Locked account"

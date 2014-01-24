@@ -57,6 +57,10 @@ textarea {
   margin: 15px 0; /* Space out the Bootstrap <hr> more */
 }
 
+.divider20 {
+  margin: 20px 0; /* Space out the Bootstrap <hr> more */
+}
+
 .divider60 {
   margin: 60px 0; /* Space out the Bootstrap <hr> more */
 }
@@ -217,9 +221,16 @@ input {
   @extend .danger;
 }
 
+.grayme {
+  color: $grayDarker;
+  font-weight: normal;
+  font-size: 0.95em;
+}
+
 .grayme label {
   color: $grayDarker;
   font-weight: normal;
+  font-size: 1em;
 }
 
 .rightme {
