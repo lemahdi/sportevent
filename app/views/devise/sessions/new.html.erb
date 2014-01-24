@@ -14,28 +14,32 @@
   		<!-- <%= devise_error_messages! %> -->
   		<%= render "devise/shared/errors" %>
 
-    	<br />
-      <%= f.label :email %>
-      <%= f.email_field :email, :autofocus => true, class: "form-control" %>
+        <%= f.email_field :email, :autofocus => true, class: "form-control", placeholder: "Email" %>
 
-    	<br />
-      <%= f.label :password, I18n.t(:password, scope: 'custom.form') %>
-      <%= f.password_field :password, class: "form-control" %>
+      <div class="row">
+        <div class="col-sm-8 col-md-8">
+          <%= f.password_field :password, class: "form-control", placeholder: I18n.t(:password, scope: 'custom.form') %>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <%= f.submit I18n.t(:signin, scope: 'custom.verb'), class: "btn btn-primary" %>
+        </div>
+      </div>
 
 		  <% if devise_mapping.rememberable? -%>
-        <br />
         <div class="row">
           <div class="col-sm-1 col-md-1">
   	    	  <%= f.check_box :remember_me %>
           </div>
-          <div class="col-sm-3 col-md-3">
+          <div class="col-sm-5 col-md-5">
   	    	  <%= f.label :remember_me, I18n.t(:remember_me, scope: 'custom.view.devise') %>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+              <%= link_to I18n.t(:forgot_pwd, scope: 'custom.view.devise'), new_password_path(resource_name) %><br />
+            <% end -%>
           </div>
         </div>
 		  <% end %>
-
-      <br />
-      <%= render partial: 'devise/shared/submit', locals: { form: f, action: I18n.t(:signin, scope: 'custom.verb'), content: "light" } %>
 
     <% end %>
 
