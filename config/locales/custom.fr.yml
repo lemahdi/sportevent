@@ -14,6 +14,7 @@ fr:
   custom:
 
     verb:
+      sign: "S'identifier / S'inscrire"
       signin: "S'identifier"
       signup: "S'inscrire"
       reset: "Ré-initialiser"

@@ -27,8 +27,8 @@
                 </ul>
               </li>
             <% else %>
-              <li><%= link_to I18n.t(:signin, scope: 'custom.verb'), new_user_session_path %></li>
-              <li><%= link_to I18n.t(:signup, scope: 'custom.verb'), new_user_registration_path %></li>
+              <li><%= link_to I18n.t(:sign, scope: 'custom.verb'), new_user_session_path %></li>
+              <!-- <li><%= link_to I18n.t(:signup, scope: 'custom.verb'), new_user_registration_path %></li> -->
             <% end %>
           </ul>
         </div>
