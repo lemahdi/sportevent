@@ -6,7 +6,7 @@ en:
   custom:
 
     verb:
-      sugn: "Sign in / Sign up"
+      sign: "Sign in / Sign up"
       signin: "Sign in"
       signup: "Sign up"
       reset: "Reset"
