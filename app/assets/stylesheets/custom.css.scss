@@ -248,6 +248,12 @@ input {
   text-align: right;
 }
 
+.halfme {
+  -moz-transform:scale(0.5);
+  -webkit-transform:scale(0.5);
+  transform:scale(0.5);
+}
+
 /* users index */
 
 .users {
@@ -347,6 +353,9 @@ input {
   .address {
     float: left;
     width: 400px;
+    .around {
+      float: right;
+    }
   }
 
   .btn-primary {

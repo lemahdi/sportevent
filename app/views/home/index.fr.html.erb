@@ -16,10 +16,22 @@
 		    <input type="text" class="form-control sport" placeholder="Sport ..">
 		  </div>
   		<div class="col-sm-5 col-md-5">
-		    <input type="text" class="form-control address" placeholder="Adresse ..">
+  			<div class="address">
+  				<div class="row">
+  					<div class="col-sm-8 col-md-8">
+					    <input type="text" class="form-control" placeholder="Adresse ..">
+					  </div>
+  					<div class="col-sm-4 col-md-4">
+					    <input type="text" class="form-control around" placeholder=".. km autour">
+					  </div>
+				  </div>
+			  </div>
 		  </div>
-  		<div class="col-sm-4 col-md-4">
+  		<div class="col-sm-3 col-md-3">
 		    <button type="button" class="btn btn-primary">Organiser</button>
+		  </div>
+  		<div class="col-sm-1 col-md-1">
+		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "organize_anchor" %>
 		  </div>
   	</div>
 
@@ -28,10 +40,22 @@
 		    <input type="text" class="form-control sport" placeholder="Sport ..">
 		  </div>
   		<div class="col-sm-5 col-md-5">
-		    <input type="text" class="form-control address" placeholder="Adresse ..">
+  			<div class="address">
+  				<div class="row">
+  					<div class="col-sm-8 col-md-8">
+					    <input type="text" class="form-control" placeholder="Adresse ..">
+					  </div>
+  					<div class="col-sm-4 col-md-4">
+					    <input type="text" class="form-control around" placeholder=".. km autour">
+					  </div>
+				  </div>
+			  </div>
 		  </div>
-  		<div class="col-sm-4 col-md-4">
+  		<div class="col-sm-3 col-md-3">
 		    <button type="button" class="btn btn-primary">Chercher</button>
+		  </div>
+  		<div class="col-sm-1 col-md-1">
+		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "find_anchor" %>
 		  </div>
   	</div>
 
@@ -42,8 +66,11 @@
   		<div class="col-sm-5 col-md-5">
 		    <input type="text" class="form-control address" placeholder="Adresse ..">
 		  </div>
-  		<div class="col-sm-4 col-md-4">
+  		<div class="col-sm-3 col-md-3">
 		    <button type="button" class="btn btn-primary">Enregistrer</button>
+		  </div>
+  		<div class="col-sm-1 col-md-1">
+		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "register_anchor" %>
 		  </div>
   	</div>
 
@@ -52,7 +79,7 @@
 
 <hr class="divider80">
 
-<div class="row featurette">
+<div id="organize_anchor" class="row featurette">
 	<div class="col-sm-7 col-md-7 featurette-text">
 		<h2 class="featurette-heading">
 			Organiser <span class="text-muted">vos Matchs.</span>
@@ -68,7 +95,7 @@
 
 <hr class="divider80">
 
-<div class="row featurette">
+<div id="find_anchor" class="row featurette">
 	<div class="col-sm-5 col-md-5">
 		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
@@ -84,7 +111,7 @@
 
 <hr class="divider80">
 
-<div class="row featurette">
+<div id="register_anchor" class="row featurette">
 	<div class="col-sm-7 col-md-7 featurette-text">
 		<h2 class="featurette-heading">
 			Enregistrer <span class="text-muted">vos Terrains préférés.</span>
