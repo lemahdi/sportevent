@@ -22,7 +22,7 @@
 		    <button type="button" class="btn btn-primary">Organiser</button>
 		  </div>
   		<div class="col-sm-1 col-md-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), id: "featurette1" %>
+		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "organize_anchor" %>
 		  </div>
   	</div>
 
@@ -37,7 +37,7 @@
 		    <button type="button" class="btn btn-primary">Chercher</button>
 		  </div>
   		<div class="col-sm-1 col-md-1">
-		    <%= image_tag "glyphicons_194_circle_question_mark.png", class: "halfme" %>
+		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "find_anchor" %>
 		  </div>
   	</div>
 
@@ -52,7 +52,7 @@
 		    <button type="button" class="btn btn-primary">Enregistrer</button>
 		  </div>
   		<div class="col-sm-1 col-md-1">
-		    <%= image_tag "glyphicons_194_circle_question_mark.png", class: "halfme" %>
+		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "register_anchor" %>
 		  </div>
   	</div>
 
@@ -61,7 +61,7 @@
 
 <hr class="divider80">
 
-<div id="featurette1" class="row featurette">
+<div id="organize_anchor" class="row featurette">
 	<div class="col-sm-7 col-md-7 featurette-text">
 		<h2 class="featurette-heading">
 			Organiser <span class="text-muted">vos Matchs.</span>
@@ -77,7 +77,7 @@
 
 <hr class="divider80">
 
-<div class="row featurette">
+<div id="find_anchor" class="row featurette">
 	<div class="col-sm-5 col-md-5">
 		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
@@ -93,7 +93,7 @@
 
 <hr class="divider80">
 
-<div class="row featurette">
+<div id="register_anchor" class="row featurette">
 	<div class="col-sm-7 col-md-7 featurette-text">
 		<h2 class="featurette-heading">
 			Enregistrer <span class="text-muted">vos Terrains préférés.</span>
