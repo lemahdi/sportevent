@@ -1,3 +1,60 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home_controller {
+	
+	/* Carousel */
+	
+	.carousel .item {
+	  max-height: 500px;
+
+	  .carousel-caption h1 {
+	    text-align: center;
+	    margin-top: 0px;
+	  }
+	}
+
+	/* Featurettes */
+
+	.featurette {
+	}
+
+	.featurette-heading { /* Thin out the marketing headings */
+	  color: black;
+	  font-weight: 300;
+	  line-height: 1;
+	  letter-spacing: -1px;
+	  font-size: 50px;
+	}
+
+	.featurette-text {
+	  margin-top: 120px;
+	}
+	
+	/* Search */
+
+	.panel .panel-body {
+	  padding-left: 150px;
+	  padding-right: 150px;
+	  background-color: $grayLighter;
+
+	  .sport {
+	    float: left;
+	    width: 200px;
+	  }
+
+	  .address {
+	    float: left;
+	    width: 400px;
+	    .around {
+	      float: right;
+	    }
+	  }
+
+	  .btn-primary {
+	    float: right;
+	    width: 100px;
+	  }
+	}
+}

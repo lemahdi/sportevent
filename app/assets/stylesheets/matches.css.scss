@@ -2,18 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.map_container2 {
-  padding: 6px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #ccc #ccc #999 #ccc;
-  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-  width: 314px;
-}
+#matches_controller {
+  .map_container2 {
+    padding: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc #ccc #999 #ccc;
+    -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+    -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+    box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+    width: 314px;
+  }
 
-.map_for_match {
-	height: 300px;
-	width: 300px;
+  .map_for_match {
+  	height: 300px;
+  	width: 300px;
+  }
+
+  .match {
+    text-align: left;
+    font-size: 1.2em;
+    
+    .field {
+      text-align: center;
+      /*color: blue;*/
+      .datepicker {
+        text-align: center;
+      }
+    }
+  }
+
+  .caution {
+    color: red;
+    font-weight: bold;
+  }
+
+  .comment {
+    .body {
+      text-align: left;
+    }
+
+    .commenter {
+      text-align: right;
+    }
+
+    .comment_time {
+      color: $gray-light;
+      font-size: 0.8em;
+    }
+  }
 }

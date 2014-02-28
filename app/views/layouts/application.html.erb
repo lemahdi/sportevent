@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
-<body>
+<body id="<%= params[:controller].parameterize %>_controller">
 
 	<%= render 'layouts/header' %>
 

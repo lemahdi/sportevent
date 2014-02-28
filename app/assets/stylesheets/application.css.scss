@@ -12,5 +12,11 @@
  *= require leaflet
  *= require leaflet.ie
  *= require_self
- *= require_tree .
  */
+
+@import "bootstrap";
+@import "custom";
+@import "home";
+@import "fields";
+@import "matches";
+@import "users";
