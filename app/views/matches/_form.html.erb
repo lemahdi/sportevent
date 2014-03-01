@@ -6,18 +6,18 @@
       <!-- match_error_messages! -->
       <%= render partial: 'layouts/errors', locals: { object: @match } %>
 
-      <div class="row center">
+      <div class="row text-center">
         <div class="col-sm-2">
           <%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %>
-          <%= f.text_field :jour, class: "center input-append date datepicker form-control", value: Date.today.strftime('%d-%m-%Y') %>
+          <%= f.text_field :jour, class: "text-center input-append date datepicker form-control", value: Date.today.strftime('%d-%m-%Y') %>
         </div>
         <div class="col-sm-2">
           <%= f.label :start, "#{I18n.t(:start, scope: 'custom.form')} (hh:mm)" %>
-          <%= f.text_field :start, class: "center form-control", value: Time.now.strftime('%H:%M') %>
+          <%= f.text_field :start, class: "text-center form-control", value: Time.now.strftime('%H:%M') %>
         </div>
         <div class="col-sm-2">
           <%= f.label :duration, "#{I18n.t(:duration, scope: 'custom.form')} (min)" %>
-          <%= f.text_field :duration, class: "center form-control", value: 1.hour/60 %>
+          <%= f.text_field :duration, class: "text-center form-control", value: 1.hour/60 %>
         </div>
         <div class="col-sm-5">
           <%= f.label :field_id %>
