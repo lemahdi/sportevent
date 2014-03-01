@@ -1,5 +1,11 @@
 /* mixins, variables, etc. */
 
+$grayMediumLight: #eaeaea;
+$blueLighter: rgba(0, 100, 200, 1);
+// $blueLighter: rgba(blue, 1);
+$grayLighter: rgba(190, 190, 190, 0.3);
+$grayDarker: rgba(190, 190, 190, 1);
+
 @mixin box-sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
@@ -9,12 +15,6 @@
 @mixin divide($top: 0, $right: 0) {
   margin: $top $right; /* Space out the Bootstrap <hr> more */
 }
-
-$grayMediumLight: #eaeaea;
-$blueLighter: rgba(0, 100, 200, 1);
-// $blueLighter: rgba(blue, 1);
-$grayLighter: rgba(190, 190, 190, 0.3);
-$grayDarker: rgba(190, 190, 190, 1);
 
 /* universal */
 
@@ -233,11 +233,6 @@ input {
     list-style: none;
     margin: 0 0 18px 0;
   }
-}
-
-.field_with_errors {
-  @extend .form-group;
-  @extend .danger;
 }
 
 /* mailer */
