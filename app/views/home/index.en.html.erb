@@ -10,70 +10,7 @@
 
 <div class="panel panel-info">
   <div class="panel-body">
-
-  	<div class="row">
-  		<div class="col-sm-3">
-		    <input type="text" class="form-control sport" placeholder="Sport ..">
-		  </div>
-  		<div class="col-sm-5">
-  			<div class="address">
-  				<div class="row">
-  					<div class="col-sm-8">
-					    <input type="text" class="form-control" placeholder="Address ..">
-					  </div>
-  					<div class="col-sm-4">
-					    <input type="text" class="form-control around" placeholder=".. km around">
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-  		<div class="col-sm-3">
-		    <button type="button" class="btn btn-primary">Organize</button>
-		  </div>
-  		<div class="col-sm-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "organize_anchor" %>
-		  </div>
-  	</div>
-
-  	<div class="row">
-  		<div class="col-sm-3">
-		    <input type="text" class="form-control sport" placeholder="Sport ..">
-		  </div>
-  		<div class="col-sm-5">
-  			<div class="address">
-  				<div class="row">
-  					<div class="col-sm-8">
-					    <input type="text" class="form-control" placeholder="Address ..">
-					  </div>
-  					<div class="col-sm-4">
-					    <input type="text" class="form-control around" placeholder=".. km around">
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-  		<div class="col-sm-3">
-		    <button type="button" class="btn btn-primary">Find</button>
-		  </div>
-  		<div class="col-sm-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "find_anchor" %>
-		  </div>
-  	</div>
-
-  	<div class="row">
-  		<div class="col-sm-3">
-		    <input type="text" class="form-control sport" placeholder="Field ..">
-		  </div>
-  		<div class="col-sm-5">
-		    <input type="text" class="form-control address" placeholder="Address ..">
-		  </div>
-  		<div class="col-sm-3">
-		    <button type="button" class="btn btn-primary">Register</button>
-		  </div>
-  		<div class="col-sm-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "register_anchor" %>
-		  </div>
-  	</div>
-
+		<%= render 'layouts/homefinder' %>
   </div>
 </div>
 

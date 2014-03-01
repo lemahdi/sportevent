@@ -10,10 +10,10 @@
 
     <div class="row form-horizontal">
 
-      <div class="col-sm-6">
-      </div>
+      <!-- <div class="col-sm-6">
+      </div> -->
 
-      <div class="col-sm-4 col-sm-offset-1">
+      <div class="col-sm-4 col-sm-offset-7">
 
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
@@ -39,7 +39,7 @@
               <div class="col-sm-5 whiteme">
       	    	  <%= f.label :remember_me, I18n.t(:remember_me, scope: 'custom.view.devise') %>
               </div>
-              <div class="col-sm-6 rightme">
+              <div class="col-sm-5 rightme">
                 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
                   <%= link_to I18n.t(:forgot_pwd, scope: 'custom.view.devise'), new_password_path(resource_name), class: "whiteme" %><br />
                 <% end -%>
