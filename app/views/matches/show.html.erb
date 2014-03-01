@@ -31,58 +31,27 @@
 
   </div>
 
-  <div class="col-sm-6 col-sm-offset-1">
+  <div class="col-sm-7">
     <br/><br/>
 
-    <div class="row">
-      <div class="col-sm-3">
-        <strong><%= I18n.t(:jour, scope: 'custom.form') %></strong>
-      </div>
-      <div class="col-sm-9">
-        <%= @match.jour.strftime('%d-%m-%Y') %>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-sm-3">
-        <strong><%= I18n.t(:start, scope: 'custom.form') %></strong>
-      </div>
-      <div class="col-sm-9">
-        <%= @match.start %>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-sm-3">
-        <strong><%= I18n.t(:end, scope: 'custom.form') %></strong>
-      </div>
-      <div class="col-sm-9">
-        <%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-sm-3">
-        <strong>Field</strong>
-      </div>
-      <div class="col-sm-9">
-        <%= link_to @match.field.name, field_path(@match.field), "data-no-turbolink" => true %>
-      </div>
-    </div>
+    <dl class="dl-horizontal">
+      <dt><%= I18n.t(:jour, scope: 'custom.form') %></dt>
+      <dd><%= @match.jour.strftime('%d-%m-%Y') %></dd>
 
-    <br/>
-    
-    <div class="row">
-      <div class="col-sm-3">
-        <strong><%= I18n.t(:participant, scope: 'custom.form') %></strong>
-      </div>
-      <div class="col-sm-9">
-        <%= sportizers_name(@match) %>
-      </div>
-    </div>
+      <dt><%= I18n.t(:start, scope: 'custom.form') %></dt>
+      <dd><%= @match.start %></dd>
 
-    <br/>
-    <br/>
+      <dt><%= I18n.t(:end, scope: 'custom.form') %></dt>
+      <dd><%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %></dd>
+
+      <dt>Field</dt>
+      <dd><%= link_to @match.field.name, field_path(@match.field), "data-no-turbolink" => true %></dd>
+
+      <dt><%= I18n.t(:participant, scope: 'custom.form') %></dt>
+      <dd><%= sportizers_name(@match) %></dd>
+    </dl>
+
+    <br/><br/>
 
     <% if is_member %>
       <div class="row">
