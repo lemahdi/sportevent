@@ -3,7 +3,7 @@
 <h1><%= I18n.t(:forgot_pwd, scope: 'custom.view.title') %></h1>
 
 <div class="row form-horizontal">
-  <div class="col-sm-6 col-md-6 col-lg-offset-3">
+  <div class="col-sm-6 col-sm-offset-3">
 
     <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
 

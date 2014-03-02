@@ -26,6 +26,7 @@ en:
       post: "Post"
       contact: "Contact"
       subscribe: "Subscribe"
+      find: "Find"
 
     noun:
       logout: "Logout"
@@ -121,6 +122,11 @@ en:
         all_fields: "All Fields"
         how_save_field: "How to save a Field?"
         save_field: "Save Field"
+      home:
+        finder:
+          sport: "Sport .."
+          address: "Address .."
+          around: ".. km around"
 
     controller:
       notice:

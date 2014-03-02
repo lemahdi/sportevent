@@ -12,9 +12,8 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rails-i18n'
 gem 'active_attr'
-gem 'bootstrap-datepicker-rails',
-	require: 'bootstrap-datepicker-rails',
-  git:     'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'momentjs-rails', '~> 2.5.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 2.1.30'
 gem 'google_timezone'
 gem 'leaflet-rails'
 

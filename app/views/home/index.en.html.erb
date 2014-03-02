@@ -10,100 +10,37 @@
 
 <div class="panel panel-info">
   <div class="panel-body">
-
-  	<div class="row">
-  		<div class="col-sm-3 col-md-3">
-		    <input type="text" class="form-control sport" placeholder="Sport ..">
-		  </div>
-  		<div class="col-sm-5 col-md-5">
-  			<div class="address">
-  				<div class="row">
-  					<div class="col-sm-8 col-md-8">
-					    <input type="text" class="form-control" placeholder="Address ..">
-					  </div>
-  					<div class="col-sm-4 col-md-4">
-					    <input type="text" class="form-control around" placeholder=".. km around">
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-  		<div class="col-sm-3 col-md-3">
-		    <button type="button" class="btn btn-primary">Organize</button>
-		  </div>
-  		<div class="col-sm-1 col-md-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "organize_anchor" %>
-		  </div>
-  	</div>
-
-  	<div class="row">
-  		<div class="col-sm-3 col-md-3">
-		    <input type="text" class="form-control sport" placeholder="Sport ..">
-		  </div>
-  		<div class="col-sm-5 col-md-5">
-  			<div class="address">
-  				<div class="row">
-  					<div class="col-sm-8 col-md-8">
-					    <input type="text" class="form-control" placeholder="Address ..">
-					  </div>
-  					<div class="col-sm-4 col-md-4">
-					    <input type="text" class="form-control around" placeholder=".. km around">
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-  		<div class="col-sm-3 col-md-3">
-		    <button type="button" class="btn btn-primary">Find</button>
-		  </div>
-  		<div class="col-sm-1 col-md-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "find_anchor" %>
-		  </div>
-  	</div>
-
-  	<div class="row">
-  		<div class="col-sm-3 col-md-3">
-		    <input type="text" class="form-control sport" placeholder="Field ..">
-		  </div>
-  		<div class="col-sm-5 col-md-5">
-		    <input type="text" class="form-control address" placeholder="Address ..">
-		  </div>
-  		<div class="col-sm-3 col-md-3">
-		    <button type="button" class="btn btn-primary">Register</button>
-		  </div>
-  		<div class="col-sm-1 col-md-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "register_anchor" %>
-		  </div>
-  	</div>
-
+		<%= render 'layouts/homefinder' %>
   </div>
 </div>
 
 <hr class="featurette-divider">
 
-<div id="organize_anchor" class="row featurette">
-	<div class="col-sm-7 col-md-7 featurette-text">
+<div class="row featurette" id="organize_anchor">
+	<div class="col-sm-7 featurette-position">
 		<h2 class="featurette-heading">
 			Organize <span class="text-muted">your Matches.</span>
 		</h2>
-		<p class="lead justify">
+		<p class="lead text-justify">
 			Organize your own Match. Choose a Field, send invitations and build up your team. Therefore, you can exchange comments with your teammates.
 		</p>
 	</div>
-	<div class="col-sm-5 col-md-5">
+	<div class="col-sm-5 featurette-position">
 		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
 </div>
 
 <hr class="featurette-divider">
 
-<div id="find_anchor" class="row featurette">
-	<div class="col-sm-5 col-md-5">
+<div class="row featurette" id="find_anchor">
+	<div class="col-sm-5 featurette-position">
 		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
-	<div class="col-sm-7 col-md-7 featurette-text">
+	<div class="col-sm-7 featurette-position">
 		<h2 class="featurette-heading">
 			Find <span class="text-muted">Matches.</span>
 		</h2>
-		<p class="lead justify">
+		<p class="lead text-justify">
 			You're looking for a Match? Click on the Match menu and choose from the list. You can then access to the Match page and read comments about the Match. Do not hesitate to ask your questions to the other players if you do not know them yet.
 		</p>
 	</div>
@@ -111,16 +48,16 @@
 
 <hr class="featurette-divider">
 
-<div id="register_anchor" class="row featurette">
-	<div class="col-sm-7 col-md-7 featurette-text">
+<div class="row featurette" id="register_anchor">
+	<div class="col-sm-7 featurette-position">
 		<h2 class="featurette-heading">
 			Register <span class="text-muted">your favorite Fields.</span>
 		</h2>
-		<p class="lead justify">
+		<p class="lead text-justify">
 			Your favorite field is not in the list, register it! You'll be then the only one able to organize matches in this Field. After the first Match, your teammates will be asked to validate the Field. Given their feedback, the Field will be added to or rejected from the Fields list.
 		</p>
 	</div>
-	<div class="col-sm-5 col-md-5">
+	<div class="col-sm-5 featurette-position">
 		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
 </div>

@@ -1,0 +1,36 @@
+// from railsapps.github.io/twitter-bootstrap-rails.html
+
+// make all images responsive by default
+img {
+	@extend .img-responsive;
+	margin: 0 auto;
+}
+
+// override for the 'Home' navigation link
+.navbar-brand {
+	font-size: inherit;
+}
+
+// IE snippet to fix "device width" and "viewport width"
+@-ms-viewport       { width: device-width; }
+
+// Windows Phone 8 snippet
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+
+// Safari rounding bug hack
+// @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: @screen-tablet) {
+//   ::i-block-chrome, .row.safari-fix  {
+//     display:table!important;
+//   }
+// 	::i-block-chrome, .row.safari-fix [class*="col-"] {
+//     display:table-cell!important;
+//     float:none!important;
+//   	width:auto!important;
+//   	padding-left:2%!important;
+// 		padding-right:2%!important;
+//   }
+// }

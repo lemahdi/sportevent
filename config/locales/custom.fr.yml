@@ -34,6 +34,7 @@ fr:
       post: "Poster"
       contact: "Contacter"
       subscribe: "Inscrivez-vous"
+      find: "Chercher"
 
     noun:
       logout: "Déconnexion"
@@ -129,6 +130,11 @@ fr:
         all_fields: "Tous les Fields"
         how_save_field: "Comment enregistrer un Field ?"
         save_field: "Poster un Field"
+      home:
+        finder:
+          sport: "Sport .."
+          address: "Adresse .."
+          around: ".. km autour"
 
     controller:
       notice:

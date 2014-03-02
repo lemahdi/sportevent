@@ -1,0 +1,54 @@
+<div class="row">
+	<div class="col-sm-2">
+    <input type="text" class="form-control" placeholder="<%= I18n.t(:sport, scope: 'custom.view.home.finder') %>">
+  </div>
+	<div class="col-sm-5">
+    <input type="text" class="form-control" placeholder="<%= I18n.t(:address, scope: 'custom.view.home.finder') %>">
+  </div>
+	<div class="col-sm-2">
+    <input type="text" class="form-control" placeholder="<%= I18n.t(:around, scope: 'custom.view.home.finder') %>">
+  </div>
+	<div class="col-sm-2">
+    <button type="button" class="btn btn-primary"><%= I18n.t(:organize, scope: 'custom.verb') %></button>
+  </div>
+	<div class="col-sm-1">
+    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "organize_anchor" %>
+  </div>
+</div>
+
+<div class="divider15"></div>
+
+<div class="row">
+	<div class="col-sm-2">
+    <input type="text" class="form-control" placeholder="<%= I18n.t(:sport, scope: 'custom.view.home.finder') %>">
+  </div>
+	<div class="col-sm-5">
+		<input type="text" class="form-control" placeholder="<%= I18n.t(:address, scope: 'custom.view.home.finder') %>">
+	</div>
+	<div class="col-sm-2">
+		<input type="text" class="form-control" placeholder="<%= I18n.t(:around, scope: 'custom.view.home.finder') %>">
+	</div>
+	<div class="col-sm-2">
+    <button type="button" class="btn btn-primary"><%= I18n.t(:find, scope: 'custom.verb') %></button>
+  </div>
+	<div class="col-sm-1">
+    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "find_anchor" %>
+  </div>
+</div>
+
+<div class="divider15"></div>
+
+<div class="row">
+	<div class="col-sm-2">
+    <input type="text" class="form-control" placeholder="Field ..">
+  </div>
+	<div class="col-sm-7">
+    <input type="text" class="form-control" placeholder="<%= I18n.t(:address, scope: 'custom.view.home.finder') %>">
+  </div>
+	<div class="col-sm-2">
+    <button type="button" class="btn btn-primary"><%= I18n.t(:save, scope: 'custom.verb') %></button>
+  </div>
+	<div class="col-sm-1">
+    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "register_anchor" %>
+  </div>
+</div>

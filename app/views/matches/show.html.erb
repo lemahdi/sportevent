@@ -1,162 +1,125 @@
 <% provide(:title, "Match Event") %>
 
 <div class="row">
-  <div class="col-sm-9 col-md-9 col-lg-offset-2">
 
+  <div class="col-sm-5">
+
+    <%= content_tag :div, class: "field_in_map", data: { latitude: @match.field.latitude, longitude: @match.field.longitude, description: print_field(@match.field), address: field_path(@match.field), zoom: 15 } do %>
+    <% end %>
     <div class="row">
-
-      <div class="col-sm-5 col-md-5">
-
-        <%= content_tag :div, class: "field_in_map", data: { latitude: @match.field.latitude, longitude: @match.field.longitude, description: print_field(@match.field), address: field_path(@match.field), zoom: 15 } do %>
-        <% end %>
-        <div class="row">
-          <div class="col-sm-12 col-md-12">
-            <div class="map_container2">
-              <div id="map" class="map_for_match"></div>
-            </div>
-          </div>
+      <div class="col-sm-12">
+        <div class="map_container2">
+          <div id="map" class="map_for_match"></div>
         </div>
-
-        <br/>
-        <div class="row">
-          <% is_member = @match.users.include?(current_user) %>
-          <div class="col-sm-5 col-md-5 caution">
-            <%= form_for @match, url: match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do |f| %>
-              <%= f.hidden_field :participate, value: is_member ? "no" : "yes" %>
-              <% if is_member %>
-                <%= f.submit I18n.t(:out_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-danger" %>
-              <% else %>
-                <%= f.submit I18n.t(:in_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-success" %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-
       </div>
-
-      <div class="col-sm-7 col-md-7">
-        <br/><br/>
-
-        <div class="row">
-          <div class="col-sm-2 col-md-2">
-            <strong><%= I18n.t(:jour, scope: 'custom.form') %></strong>
-          </div>
-          <div class="col-sm-10 col-md-10">
-            <%= @match.jour.strftime('%d-%m-%Y') %>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-sm-2 col-md-2">
-            <strong><%= I18n.t(:start, scope: 'custom.form') %></strong>
-          </div>
-          <div class="col-sm-10 col-md-10">
-            <%= @match.start %>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-sm-2 col-md-2">
-            <strong><%= I18n.t(:end, scope: 'custom.form') %></strong>
-          </div>
-          <div class="col-sm-10 col-md-10">
-            <%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-sm-2 col-md-2">
-            <strong>Field</strong>
-          </div>
-          <div class="col-sm-10 col-md-10">
-            <%= link_to @match.field.name, field_path(@match.field), "data-no-turbolink" => true %>
-          </div>
-        </div>
-
-        <br/>
-        
-        <div class="row">
-          <div class="col-sm-2 col-md-2">
-            <strong><%= I18n.t(:participant, scope: 'custom.form') %></strong>
-          </div>
-          <div class="col-sm-10 col-md-10">
-            <%= sportizers_name(@match) %>
-          </div>
-        </div>
-
-        <br/>
-        <br/>
-
-        <% if is_member %>
-          <div class="row">
-            <div class="col-sm-12 col-md-12">
-              <strong><%= I18n.t(:contact_all_others, scope: 'custom.form') %></strong>
-            </div>
-          </div>
-
-          <%= form_for Contact.new, url: contact_path, method: :put do |f| %>
-
-            <br/>
-            <div class="row">
-              <div class="col-sm-12 col-md-12">
-                <!-- %= text_area_tag :content % -->
-                <%= f.text_area :content, class: "form-control" %>
-              </div>
-            </div>
-
-            <%= f.hidden_field :match_id, value: @match.id %>
-            <%= f.hidden_field :destination, value: "all" %>
-
-            <div class="row">
-              <div class="col-sm-3 col-md-3">
-                <%= f.submit I18n.t(:send, scope: 'custom.verb'), class: "btn btn-sm btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
-              </div>
-            </div>
-
-          <% end %>
-
-        <% end %>
-
-        <br/>
-      </div>
-
     </div>
-    <br/>
-    
-    <br/>
-    <strong><%= I18n.t(:comment, scope: 'custom.form') %></strong>
 
-    <% unless @match.comments.nil? %>
-      <table class="table table-striped table-condensed">
-        <tbody class="comment">
-          <% @match.comments.older.each do |comment| %>
-            <tr>
-              <td class="body"><%= comment.body %></td>
-              <td class="commenter">
-                <%= link_to comment.user.prenom, user_path(comment.user) %>
-                <% if !current_user.nil? && current_user.admin? %>
-                  | <%= link_to I18n.t(:delete, scope: 'custom.verb'), match_comment_path(@match, comment), method: :delete, data: { confirm: I18n.t(:sure, scope: 'custom.view.helper') } %>
-                <% end %>
-                <div class="comment_time">
-                  <%= "#{I18n.t(:on_time, scope: 'custom.preposition')} #{comment.created_at.strftime('%d/%m/%Y')} #{I18n.t(:at, scope: 'custom.preposition')} #{comment.created_at.strftime('%H:%M')}" %>
-                </div>
-            </td>
-            </tr>
+    <br/>
+    <div class="row">
+      <% is_member = @match.users.include?(current_user) %>
+      <div class="col-sm-5 caution">
+        <%= form_for @match, url: match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do |f| %>
+          <%= f.hidden_field :participate, value: is_member ? "no" : "yes" %>
+          <% if is_member %>
+            <%= f.submit I18n.t(:out_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-danger" %>
+          <% else %>
+            <%= f.submit I18n.t(:in_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-success" %>
           <% end %>
-        </tbody>
-      </table>
-    <% end %>
-
-    <% if playing_user?(@match, current_user) %>
-      <%= form_for([@match, @match.comments.build]) do |f| %>
-        <%= f.text_area :body, class: "form-control" %>
-        <div class="row">
-          <div class="col-sm-2 col-md-2">
-            <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-sm btn-primary" %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+        <% end %>
+      </div>
+    </div>
 
   </div>
+
+  <div class="col-sm-7">
+    <br/><br/>
+
+    <dl class="dl-horizontal">
+      <dt><%= I18n.t(:jour, scope: 'custom.form') %></dt>
+      <dd><%= @match.jour.strftime('%d-%m-%Y') %></dd>
+
+      <dt><%= I18n.t(:start, scope: 'custom.form') %></dt>
+      <dd><%= @match.start %></dd>
+
+      <dt><%= I18n.t(:end, scope: 'custom.form') %></dt>
+      <dd><%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %></dd>
+
+      <dt>Field</dt>
+      <dd><%= link_to @match.field.name, field_path(@match.field), "data-no-turbolink" => true %></dd>
+
+      <dt><%= I18n.t(:participant, scope: 'custom.form') %></dt>
+      <dd><%= sportizers_name(@match) %></dd>
+    </dl>
+
+    <br/><br/>
+
+    <% if is_member %>
+      <div class="row">
+        <div class="col-sm-12">
+          <strong><%= I18n.t(:contact_all_others, scope: 'custom.form') %></strong>
+        </div>
+      </div>
+
+      <%= form_for Contact.new, url: contact_path, method: :put do |f| %>
+
+        <br/>
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- %= text_area_tag :content % -->
+            <%= f.text_area :content, class: "form-control" %>
+          </div>
+        </div>
+
+        <%= f.hidden_field :match_id, value: @match.id %>
+        <%= f.hidden_field :destination, value: "all" %>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <%= f.submit I18n.t(:send, scope: 'custom.verb'), class: "btn btn-sm btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
+          </div>
+        </div>
+
+      <% end %>
+
+    <% end %>
+
+    <br/>
+  </div>
+
 </div>
+<br/>
+
+<br/>
+<strong><%= I18n.t(:comment, scope: 'custom.form') %></strong>
+
+<% unless @match.comments.nil? %>
+  <table class="table table-striped table-condensed">
+    <tbody class="comment">
+      <% @match.comments.older.each do |comment| %>
+        <tr>
+          <td class="body"><%= comment.body %></td>
+          <td class="commenter">
+            <%= link_to comment.user.prenom, user_path(comment.user) %>
+            <% if !current_user.nil? && current_user.admin? %>
+              | <%= link_to I18n.t(:delete, scope: 'custom.verb'), match_comment_path(@match, comment), method: :delete, data: { confirm: I18n.t(:sure, scope: 'custom.view.helper') } %>
+            <% end %>
+            <div class="comment_time">
+              <%= "#{I18n.t(:on_time, scope: 'custom.preposition')} #{comment.created_at.strftime('%d/%m/%Y')} #{I18n.t(:at, scope: 'custom.preposition')} #{comment.created_at.strftime('%H:%M')}" %>
+            </div>
+        </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if playing_user?(@match, current_user) %>
+  <%= form_for([@match, @match.comments.build]) do |f| %>
+    <%= f.text_area :body, class: "form-control" %>
+    <div class="row">
+      <div class="col-sm-2">
+        <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

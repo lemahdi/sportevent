@@ -10,100 +10,37 @@
 
 <div class="panel panel-info">
   <div class="panel-body">
-
-  	<div class="row">
-  		<div class="col-sm-3 col-md-3">
-		    <input type="text" class="form-control sport" placeholder="Sport ..">
-		  </div>
-  		<div class="col-sm-5 col-md-5">
-  			<div class="address">
-  				<div class="row">
-  					<div class="col-sm-8 col-md-8">
-					    <input type="text" class="form-control" placeholder="Adresse ..">
-					  </div>
-  					<div class="col-sm-4 col-md-4">
-					    <input type="text" class="form-control around" placeholder=".. km autour">
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-  		<div class="col-sm-3 col-md-3">
-		    <button type="button" class="btn btn-primary">Organiser</button>
-		  </div>
-  		<div class="col-sm-1 col-md-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "organize_anchor" %>
-		  </div>
-  	</div>
-
-  	<div class="row">
-  		<div class="col-sm-3 col-md-3">
-		    <input type="text" class="form-control sport" placeholder="Sport ..">
-		  </div>
-  		<div class="col-sm-5 col-md-5">
-  			<div class="address">
-  				<div class="row">
-  					<div class="col-sm-8 col-md-8">
-					    <input type="text" class="form-control" placeholder="Adresse ..">
-					  </div>
-  					<div class="col-sm-4 col-md-4">
-					    <input type="text" class="form-control around" placeholder=".. km autour">
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-  		<div class="col-sm-3 col-md-3">
-		    <button type="button" class="btn btn-primary">Chercher</button>
-		  </div>
-  		<div class="col-sm-1 col-md-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "find_anchor" %>
-		  </div>
-  	</div>
-
-  	<div class="row">
-  		<div class="col-sm-3 col-md-3">
-		    <input type="text" class="form-control sport" placeholder="Field ..">
-		  </div>
-  		<div class="col-sm-5 col-md-5">
-		    <input type="text" class="form-control address" placeholder="Adresse ..">
-		  </div>
-  		<div class="col-sm-3 col-md-3">
-		    <button type="button" class="btn btn-primary">Enregistrer</button>
-		  </div>
-  		<div class="col-sm-1 col-md-1">
-		    <%= link_to image_tag("glyphicons_194_circle_question_mark.png", class: "halfme"), anchor: "register_anchor" %>
-		  </div>
-  	</div>
-
+		<%= render 'layouts/homefinder' %>
   </div>
 </div>
 
 <hr class="divider80">
 
-<div id="organize_anchor" class="row featurette">
-	<div class="col-sm-7 col-md-7 featurette-text">
+<div class="row featurette" id="organize_anchor">
+	<div class="col-sm-7 featurette-position">
 		<h2 class="featurette-heading">
 			Organiser <span class="text-muted">vos Matchs.</span>
 		</h2>
-		<p class="lead justify">
+		<p class="lead text-justify">
 			Organisez votre propre Match. Choisissez un Field, lancez des invitations et constituez votre équipe. Une fois le Match organisé, vous pourrez échanger des commentaires avec les autres participants.
 		</p>
 	</div>
-	<div class="col-sm-5 col-md-5">
+	<div class="col-sm-5 featurette-position">
 		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
 </div>
 
 <hr class="divider80">
 
-<div id="find_anchor" class="row featurette">
-	<div class="col-sm-5 col-md-5">
+<div class="row featurette" id="find_anchor">
+	<div class="col-sm-5 featurette-position">
 		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
-	<div class="col-sm-7 col-md-7 featurette-text">
+	<div class="col-sm-7 featurette-position">
 		<h2 class="featurette-heading">
 			Chercher <span class="text-muted">des Matchs.</span>
 		</h2>
-		<p class="lead justify">
+		<p class="lead text-justify">
 			Vous voulez participer à un Match ? Allez dans le menu Match et choisissez-en un dans la liste. Vous pourrez alors accéder à la page du Match et lire les commentaires des autres participants. N'hésitez pas à leur poser vos questions si vous ne les connaissez pas encore.
 		</p>
 	</div>
@@ -111,16 +48,16 @@
 
 <hr class="divider80">
 
-<div id="register_anchor" class="row featurette">
-	<div class="col-sm-7 col-md-7 featurette-text">
+<div class="row featurette" id="register_anchor">
+	<div class="col-sm-7 featurette-position">
 		<h2 class="featurette-heading">
 			Enregistrer <span class="text-muted">vos Terrains préférés.</span>
 		</h2>
-		<p class="lead justify">
+		<p class="lead text-justify">
 			Vous ne trouvez pas votre terrain préféré dans la liste des Fields, enregistrez-le! Votre Field sera dans premier temps en attente de validation, et vous serez le seul à pouvoir y organiser un Match. Une fois votre premier Match joué, les participants valideront le terrain et tous les Sportizers pourront l'utiliser par la suite.
 		</p>
 	</div>
-	<div class="col-sm-5 col-md-5">
+	<div class="col-sm-5 featurette-position">
 		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
 </div>
