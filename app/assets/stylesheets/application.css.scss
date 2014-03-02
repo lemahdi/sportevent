@@ -8,14 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require bootstrap-datepicker
- *= require leaflet
- *= require leaflet.ie
  *= require_self
  */
 
+@import "leaflet";
+@import "leaflet.ie";
+
 @import "bootstrap";
+@import "bootstrap-datetimepicker";
 @import "framework_and_overrides";
+
 @import "custom";
 @import "home";
 @import "fields";

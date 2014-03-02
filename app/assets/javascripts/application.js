@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require bootstrap-datetimepicker
+//= require locales/bootstrap-datetimepicker.fr
 //= require leaflet
 
 //= require_tree .

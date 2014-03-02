@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row well">
   <div class="col-sm-11 col-sm-offset-1">
 
     <%= form_for(@match) do |f| %>
@@ -6,19 +6,38 @@
       <!-- match_error_messages! -->
       <%= render partial: 'layouts/errors', locals: { object: @match } %>
 
-      <div class="row text-center">
+      <div class="row text-center form-group">
         <div class="col-sm-2">
           <%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %>
-          <%= f.text_field :jour, class: "text-center input-append date datepicker form-control", value: Date.today.strftime('%d-%m-%Y') %>
+          <div class="input-group date" id="match_date">
+            <%= f.text_field :jour, class: "text-center form-control", "data-format" => "dd-MM-yyyy", value: Date.today.strftime('%d-%m-%Y') %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
         </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+
         <div class="col-sm-2">
           <%= f.label :start, "#{I18n.t(:start, scope: 'custom.form')} (hh:mm)" %>
-          <%= f.text_field :start, class: "text-center form-control", value: Time.now.strftime('%H:%M') %>
+          <div class="input-group date">
+            <%= f.text_field :start, class: "text-center form-control", value: Time.now.strftime('%H:%M') %>
+            <span class="input-group-addon" id="match_time">
+              <span class="glyphicon glyphicon-time"></span>
+            </span>
+          </div>
         </div>
+        
         <div class="col-sm-2">
           <%= f.label :duration, "#{I18n.t(:duration, scope: 'custom.form')} (min)" %>
           <%= f.text_field :duration, class: "text-center form-control", value: 1.hour/60 %>
         </div>
+        
         <div class="col-sm-5">
           <%= f.label :field_id %>
           <%= f.select :field_id, fields_names, class: "form-control" %>
