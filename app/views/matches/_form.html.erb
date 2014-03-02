@@ -9,25 +9,19 @@
       <div class="row text-center form-group">
         <div class="col-sm-2">
           <%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %>
-          <div class="input-group date" id="match_date">
-            <%= f.text_field :jour, class: "text-center form-control", "data-format" => "dd-MM-yyyy", value: Date.today.strftime('%d-%m-%Y') %>
+          <div class="input-group" id="match_date">
+            <%= f.text_field :jour, class: "text-center form-control", "data-format" => "DD-MM-YYYY", value: Date.today.strftime('%d-%m-%Y') %>
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
           </div>
         </div>
 
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
-
         <div class="col-sm-2">
           <%= f.label :start, "#{I18n.t(:start, scope: 'custom.form')} (hh:mm)" %>
-          <div class="input-group date">
+          <div class="input-group" id="match_time">
             <%= f.text_field :start, class: "text-center form-control", value: Time.now.strftime('%H:%M') %>
-            <span class="input-group-addon" id="match_time">
+            <span class="input-group-addon">
               <span class="glyphicon glyphicon-time"></span>
             </span>
           </div>
