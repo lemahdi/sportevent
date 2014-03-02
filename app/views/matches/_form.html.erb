@@ -1,5 +1,5 @@
 <div class="row well">
-  <div class="col-sm-11 col-sm-offset-1">
+  <div class="col-md-11 col-md-offset-1">
 
     <%= form_for(@match) do |f| %>
 
@@ -7,7 +7,7 @@
       <%= render partial: 'layouts/errors', locals: { object: @match } %>
 
       <div class="row text-center form-group">
-        <div class="col-sm-2">
+        <div class="col-md-3">
           <%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %>
           <div class="input-group" id="match_date">
             <%= f.text_field :jour, class: "text-center form-control", "data-format" => "DD-MM-YYYY", value: Date.today.strftime('%d-%m-%Y') %>
@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <div class="col-sm-2">
+        <div class="col-md-2">
           <%= f.label :start, "#{I18n.t(:start, scope: 'custom.form')} (hh:mm)" %>
           <div class="input-group" id="match_time">
             <%= f.text_field :start, class: "text-center form-control", value: Time.now.strftime('%H:%M') %>
@@ -27,19 +27,19 @@
           </div>
         </div>
         
-        <div class="col-sm-2">
+        <div class="col-md-2">
           <%= f.label :duration, "#{I18n.t(:duration, scope: 'custom.form')} (min)" %>
           <%= f.text_field :duration, class: "text-center form-control", value: 1.hour/60 %>
         </div>
         
-        <div class="col-sm-5">
+        <div class="col-md-5">
           <%= f.label :field_id %>
-          <%= f.select :field_id, fields_names, class: "form-control" %>
+          <%= f.select :field_id, fields_names, {}, { class: "form-control" } %>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-2 col-sm-offset-4">
+        <div class="col-md-2 col-md-offset-4">
           <br />
           <%= f.submit I18n.t(:organize, scope: 'custom.verb'), class: "btn btn-lg btn-primary" %>
         </div>
