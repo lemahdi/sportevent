@@ -89,6 +89,25 @@ textarea {
   float: right !important;
 }
 
+// center content blocks
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// clear the float on any element with the .clearfx class
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
