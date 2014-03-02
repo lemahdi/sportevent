@@ -5,14 +5,15 @@
 #home_controller {
 	
 	/* Carousel */
-	
-	.carousel .item {
-	  max-height: 500px;
+	.carousel {
+		.item {
+		  max-height: 500px;
 
-	  .carousel-caption h1 {
-	    text-align: center;
-	    margin-top: 0px;
-	  }
+		  .carousel-caption h1 {
+		    text-align: center;
+		    margin-top: 0px;
+		  }
+		}
 	}
 
 	/* Featurettes */
