@@ -157,12 +157,20 @@ p {
 .navbar-collapse .nav > li > a {
   font-size: 1.2em;
   color: black;
+  font-family: 'source_sans_proextralight';
+  text-transform: uppercase;
 
   &:focus, &:hover {
     color:  white;
     text-decoration: none;
     background-color: $blueLighter;
   }
+}
+
+.dropdown-menu {
+  font-size: 1em;
+  color: black;
+  font-family: 'source_sans_proextralight';
 }
 
 /* footer */
