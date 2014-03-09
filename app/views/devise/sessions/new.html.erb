@@ -10,10 +10,7 @@
 
     <div class="row form-horizontal">
 
-      <!-- <div class="col-sm-6">
-      </div> -->
-
-      <div class="col-sm-4 col-sm-offset-7">
+      <div class="col-md-4 col-md-offset-7">
 
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
@@ -23,23 +20,23 @@
           <%= f.email_field :email, :autofocus => true, class: "form-control", placeholder: "Email" %>
 
           <div class="row">
-            <div class="col-sm-8">
+            <div class="col-md-8">
               <%= f.password_field :password, class: "form-control", placeholder: I18n.t(:password, scope: 'custom.form') %>
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4">
               <%= f.submit I18n.t(:signin, scope: 'custom.verb'), class: "btn btn-primary" %>
             </div>
           </div>
 
     		  <% if devise_mapping.rememberable? -%>
             <div class="row">
-              <div class="col-sm-1">
+              <div class="col-md-1">
       	    	  <%= f.check_box :remember_me %>
               </div>
-              <div class="col-sm-5 whiteme">
+              <div class="col-md-5 whiteme">
       	    	  <%= f.label :remember_me, I18n.t(:remember_me, scope: 'custom.view.devise') %>
               </div>
-              <div class="col-sm-5 text-right">
+              <div class="col-md-5 text-right">
                 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
                   <%= link_to I18n.t(:forgot_pwd, scope: 'custom.view.devise'), new_password_path(resource_name), class: "whiteme" %><br />
                 <% end -%>
@@ -63,10 +60,10 @@
           <%= render "devise/shared/errors" %>
 
           <div class="row">
-            <div class="col-sm-8">
+            <div class="col-md-8">
               <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4">
               <%= f.submit I18n.t(:signup, scope: 'custom.verb'), class: "btn btn-primary" %>
             </div>
           </div>

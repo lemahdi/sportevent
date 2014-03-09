@@ -2,12 +2,12 @@
 
 <div class="row">
 
-  <div class="col-sm-5">
+  <div class="col-md-5">
 
     <%= content_tag :div, class: "field_in_map", data: { latitude: @match.field.latitude, longitude: @match.field.longitude, description: print_field(@match.field), address: field_path(@match.field), zoom: 15 } do %>
     <% end %>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-md-12">
         <div class="map_container2">
           <div id="map" class="map_for_match"></div>
         </div>
@@ -17,13 +17,13 @@
     <br/>
     <div class="row">
       <% is_member = @match.users.include?(current_user) %>
-      <div class="col-sm-5 caution">
+      <div class="col-md-5 caution">
         <%= form_for @match, url: match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do |f| %>
           <%= f.hidden_field :participate, value: is_member ? "no" : "yes" %>
           <% if is_member %>
-            <%= f.submit I18n.t(:out_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-danger" %>
+            <%= f.submit I18n.t(:out_match, scope: 'custom.view.match'), class: "btn btn-md btn-default btn-danger" %>
           <% else %>
-            <%= f.submit I18n.t(:in_match, scope: 'custom.view.match'), class: "btn btn-sm btn-default btn-success" %>
+            <%= f.submit I18n.t(:in_match, scope: 'custom.view.match'), class: "btn btn-md btn-default btn-success" %>
           <% end %>
         <% end %>
       </div>
@@ -31,7 +31,7 @@
 
   </div>
 
-  <div class="col-sm-7">
+  <div class="col-md-7">
     <br/><br/>
 
     <dl class="dl-horizontal">
@@ -55,7 +55,7 @@
 
     <% if is_member %>
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-12">
           <strong><%= I18n.t(:contact_all_others, scope: 'custom.form') %></strong>
         </div>
       </div>
@@ -64,7 +64,7 @@
 
         <br/>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <!-- %= text_area_tag :content % -->
             <%= f.text_area :content, class: "form-control" %>
           </div>
@@ -74,8 +74,8 @@
         <%= f.hidden_field :destination, value: "all" %>
 
         <div class="row">
-          <div class="col-sm-3">
-            <%= f.submit I18n.t(:send, scope: 'custom.verb'), class: "btn btn-sm btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
+          <div class="col-md-3">
+            <%= f.submit I18n.t(:send, scope: 'custom.verb'), class: "btn btn-md btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
           </div>
         </div>
 
@@ -117,8 +117,8 @@
   <%= form_for([@match, @match.comments.build]) do |f| %>
     <%= f.text_area :body, class: "form-control" %>
     <div class="row">
-      <div class="col-sm-2">
-        <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-sm btn-primary" %>
+      <div class="col-md-2">
+        <%= f.submit I18n.t(:comment, scope: 'custom.verb'), class: "btn btn-md btn-primary" %>
       </div>
     </div>
   <% end %>
