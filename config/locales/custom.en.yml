@@ -124,9 +124,9 @@ en:
         save_field: "Save Field"
       home:
         carousel:
-          photo1: "Don't stay alone, some duels are waiting for you!"
-          photo2: "You need more than four players for a football game!"
-          photo3: "With SPINTCY, sport is played in a group!"
+          photo1: "Do you need a partner?"
+          photo2: "Or maybe more partners?"
+          photo3: "Some sports need simply more arms!"
         finder:
           sport: "Sport .."
           address: "Address .."

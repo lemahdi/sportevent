@@ -18,7 +18,8 @@
 //= require bootstrap-datetimepicker
 //= require moment/fr
 //= require locales/bootstrap-datetimepicker.fr
-//= require leaflet
+//= require underscore-min
+//= require gmaps/google
 
 //= require_tree .
 
