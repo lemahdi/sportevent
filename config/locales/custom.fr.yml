@@ -131,6 +131,10 @@ fr:
         how_save_field: "Comment enregistrer un Field ?"
         save_field: "Poster un Field"
       home:
+        carousel:
+          photo1: "Ne restez pas seul, des duels vous attendent !"
+          photo2: "Il faut être plus que quatre pour jouer au foot!"
+          photo3: "Avec SPINTCY, faites du sport en groupe !"
         finder:
           sport: "Sport .."
           address: "Adresse .."
