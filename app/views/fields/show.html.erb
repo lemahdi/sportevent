@@ -8,11 +8,11 @@
       <u>Lon:</u> <%= @field.longitude %><br/>
     </p>
 
-    <%= content_tag :div, class: "field_in_map", data: { latitude: @field.latitude, longitude: @field.longitude, description: print_field(@field), address: field_path(@field) } do %>
+    <%= content_tag :div, class: "field_in_map", data: { latitude: @field.latitude, longitude: @field.longitude, description: print_field(@field), address: field_path(@field), zoom: 15 } do %>
     <% end %>
   </div>
 
-  <div class="col-md-8 map_container">
+  <div class="col-md-8 map_container" id="map_canvas">
     <div id="map" class="map_with_one_field"></div>
   </div>
 
