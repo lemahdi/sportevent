@@ -132,9 +132,9 @@ fr:
         save_field: "Poster un Field"
       home:
         carousel:
-          photo1: "Ne restez pas seul, des duels vous attendent !"
-          photo2: "Il faut être plus que quatre pour jouer au foot!"
-          photo3: "Avec SPINTCY, faites du sport en groupe !"
+          photo1: "Cherchez-vous un partenaire ?"
+          photo2: "Ou peut être plusieurs partenaires ?"
+          photo3: "Certains sports ont simplement besoin de plus de bras !"
         finder:
           sport: "Sport .."
           address: "Adresse .."
