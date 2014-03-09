@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #matches_controller {
-  .map_container2 {
+  .map_container {
     padding: 6px;
     border-width: 1px;
     border-style: solid;
@@ -11,12 +11,12 @@
     -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
     -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
     box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-    width: 314px;
   }
 
   .map_for_match {
-  	height: 300px;
-  	width: 300px;
+    height: 100%;
+    width: 100%;
+    min-height: 300px;
   }
 
   .match {

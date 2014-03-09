@@ -1,8 +1,7 @@
 <% provide(:title, print_field(@field)) %>
 
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-1">
-
+  <div class="col-md-3 col-sm-offset-1">
     <p>
       <strong><%= print_field(@field) %></strong><br/>
       <u>Lat:</u> <%= @field.latitude %><br/>
@@ -11,9 +10,10 @@
 
     <%= content_tag :div, class: "field_in_map", data: { latitude: @field.latitude, longitude: @field.longitude, description: print_field(@field), address: field_path(@field) } do %>
     <% end %>
-    <div class="map_container">
-      <div id="map" class="map_with_one_field"></div>
-    </div>
-
   </div>
+
+  <div class="col-md-8 map_container">
+    <div id="map" class="map_with_one_field"></div>
+  </div>
+
 </div>
