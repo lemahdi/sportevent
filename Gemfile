@@ -6,7 +6,6 @@ ruby "2.0.0"
 gem 'rails',          '4.0.0.beta1'
 gem 'protected_attributes'
 gem 'devise',         '3.0.0.rc'
-# gem 'rails_12factor'
 gem 'bcrypt-ruby',    '3.0.1'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
@@ -15,7 +14,7 @@ gem 'active_attr'
 gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 2.1.30'
 gem 'google_timezone'
-gem 'leaflet-rails'
+gem 'gmaps4rails'
 
 gem 'pg'
 

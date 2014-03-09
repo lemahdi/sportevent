@@ -53,6 +53,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    gmaps4rails (2.1.2)
     google_timezone (0.0.1)
     hike (1.2.3)
     i18n (0.6.4)
@@ -63,7 +64,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.0)
     kgio (2.8.1)
-    leaflet-rails (0.6.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -151,10 +151,10 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 2.1.30)
   coffee-rails (~> 4.0.0.beta1)
   devise (= 3.0.0.rc)
+  gmaps4rails
   google_timezone
   jbuilder (~> 1.0.1)
   jquery-rails
-  leaflet-rails
   momentjs-rails (~> 2.5.0)
   pg
   protected_attributes
