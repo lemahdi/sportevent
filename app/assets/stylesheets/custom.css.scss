@@ -55,6 +55,10 @@ textarea {
   @include divide(80px);
 }
 
+.divider120 {
+  @include divide(120px);
+}
+
 .grayme {
   color: $grayDarker;
   font-weight: normal;
