@@ -1,3 +1,32 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#devise-sessions_controller {
+	.signpage {
+	  background: image-url("grass-1-6271x1700.jpg") no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	  max-height: 800px;
+	}
+	
+	.gravatar {
+	  float: left;
+	  margin-right: 10px;
+	}
+
+	.users {
+	  list-style: none;
+	  margin: 0;
+	  li {
+	    overflow: auto;
+	    padding: 10px 0;
+	    border-top: 1px solid $gray-lighter;
+	    &:last-child {
+	      border-bottom: 1px solid $gray-lighter;
+	    }
+	  }
+	}
+}

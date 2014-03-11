@@ -1,47 +1,65 @@
+</div>
+
 <% provide(:title, I18n.t(:title, scope: 'custom.controller.home')) %>
 
-<div class="center jumbotron">
-	<h1>Sport in the City</h1>
+<%= render 'layouts/carousel' %>
 
-	<h2>
-		<blockquote>
-			Welcome to Spintcy, your urban sport site!
-			Find a field, subscribe and build up your own team.
-		</blockquote>
-	</h2>
+<div class="container">
 
-	<% unless signed_in? %>
-		<%= link_to I18n.t(:become_member, scope: 'custom.form'), new_user_registration_path, class: "btn btn-lg btn-primary" %>
-	<% end %>
+<hr class="divider15">
+
+<div class="panel panel-info">
+  <div class="panel-body">
+		<%= render 'layouts/homefinder' %>
+  </div>
 </div>
 
-<div class="row">
-	<div class="col-sm-4 col-md-4">
-		<h3>Organize a Match</h3>
-		<p class="justify">Organize your own Match. Choose a Field, send invitations and build up your team. Therefore, you can exchange comments with your teammates.</p>
-	</div>
+<hr class="featurette-divider">
 
-	<div class="col-sm-4 col-md-4">
-		<h3>Find a Match</h3>
-		<p class="justify">You're looking for a Match? Click on the Match menu and choose from the list. You can then access to the Match page and read comments about the Match. Do not hesitate to ask your questions to the other players if you do not know them yet.</p>
+<div class="row featurette" id="organize_anchor">
+	<div class="col-md-7 featurette-position">
+		<h2 class="featurette-heading">
+			Organize <span class="text-muted">your Matches.</span>
+		</h2>
+		<p class="lead text-justify">
+			Organize your own Match. Choose a Field, send invitations and build up your team. Therefore, you can exchange comments with your teammates.
+		</p>
 	</div>
-
-	<div class="col-sm-4 col-md-4">
-		<h3>Register a Field</h3>
-		<p class="justify">Your favorite field is not in the list, register it! You'll be then the only one able to organize matches in this Field. After the first Match, your teammates will be asked to validate the Field. Given their feedback, the Field will be added to or rejected from the Fields list.</p>
+	<div class="col-md-5 featurette-position">
+		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-sm-4 col-md-4">
-		<p><%= link_to "Organize", '#', class: "btn btn-default", role: "button" %></p>
-	</div>
+<hr class="featurette-divider">
 
-	<div class="col-sm-4 col-md-4">
-		<p><%= link_to "  Find  ", '#', class: "btn btn-default", role: "button" %></p>
+<div class="row featurette" id="find_anchor">
+	<div class="col-md-5 featurette-position">
+		<img src="http://placehold.it/450x450" alt="450x450">
 	</div>
-	
-	<div class="col-sm-4 col-md-4">
-		<p><%= link_to "Register", '#', class: "btn btn-default", role: "button" %></p>
+	<div class="col-md-7 featurette-position">
+		<h2 class="featurette-heading">
+			Find <span class="text-muted">Matches.</span>
+		</h2>
+		<p class="lead text-justify">
+			You're looking for a Match? Click on the Match menu and choose from the list. You can then access to the Match page and read comments about the Match. Do not hesitate to ask your questions to the other players if you do not know them yet.
+		</p>
 	</div>
 </div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette" id="register_anchor">
+	<div class="col-md-7 featurette-position">
+		<h2 class="featurette-heading">
+			Register <span class="text-muted">your favorite Fields.</span>
+		</h2>
+		<p class="lead text-justify">
+			Your favorite field is not in the list, register it! You'll be then the only one able to organize matches in this Field. After the first Match, your teammates will be asked to validate the Field. Given their feedback, the Field will be added to or rejected from the Fields list.
+		</p>
+	</div>
+	<div class="col-md-5 featurette-position">
+		<img src="http://placehold.it/450x450" alt="450x450">
+	</div>
+</div>
+
+<hr class="divider80">

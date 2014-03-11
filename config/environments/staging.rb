@@ -77,4 +77,8 @@ Sportevent::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Fonts
+  config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 end

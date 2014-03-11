@@ -6,6 +6,7 @@ en:
   custom:
 
     verb:
+      sign: "Sign in / Sign up"
       signin: "Sign in"
       signup: "Sign up"
       reset: "Reset"
@@ -23,7 +24,9 @@ en:
       send: "Send"
       comment: "Comment"
       post: "Post"
-      contact: "Contacter"
+      contact: "Contact"
+      subscribe: "Subscribe"
+      find: "Find"
 
     noun:
       logout: "Logout"
@@ -86,6 +89,7 @@ en:
         no_unlock_instruction: "Didn't receive unlock instructions?"
         signin_with: "Sign in with"
         wait_confirm: "Currently waiting confirmation for:"
+        new_to_spintcy: "New to SPINTCY?"
       title:
         new_confirm: "New confirmation"
         locked_account: "Locked account"
@@ -118,6 +122,15 @@ en:
         all_fields: "All Fields"
         how_save_field: "How to save a Field?"
         save_field: "Save Field"
+      home:
+        carousel:
+          photo1: "Do you need a partner?"
+          photo2: "Or maybe more partners?"
+          photo3: "Some sports need simply more arms!"
+        finder:
+          sport: "Sport .."
+          address: "Address .."
+          around: ".. km around"
 
     controller:
       notice:

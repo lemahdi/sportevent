@@ -1,0 +1,56 @@
+<div id="SportEverywhereCarousel" class="carousel slide" data-ride="carousel">
+  
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#SportEverywhereCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#SportEverywhereCarousel" data-slide-to="1"></li>
+    <li data-target="#SportEverywhereCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+
+    <div class="item active">
+      <%= image_tag "fencing-6vs1-5122x2200.jpg", alt: "photo1" %>
+      <div class="carousel-caption">
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-7">
+            <h1 class="responsive-font center-text"><%= I18n.t(:photo1, scope: 'custom.view.home.carousel') %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <%= image_tag "football-1-5122x2200.jpg", alt: "photo2" %>
+      <div class="carousel-caption">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <h1 class="responsive-font center-text"><%= I18n.t(:photo2, scope: 'custom.view.home.carousel') %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <%= image_tag "kayak-1-5122x2200.jpg", alt: "photo3" %>
+      <div class="carousel-caption">
+        <div class="row">
+          <div class="col-sm-5 col-sm-offset-7">
+            <h1 class="responsive-font center-text"><%= I18n.t(:photo3, scope: 'custom.view.home.carousel') %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#SportEverywhereCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#SportEverywhereCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+
+</div>

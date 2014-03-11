@@ -14,6 +14,7 @@ fr:
   custom:
 
     verb:
+      sign: "S'identifier / S'inscrire"
       signin: "S'identifier"
       signup: "S'inscrire"
       reset: "Ré-initialiser"
@@ -32,6 +33,8 @@ fr:
       comment: "Commenter"
       post: "Poster"
       contact: "Contacter"
+      subscribe: "Inscrivez-vous"
+      find: "Chercher"
 
     noun:
       logout: "Déconnexion"
@@ -94,6 +97,7 @@ fr:
         no_unlock_instruction: "Instructions de débloquage non reçues ?"
         signin_with: "S'inscrire avec"
         wait_confirm: "En attente d'une confirmation pour :"
+        new_to_spintcy: "Nouveau sur SPINTCY ?"
       title:
         new_confirm: "Nouvelle confirmation"
         locked_account: "Compte bloqué"
@@ -126,6 +130,15 @@ fr:
         all_fields: "Tous les Fields"
         how_save_field: "Comment enregistrer un Field ?"
         save_field: "Poster un Field"
+      home:
+        carousel:
+          photo1: "Cherchez-vous un partenaire ?"
+          photo2: "Ou peut être plusieurs partenaires ?"
+          photo3: "Certains sports ont simplement besoin de plus de bras !"
+        finder:
+          sport: "Sport .."
+          address: "Adresse .."
+          around: ".. km autour"
 
     controller:
       notice:
