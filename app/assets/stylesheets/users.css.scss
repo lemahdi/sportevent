@@ -4,8 +4,12 @@
 
 #devise-sessions_controller {
 	.signpage {
-	  background-image: image-url("grass-1-6271x1700.jpg");
-	  height: 500px;
+	  background: image-url("grass-1-6271x1700.jpg") no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	  max-height: 800px;
 	}
 	
 	.gravatar {
