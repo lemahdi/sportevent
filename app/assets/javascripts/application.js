@@ -18,8 +18,8 @@
 //= require bootstrap-datetimepicker
 //= require moment/fr
 //= require locales/bootstrap-datetimepicker.fr
-//= require leaflet
 //= require mapbox
+//= require leaflet
 
 //= require_tree .
 
