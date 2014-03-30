@@ -64,7 +64,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.0)
     kgio (2.8.1)
-    leaflet-rails (0.6.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -157,7 +156,6 @@ DEPENDENCIES
   google_timezone
   jbuilder (~> 1.0.1)
   jquery-rails
-  leaflet-rails
   mapbox-rails
   momentjs-rails (~> 2.5.0)
   pg
