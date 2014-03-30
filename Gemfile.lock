@@ -67,6 +67,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mapbox-rails (1.6.1.1)
     mime-types (1.23)
     minitest (4.7.5)
     momentjs-rails (2.5.1)
@@ -155,6 +156,7 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   leaflet-rails
+  mapbox-rails
   momentjs-rails (~> 2.5.0)
   pg
   protected_attributes
