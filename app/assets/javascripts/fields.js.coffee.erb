@@ -21,13 +21,24 @@
 
 $(document).ready ->
   if $("#map").length > 0
-    map = L.mapbox.map('map', 'lemahdi.hj5mcl72').setView([37.9, -77], 5)
-    markerLayer = $.ajax
-      dataType: 'text'
-      url: 'fields.json'
-      success: (data) ->
-        geojson = $.parseJSON(data)
-        map.markerLayer.setGeoJSON(geojson)
+    map = L.mapbox.map('map', 'lemahdi.hj5mcl72')
+    # Centering markers
+    map.featureLayer.on 'click', (e) -> 
+      map.panTo(e.layer.getLatLng())
+    # Getting markers
+    featureLayer = L.mapbox.featureLayer().loadURL('fields.json').addTo(map)
+    # markerLayer = $.ajax
+    #   dataType: 'text'
+    #   url: 'fields.json'
+    #   success: (data) ->
+    #     geojson = $.parseJSON(data)
+    #     map.featureLayer.setGeoJSON(geojson)
+    #     # Fit map to markers
+    #     map.fitBounds(map.featureLayer.getBounds())
+    # Fit map to markers
+    featureLayer.on 'ready', ->
+      map.fitBounds(featureLayer.getBounds())
+
 
 # $(document).ready ->
 #   if $("#map").length > 0
