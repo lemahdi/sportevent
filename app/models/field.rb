@@ -12,7 +12,7 @@ class Field < ActiveRecord::Base
 	validates :longitude, presence: true, if: "!latitude.nil?"
 	validates :name, presence: true
 
-	after_validation :geocode
+	after_validation :geocode, if: :address_changed?
 
 	private
 		def set_timezone
@@ -21,5 +21,10 @@ class Field < ActiveRecord::Base
 
 		def address
 			"#{street}, #{city}, #{country}" if !street.empty? && !city.empty? && !country.empty?
+		end
+
+		def address_changed?
+			street.present? && city.present? && country.present? &&
+			street_changed? && city_changed? && country_changed?
 		end
 end
