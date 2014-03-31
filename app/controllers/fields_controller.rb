@@ -11,13 +11,23 @@ class FieldsController < ApplicationController
   # GET /fields.json
   def index
     @fields = Field.all
-    geojson(@fields)
+    @geojson = geojson(@fields)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @geojson } # respond with the created JSON object
+    end
   end
 
   # GET /fields/1
   # GET /fields/1.json
   def show
-    geojson([@field])
+    @geojson = geojson([@field])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @geojson } # respond with the created JSON object
+    end
   end
 
   # GET /fields/new
@@ -83,34 +93,5 @@ class FieldsController < ApplicationController
     # Only admins have the right to create, update or destroy fields
     def admin?
       redirect_to fields_url, alert: I18n.t(:alert, scope: 'custom.controller.field.admin') unless current_user.admin?
-    end
-
-    # GeoJSON format for Mapbox API
-    def geojson(fields)
-      @geojson = Array.new
-
-      fields.each do |field|
-        @geojson << {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [field.longitude, field.latitude]
-          },
-          properties: {
-            name: field.name,
-            address: print_field(field),
-            :'marker-color' => '#00607d',
-            :'marker-symbol' => 'circle',
-            :'marker-size' => 'medium',
-            title: "<a href=#{field_url(field)} data-no-turbolink><b>#{field.name}</b></a>",
-            description: print_field(field)
-          }
-        }
-      end
-
-      respond_to do |format|
-        format.html
-        format.json { render json: @geojson } # respond with the created JSON object
-      end
     end
 end
