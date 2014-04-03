@@ -118,7 +118,7 @@ en:
         out_match: "Quit Match"
       field:
         give_name: "Give a name to this field"
-        path_name: "Path name (optional)"
+        path_name: "Path name"
         all_fields: "All Fields"
         how_save_field: "How to save a Field?"
         save_field: "Save Field"

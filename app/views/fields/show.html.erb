@@ -7,13 +7,15 @@
       <u>Lat:</u> <%= @field.latitude %><br/>
       <u>Lon:</u> <%= @field.longitude %><br/>
     </p>
-
-    <%= content_tag :div, class: "field_in_map", data: { latitude: @field.latitude, longitude: @field.longitude, description: print_field(@field), address: field_path(@field), zoom: 15 } do %>
-    <% end %>
   </div>
 
-  <div class="col-md-8 map_container" id="map_canvas">
-    <div id="map" class="map_with_one_field"></div>
+  <%= content_tag :div, id: "field_infos", data: { url: "#{@field.id}.json", zoom: 15 } do %>
+  <% end %>
+
+  <div class="col-md-8">
+    <div class="map_container">
+      <div id="map" class="map_with_one_field" data-no-turbolink></div>
+    </div>
   </div>
 
 </div>

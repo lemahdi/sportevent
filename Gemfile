@@ -14,7 +14,8 @@ gem 'active_attr'
 gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 2.1.30'
 gem 'google_timezone'
-gem 'gmaps4rails'
+gem 'geocoder'
+gem 'mapbox-rails'
 
 gem 'pg'
 
