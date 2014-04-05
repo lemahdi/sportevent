@@ -11,15 +11,23 @@ class FieldsController < ApplicationController
   # GET /fields.json
   def index
     @fields = Field.all
-    @hash = Gmaps4rails.build_markers(@fields) do |field, marker|
-      marker.lat field.latitude
-      marker.lng field.longitude
+    @geojson = geojson(@fields)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @geojson } # respond with the created JSON object
     end
   end
 
   # GET /fields/1
   # GET /fields/1.json
   def show
+    @geojson = geojson([@field])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @geojson } # respond with the created JSON object
+    end
   end
 
   # GET /fields/new

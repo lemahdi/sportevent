@@ -126,7 +126,7 @@ fr:
         out_match: "Quitter le Match"
       field:
         give_name: "Donnez un nom à ce field"
-        path_name: "Nom de la voie (optionnel)"
+        path_name: "Nom de la voie"
         all_fields: "Tous les Fields"
         how_save_field: "Comment enregistrer un Field ?"
         save_field: "Poster un Field"

@@ -4,7 +4,7 @@
 
   <div class="col-md-5">
 
-    <%= content_tag :div, class: "field_in_map", data: { latitude: @match.field.latitude, longitude: @match.field.longitude, description: print_field(@match.field), address: field_path(@match.field), zoom: 14 } do %>
+    <%= content_tag :div, id: "field_infos", data: { geojson: geojson([@match.field]), zoom: 15 } do %>
     <% end %>
     <div class="row">
       <div class="col-md-12">
