@@ -139,6 +139,11 @@ fr:
           sport: "Sport .."
           address: "Adresse .."
           around: ".. km autour"
+      profile:
+        home: "Profil"
+        groups: "Groupes"
+        matches: "Matchs"
+        settings: "Paramètres"
 
     controller:
       notice:
