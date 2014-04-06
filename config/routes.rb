@@ -1,10 +1,10 @@
 Sportevent::Application.routes.draw do
-  
-  resources :groups
 
   get "home/index"
 
   scope "(:locale)", locale: /en|fr/ do
+    resources :groups
+
     resources :matches do
       resources :comments, only: [:new, :create, :destroy]
     end
