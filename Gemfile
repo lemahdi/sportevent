@@ -16,6 +16,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 2.1.30'
 gem 'google_timezone'
 gem 'geocoder'
 gem 'mapbox-rails'
+gem 'font-awesome-sass'
 
 gem 'pg'
 
