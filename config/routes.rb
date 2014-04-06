@@ -1,5 +1,7 @@
 Sportevent::Application.routes.draw do
   
+  resources :groups
+
   get "home/index"
 
   scope "(:locale)", locale: /en|fr/ do
