@@ -6,10 +6,10 @@ $(document).on 'ready page:load', ->
 	$('#match_date').datetimepicker({
     language: 'fr'
     pickTime: false
-  })
+  }) if $('#match_date').length > 0
 
 $(document).on 'ready page:load', ->
   $('#match_time').datetimepicker({
     language: 'fr'
     pickDate: false
-  })
+  }) if $('#match_time').length > 0
