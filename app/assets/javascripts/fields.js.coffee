@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$(document).ready ->
-  if $("#map")
+$(document).on 'ready page:load', ->
+  if $("#map").length > 0
     map = L.mapbox.map('map', 'lemahdi.hj5mcl72')
     # Getting markers
     if $("#field_infos").data("url")
