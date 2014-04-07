@@ -74,7 +74,7 @@ fr:
     header:
       my_account: "Mon compte"
       profile: "Profil"
-      settings: "Paramètres"
+      management: "Gestion"
 
     footer:
       help: "Aide"

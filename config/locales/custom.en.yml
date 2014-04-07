@@ -66,7 +66,7 @@ en:
     header:
       my_account: "My account"
       profile: "Profile"
-      settings: "Settings"
+      management: "Management"
 
     footer:
       help: "Help"
