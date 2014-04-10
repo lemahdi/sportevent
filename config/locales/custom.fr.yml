@@ -139,6 +139,8 @@ fr:
           sport: "Sport .."
           address: "Adresse .."
           around: ".. km autour"
+      group:
+        my_groups: "Mes Groupes"
       profile:
         home: "Profil"
         groups: "Groupes"
