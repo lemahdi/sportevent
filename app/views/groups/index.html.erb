@@ -1,0 +1,23 @@
+<% provide(:title, I18n.t(:my_groups, scope: 'custom.view.group')) %>
+
+<div class="divider15"></div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/profile' %>
+  </div>
+
+  <div class="col-sm-4">
+    <aside>
+      <section class="pull-left">
+        <% @groups.each do |group| %>
+          <%= group.name %>
+        <% end %>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<br />
+
+<!-- %= link_to 'New Group', new_group_path % -->

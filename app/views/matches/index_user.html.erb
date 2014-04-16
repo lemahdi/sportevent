@@ -1,0 +1,40 @@
+<% provide(:title, I18n.t(:my_matches, scope: 'custom.view.group')) %>
+
+<div class="divider15"></div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/profile' %>
+  </div>
+
+  <div class="col-sm-7">
+    <% @matches.each do |match| %>
+      <div class="row well">
+        <div class="col-sm-8">
+          <%= I18n.t(:planning, scope: 'custom.view.match', jour: match.jour.strftime("%d/%m/%y"), start: match.start, field: match.field.name) %>
+        </div>
+
+        <div class="col-sm-2 nowrap">
+          <!-- <% play_match_button = build_play_match_button(match) %>
+          <%= form_for match, url: user_match_path(current_user, match), method: play_match_button[:action] do |f| %>
+            <%= f.submit I18n.t(:leave, scope: 'custom.verb'), class: "btn btn-sm btn-danger" %>
+          <% end %> -->
+
+          <%= link_to "<i class='fa fa-times-circle'></i> #{I18n.t(:leave, scope: 'custom.verb')}".html_safe, user_match_path(current_user, match), method: match.sportizers.size==1 ? :delete : :put %>
+        </div>
+
+        <div class="col-sm-2 nowrap">
+          <a href="<%= match_path(match) %>">
+            <i class="fa fa-list"></i> <%= I18n.t(:details, scope: 'custom.view.match') %>
+          </a>
+        </div>
+      </div>
+    <% end %>
+
+    <%= will_paginate_helper @matches %>
+  </div>
+</div>
+
+<br />
+
+<!-- %= link_to 'New Group', new_group_path % -->
