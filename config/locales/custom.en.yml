@@ -27,6 +27,7 @@ en:
       contact: "Contact"
       subscribe: "Subscribe"
       find: "Find"
+      leave: "Leave"
 
     noun:
       logout: "Logout"
@@ -66,7 +67,7 @@ en:
     header:
       my_account: "My account"
       profile: "Profile"
-      settings: "Settings"
+      management: "Management"
 
     footer:
       help: "Help"
@@ -116,6 +117,8 @@ en:
         end_time: "End time"
         in_match: "Participate to Match"
         out_match: "Quit Match"
+        planning: "On %{jour} at %{start}, on field %{field}"
+        details: "Details"
       field:
         give_name: "Give a name to this field"
         path_name: "Path name"
@@ -131,6 +134,8 @@ en:
           sport: "Sport .."
           address: "Address .."
           around: ".. km around"
+      group:
+        my_groups: "My Groups"
       profile:
         home: "Profile"
         groups: "Groups"

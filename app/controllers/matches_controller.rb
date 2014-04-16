@@ -1,15 +1,33 @@
 include MatchesHelper
 
 class MatchesController < ApplicationController
-  before_action :set_match,          only: [:show, :update, :destroy]
+  before_action :set_match,          only: [:show, :update, :destroy, :update_user, :destroy_user]
   
   before_filter :store_location
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show, :index_user]
 
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.recent.asc("jour").asc("start").paginate(page: params[:page], per_page: 30)
+    @matches = Match.recent.asc("start").asc("jour").paginate(page: params[:page], per_page: 30)
+
+    respond_to do |format|
+      format.html { @matches }
+      format.json {
+        render json: {
+          current_page:  @matches.current_page,
+          per_page:      @matches.per_page,
+          total_entries: @matches.total_entries,
+          entries:       @matches
+        }
+      }
+    end
+  end
+
+  def index_user
+    @matches = User.find(params[:user_id]).matches
+                        .recent.asc("start").asc("jour")
+                        .paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
       format.html { @matches }
@@ -75,12 +93,29 @@ class MatchesController < ApplicationController
     end
   end
 
+  def update_user
+    @match.sportizers.delete(current_user)
+    message = I18n.t(:out_game, scope: 'custom.controller.match.update')
+    respond_to do |format|
+      format.html { redirect_to user_matches_url(current_user), notice: message }
+      format.json { render action: 'index_user', status: :updated }
+    end
+  end
+
   # DELETE /matches/1
   # DELETE /matches/1.json
   def destroy
     @match.destroy
     respond_to do |format|
       format.html { redirect_to matches_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def destroy_user
+    @match.destroy
+    respond_to do |format|
+      format.html { redirect_to user_matches_url(current_user) }
       format.json { head :no_content }
     end
   end

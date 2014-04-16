@@ -35,6 +35,7 @@ fr:
       contact: "Contacter"
       subscribe: "Inscrivez-vous"
       find: "Chercher"
+      leave: "Quitter"
 
     noun:
       logout: "Déconnexion"
@@ -74,7 +75,7 @@ fr:
     header:
       my_account: "Mon compte"
       profile: "Profil"
-      settings: "Paramètres"
+      management: "Gestion"
 
     footer:
       help: "Aide"
@@ -124,6 +125,8 @@ fr:
         end_time: "Heure de fin"
         in_match: "Participer au Match"
         out_match: "Quitter le Match"
+        planning: "Le %{jour} à %{start}, sur le field %{field}"
+        details: "Détails"
       field:
         give_name: "Donnez un nom à ce field"
         path_name: "Nom de la voie"
@@ -139,6 +142,8 @@ fr:
           sport: "Sport .."
           address: "Adresse .."
           around: ".. km autour"
+      group:
+        my_groups: "Mes Groupes"
       profile:
         home: "Profil"
         groups: "Groupes"
