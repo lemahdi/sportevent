@@ -1,7 +1,7 @@
 include MatchesHelper
 
 class MatchesController < ApplicationController
-  before_action :set_match,          only: [:show, :update, :destroy, :update_user]
+  before_action :set_match,          only: [:show, :update, :destroy, :update_user, :destroy_user]
   
   before_filter :store_location
   before_filter :authenticate_user!, except: [:index, :show, :index_user]
@@ -108,6 +108,14 @@ class MatchesController < ApplicationController
     @match.destroy
     respond_to do |format|
       format.html { redirect_to matches_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def destroy_user
+    @match.destroy
+    respond_to do |format|
+      format.html { redirect_to user_matches_url(current_user) }
       format.json { head :no_content }
     end
   end

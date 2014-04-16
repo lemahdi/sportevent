@@ -15,12 +15,12 @@
         </div>
 
         <div class="col-sm-2 nowrap">
-          <% play_match_button = build_play_match_button(match) %>
+          <!-- <% play_match_button = build_play_match_button(match) %>
           <%= form_for match, url: user_match_path(current_user, match), method: play_match_button[:action] do |f| %>
             <%= f.submit I18n.t(:leave, scope: 'custom.verb'), class: "btn btn-sm btn-danger" %>
-          <% end %>
+          <% end %> -->
 
-          <!-- %= link_to "<i class='fa fa-times-circle'></i> #{I18n.t(:leave, scope: 'custom.verb')}".html_safe, match_path(match), method: match.sportizers.size==1 ? :delete : :put % -->
+          <%= link_to "<i class='fa fa-times-circle'></i> #{I18n.t(:leave, scope: 'custom.verb')}".html_safe, user_match_path(current_user, match), method: match.sportizers.size==1 ? :delete : :put %>
         </div>
 
         <div class="col-sm-2 nowrap">

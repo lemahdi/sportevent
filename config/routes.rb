@@ -16,9 +16,10 @@ Sportevent::Application.routes.draw do
 
     resources :users, except: [:new, :create] do
       resources :groups, shallow: true
-      resources :matches, only: [:index_user, :update_user]
-      get 'matches'     => 'matches#index_user'
-      put 'matches/:id' => 'matches#update_user', :as => 'match'
+      resources :matches, only: [:index_user, :update_user, :destroy_user]
+      get 'matches'       => 'matches#index_user'
+      put 'matches/:id'   => 'matches#update_user',  :as => 'match'
+      match 'matches/:id' => 'matches#destroy_user', :as => 'match', :via => :delete
     end
     
     # You can have the root of your site routed with "root"
