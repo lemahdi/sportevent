@@ -15,7 +15,8 @@ Sportevent::Application.routes.draw do
     end
 
     resources :users, except: [:new, :create] do
-      resources :groups, shallow: true # only: [:index, :new, :create]
+      # resources :some_resource shallow: true => only: [:index, :new, :create]
+      resources :groups
       resources :matches, only: [:index_user, :update_user, :destroy_user]
       get 'matches'       => 'matches#index_user'
       put 'matches/:id'   => 'matches#update_user',  :as => 'match'

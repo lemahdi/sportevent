@@ -7,13 +7,13 @@
     <%= render 'layouts/profile' %>
   </div>
 
-  <div class="col-sm-4">
-    <aside>
-      <section class="pull-left">
-        <% @groups.each do |group| %>
+  <div class="col-sm-7">
+    <% @groups.each do |group| %>
+      <div class="row well">
+        <div class="col-sm-12">
           <%= group.name %>
-        <% end %>
-      </section>
-    </aside>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

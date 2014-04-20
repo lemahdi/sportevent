@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.html { redirect_to user_group_url(current_user, @group), notice: I18n.t(:success, scope: 'custom.controller.notice.create', element: I18n.t(:name, scope: 'custom.controller.group')) }
         format.json { render action: 'show', status: :created, location: @group }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,8 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        message = I18n.t(:success, scope: 'custom.controller.notice.update', element: I18n.t(:name, scope: 'custom.controller.group'))
+        format.html { redirect_to user_group_url(current_user, @group), notice: message }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +57,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url }
+      format.html { redirect_to user_groups_url(current_user) }
       format.json { head :no_content }
     end
   end

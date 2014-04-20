@@ -4,5 +4,5 @@ class Group < ActiveRecord::Base
   has_many :contracts, dependent: :destroy
   has_many :users, through: :contracts
 
-  validates :jour, presence: true
+  validates :name, presence: true
 end

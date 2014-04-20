@@ -178,3 +178,5 @@ en:
         invite_subject: "Invitation to play Match"
         member:
           alert: "Only participants have the right to invite"
+      group:
+        name: "Group"

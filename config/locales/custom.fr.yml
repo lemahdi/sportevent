@@ -186,3 +186,5 @@ fr:
         invite_subject: "Invitation à jouer au Match"
         member:
           alert: "Seuls les participants ont le droit d'inviter au Match"
+      group:
+        name: "Groupe"
