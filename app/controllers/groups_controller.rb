@@ -4,12 +4,13 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all.asc("name").paginate(page: params[:page], per_page: 10)
+    @groups = current_user.groups.asc("name").paginate(page: params[:page], per_page: 10)
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @users = @group.users.paginate(page: params[:page], per_page: 16)
   end
 
   # GET /groups/new
@@ -28,7 +29,8 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to user_group_url(current_user, @group), notice: I18n.t(:success, scope: 'custom.controller.notice.create', element: I18n.t(:name, scope: 'custom.controller.group')) }
+        @group.users << current_user
+        format.html { redirect_to group_url @group, notice: I18n.t(:success, scope: 'custom.controller.notice.create', element: I18n.t(:name, scope: 'custom.controller.group')) }
         format.json { render action: 'show', status: :created, location: @group }
       else
         format.html { render action: 'new' }
@@ -39,18 +41,18 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
-  def update
-    respond_to do |format|
-      if @group.update(group_params)
-        message = I18n.t(:success, scope: 'custom.controller.notice.update', element: I18n.t(:name, scope: 'custom.controller.group'))
-        format.html { redirect_to user_group_url(current_user, @group), notice: message }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @group.update(group_params)
+  #       message = I18n.t(:success, scope: 'custom.controller.notice.update', element: I18n.t(:name, scope: 'custom.controller.group'))
+  #       format.html { redirect_to user_group_url(current_user, @group), notice: message }
+  #       format.json { head :no_content }
+  #     else
+  #       format.html { render action: 'edit' }
+  #       format.json { render json: @group.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /groups/1
   # DELETE /groups/1.json

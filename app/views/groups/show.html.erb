@@ -1,7 +1,30 @@
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<div class="row">
+	<div class="col-sm-3">
+		<p>
+		  <strong><%= @group.name %></strong>
+		</p>
+	</div>
+	
+	<div class="divider15"></div>
 
-<%= link_to 'Edit', edit_user_group_path(current_user, @group) %> |
-<%= link_to 'Back', user_groups_path(current_user) %>
+	<div class="col-sm-9">
+		<% nb = @users.size %>
+		<% (0..nb/4).each do |i| %>
+
+			<div class="row">
+				<% (0..3).each do |j| %>
+					<div class="col-sm-2 text-center">
+						<% if i*4+j < nb %>
+							<%= gravatar_for(@users[i+j]) %>
+							<br />
+							<%= @users[i+j].nom + " " + @users[i+j].prenom %>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+
+		<% end %>
+
+		<%= will_paginate_helper @users %>
+	</div>
+</div>
