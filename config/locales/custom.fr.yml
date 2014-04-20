@@ -45,6 +45,7 @@ fr:
       update: "Mise à jour"
       new: "Nouveau"
       warning: "Attention"
+      details: "Détails"
 
     preposition:
       at: "à"
@@ -126,7 +127,6 @@ fr:
         in_match: "Participer au Match"
         out_match: "Quitter le Match"
         planning: "Le %{jour} à %{start}, sur le field %{field}"
-        details: "Détails"
       field:
         give_name: "Donnez un nom à ce field"
         path_name: "Nom de la voie"

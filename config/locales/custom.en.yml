@@ -37,6 +37,7 @@ en:
       update: "Updating"
       new: "New"
       warning: "Warning"
+      details: "Details"
 
     preposition:
       at: "at"
@@ -118,7 +119,6 @@ en:
         in_match: "Participate to Match"
         out_match: "Quit Match"
         planning: "On %{jour} at %{start}, on field %{field}"
-        details: "Details"
       field:
         give_name: "Give a name to this field"
         path_name: "Path name"

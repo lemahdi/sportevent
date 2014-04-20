@@ -5,4 +5,6 @@ class Group < ActiveRecord::Base
   has_many :users, through: :contracts
 
   validates :name, presence: true
+
+  scope :asc, -> attr { order("groups.#{attr} ASC") }
 end
