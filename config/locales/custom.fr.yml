@@ -144,11 +144,15 @@ fr:
           around: ".. km autour"
       group:
         my_groups: "Mes Groupes"
+        new_title: "Groupe"
       profile:
         home: "Profil"
         groups: "Groupes"
         matches: "Matchs"
         settings: "Paramètres"
+      management:
+        new_group: "Créer un groupe"
+        join_group: "Rejoindre un groupe"
 
     controller:
       notice:

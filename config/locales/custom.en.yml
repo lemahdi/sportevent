@@ -136,11 +136,15 @@ en:
           around: ".. km around"
       group:
         my_groups: "My Groups"
+        new_title: "Group"
       profile:
         home: "Profile"
         groups: "Groups"
         matches: "Matches"
         settings: "Settings"
+      management:
+        new_group: "New group"
+        join_group: "Join a group"
 
     controller:
       notice:
