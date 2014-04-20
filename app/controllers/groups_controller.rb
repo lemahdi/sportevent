@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :update_user]
 
   # GET /groups
   # GET /groups.json
@@ -41,18 +41,27 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @group.update(group_params)
-  #       message = I18n.t(:success, scope: 'custom.controller.notice.update', element: I18n.t(:name, scope: 'custom.controller.group'))
-  #       format.html { redirect_to user_group_url(current_user, @group), notice: message }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: 'edit' }
-  #       format.json { render json: @group.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @group.update(group_params)
+        message = I18n.t(:success, scope: 'custom.controller.notice.update', element: I18n.t(:name, scope: 'custom.controller.group'))
+        format.html { redirect_to user_group_url(current_user, @group), notice: message }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update_user
+    @group.users.delete(current_user)
+    message = I18n.t(:out_group, scope: 'custom.controller.group', name: @group.name)
+    respond_to do |format|
+      format.html { redirect_to user_groups_url(current_user), notice: message }
+      format.json { render action: 'index', status: :updated }
+    end
+  end
 
   # DELETE /groups/1
   # DELETE /groups/1.json

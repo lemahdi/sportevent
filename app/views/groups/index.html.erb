@@ -15,6 +15,10 @@
         </div>
 
         <div class="col-sm-2 nowrap">
+          <%= link_to "<i class='fa fa-times-circle'></i> #{I18n.t(:leave, scope: 'custom.verb')}".html_safe, user_group_path(current_user, group), method: group.users.size==1 ? :delete : :put %>
+        </div>
+
+        <div class="col-sm-2 nowrap">
           <a href="<%= group_path group %>">
             <i class="fa fa-list"></i> <%= I18n.t(:details, scope: 'custom.noun') %>
           </a>
