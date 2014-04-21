@@ -7,6 +7,12 @@ class GroupsController < ApplicationController
     @groups = current_user.groups.asc("name").paginate(page: params[:page], per_page: 10)
   end
 
+  # GET /groups
+  # GET /groups.json
+  def find
+    @groups = Group.where("name LIKE ?", "%#{group_params[:name]}%").paginate(page: params[:page], per_page: 10)
+  end
+
   # GET /groups/1
   # GET /groups/1.json
   def show
@@ -15,6 +21,11 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
+    @group = Group.new
+  end
+
+  # GET /groups/type
+  def type
     @group = Group.new
   end
 

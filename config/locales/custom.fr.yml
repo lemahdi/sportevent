@@ -36,6 +36,7 @@ fr:
       subscribe: "Inscrivez-vous"
       find: "Chercher"
       leave: "Quitter"
+      join: "Rejoindre"
 
     noun:
       logout: "Déconnexion"

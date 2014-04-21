@@ -1,0 +1,31 @@
+<% provide(:title, I18n.t(:my_groups, scope: 'custom.view.group')) %>
+
+<div class="divider15"></div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/management' %>
+  </div>
+
+  <div class="col-sm-7">
+    <% @groups.each do |group| %>
+      <div class="row well">
+        <div class="col-sm-8">
+          <%= group.name %>
+        </div>
+
+        <div class="col-sm-2 nowrap">
+          <%= link_to "<i class='fa fa-times-circle'></i> #{I18n.t(:join, scope: 'custom.verb')}".html_safe, user_group_path(current_user, group), method: group.users.size==1 ? :delete : :put %>
+        </div>
+
+        <div class="col-sm-2 nowrap">
+          <a href="<%= group_path group %>">
+            <i class="fa fa-list"></i> <%= I18n.t(:details, scope: 'custom.noun') %>
+          </a>
+        </div>
+      </div>
+    <% end %>
+
+    <%= will_paginate_helper @groups %>
+  </div>
+</div>

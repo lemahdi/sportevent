@@ -28,6 +28,7 @@ en:
       subscribe: "Subscribe"
       find: "Find"
       leave: "Leave"
+      join: "Join"
 
     noun:
       logout: "Logout"
