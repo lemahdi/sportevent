@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :update_user]
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
+
+  before_filter :authenticate_user!
 
   # GET /groups
   # GET /groups.json
@@ -53,24 +55,26 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    respond_to do |format|
-      if @group.update(group_params)
-        message = I18n.t(:success, scope: 'custom.controller.notice.update', element: I18n.t(:name, scope: 'custom.controller.group'))
-        format.html { redirect_to user_group_url(current_user, @group), notice: message }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+    up_action = group_params[:update_action]
+    if up_action=="quit" || up_action=="join"
+      @group.users.delete(current_user) if up_action == "quit"
+      @group.users << current_user if up_action == "join"
+      message = I18n.t(up_action=="quit" ? :out_group : :in_group, scope: 'custom.controller.group', name: @group.name)
+      respond_to do |format|
+        format.html { redirect_to user_groups_url(current_user), notice: message }
+        format.json { render action: 'index', status: :updated }
       end
-    end
-  end
-
-  def update_user
-    @group.users.delete(current_user)
-    message = I18n.t(:out_group, scope: 'custom.controller.group', name: @group.name)
-    respond_to do |format|
-      format.html { redirect_to user_groups_url(current_user), notice: message }
-      format.json { render action: 'index', status: :updated }
+    else
+      respond_to do |format|
+        if @group.update(group_params)
+          message = I18n.t(:success, scope: 'custom.controller.notice.update', element: I18n.t(:name, scope: 'custom.controller.group'))
+          format.html { redirect_to user_groups_url(current_user), notice: message }
+        format.json { render action: 'index', status: :updated }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @group.errors, status: :unprocessable_entity }
+        end
+      end
     end
   end
 
@@ -92,6 +96,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :update_action)
     end
 end

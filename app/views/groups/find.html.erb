@@ -15,7 +15,7 @@
         </div>
 
         <div class="col-sm-2 nowrap">
-          <%= link_to "<i class='fa fa-times-circle'></i> #{I18n.t(:join, scope: 'custom.verb')}".html_safe, user_group_path(current_user, group), method: group.users.size==1 ? :delete : :put %>
+          <%= link_to "<i class='fa fa-times-circle'></i> #{I18n.t(:join, scope: 'custom.verb')}".html_safe, group_path(group), method: group.users.size==1 ? :delete : :put %>
         </div>
 
         <div class="col-sm-2 nowrap">

@@ -189,4 +189,5 @@ fr:
           alert: "Seuls les participants ont le droit d'inviter au Match"
       group:
         name: "Groupe"
+        in_group: "Vous avez rejoint le groupe %{name}"
         out_group: "Vous avez quitté le groupe %{name}"

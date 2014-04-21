@@ -181,4 +181,5 @@ en:
           alert: "Only participants have the right to invite"
       group:
         name: "Group"
+        in_group: "You joined the group %{name}"
         out_group: "You quit the group %{name}"
