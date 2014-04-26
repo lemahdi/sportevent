@@ -12,7 +12,10 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def find
-    @groups = Group.where("name LIKE ?", "%#{group_params[:name]}%").paginate(page: params[:page], per_page: 10)
+    @group = Group.new
+    if params && params[:group] && group_params[:name]
+      @groups = Group.where("name LIKE ? and id not in (select group_id from contracts where user_id=?)", "%#{group_params[:name]}%", "#{current_user.id}").paginate(page: params[:page], per_page: 10)
+    end
   end
 
   # GET /groups/1
@@ -23,11 +26,6 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    @group = Group.new
-  end
-
-  # GET /groups/type
-  def type
     @group = Group.new
   end
 

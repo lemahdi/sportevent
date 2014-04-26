@@ -24,7 +24,6 @@ Sportevent::Application.routes.draw do
       match 'matches/:id' => 'matches#destroy_user', :as => 'match', :via => :delete
     end
 
-    get 'groups/type' => 'groups#type'
     get 'groups/find' => 'groups#find'
     resources :groups, only: [:show, :update, :destroy, :type, :find]
     

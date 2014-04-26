@@ -18,3 +18,5 @@ $(document).ready ->
     sidebar_elems = $('ul#management_sidebar li')
     if /.*\/users\/[0-9]+\/groups\/new$/.test(window.location.pathname)
       sidebar_elems.first().addClass("active")
+    if /.*\/groups\/find/.test(window.location.pathname)
+      sidebar_elems.last().addClass("active")
