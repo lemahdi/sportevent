@@ -7,19 +7,26 @@
     <%= render 'layouts/management' %>
   </div>
 
-  <div class="col-sm-6">
-    <%= form_for(@group, url: user_groups_path(current_user), :html => { :method => :post }) do |f| %>
+  <div class="col-sm-7">
+    <div class="row">
+      <%= form_for(@group, url: user_groups_path(current_user), :html => { :method => :post }) do |f| %>
 
-      <!-- group_error_messages! -->
-      <%= render partial: 'layouts/errors', locals: { object: @group } %>
+        <!-- group_error_messages! -->
+        <%= render partial: 'layouts/errors', locals: { object: @group } %>
 
-      <br />
-      <%= f.label :name, I18n.t(:nom, scope: 'custom.form') %>
-      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        <div class="col-sm-1"></div>
 
-      <br />
-      <%= f.submit I18n.t(:save, scope: 'custom.verb'), class: "btn btn-lg btn-success" %>
-      
-    <% end %>
+        <div class="col-sm-7">
+          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: I18n.t(:nom, scope: 'custom.form') %>
+        </div>
+
+        <div class="col-sm-3">
+          <%= f.submit I18n.t(:save, scope: 'custom.verb'), class: "btn btn-success" %>
+        </div>
+
+        <div class="col-sm-1"></div>
+        
+      <% end %>
+    </div>
   </div>
 </div>
