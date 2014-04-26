@@ -15,16 +15,16 @@
         </div>
 
         <div class="col-sm-2 nowrap">
-          <!-- <% play_match_button = build_play_match_button(match) %>
-          <%= form_for match, url: user_match_path(current_user, match), method: play_match_button[:action] do |f| %>
-            <%= f.submit I18n.t(:leave, scope: 'custom.verb'), class: "btn btn-sm btn-danger" %>
-          <% end %> -->
-
-          <%= link_to "<i class='fa fa-times-circle'></i> #{I18n.t(:leave, scope: 'custom.verb')}".html_safe, user_match_path(current_user, match), method: match.sportizers.size==1 ? :delete : :put %>
+          <%= form_for match, url: match, method: match.sportizers.size==1 ? :delete : :patch do |f| %>
+            <%= f.hidden_field :participate, value: "no" %>
+            <%= button_tag class: "btn btn-sm btn-default" do %>
+              <i class='fa fa-times-circle'></i> <%= I18n.t(:leave, scope: 'custom.verb') %>
+            <% end %>
+          <% end %>
         </div>
 
         <div class="col-sm-2 nowrap">
-          <a href="<%= match_path(match) %>">
+          <a href="<%= match_path(match) %>" class="btn btn-sm btn-default">
             <i class="fa fa-list"></i> <%= I18n.t(:details, scope: 'custom.noun') %>
           </a>
         </div>
@@ -36,5 +36,3 @@
 </div>
 
 <br />
-
-<!-- %= link_to 'New Group', new_group_path % -->
