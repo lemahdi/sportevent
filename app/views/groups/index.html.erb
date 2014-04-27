@@ -16,7 +16,7 @@
 
         <div class="col-sm-2 nowrap">
           <%= form_for group, url: group, method: group.users.size==1 ? :delete : :patch do |f| %>
-            <%= f.hidden_field :update_action, value: "quit" %>
+            <%= f.hidden_field :update_action, value: "leave" %>
             <%= button_tag class: "btn btn-sm btn-default" do %>
               <i class='fa fa-times-circle'></i> <%= I18n.t(:leave, scope: 'custom.verb') %>
             <% end %>

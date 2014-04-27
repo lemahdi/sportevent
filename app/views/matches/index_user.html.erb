@@ -16,7 +16,8 @@
 
         <div class="col-sm-2 nowrap">
           <%= form_for match, url: match, method: match.sportizers.size==1 ? :delete : :patch do |f| %>
-            <%= f.hidden_field :participate, value: "no" %>
+            <%= f.hidden_field :update_action, value: "leave" %>
+              <%= f.hidden_field :from, value: "index_user" %>
             <%= button_tag class: "btn btn-sm btn-default" do %>
               <i class='fa fa-times-circle'></i> <%= I18n.t(:leave, scope: 'custom.verb') %>
             <% end %>

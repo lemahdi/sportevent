@@ -26,7 +26,8 @@
           <td>
             <% play_match_button = build_play_match_button(match) %>
             <%= form_for match, url: match_path(match), method: play_match_button[:action] do |f| %>
-              <%= f.hidden_field :participate, value: play_match_button[:participate] %>
+              <%= f.hidden_field :update_action, value: play_match_button[:update_action] %>
+              <%= f.hidden_field :from, value: "index" %>
               <%= f.submit play_match_button[:text], class: "btn btn-sm btn-default", disabled: play_match_button[:disabled] %>
             <% end %>
           </td>

@@ -170,9 +170,9 @@ fr:
         admin:
           alert: "Vous n'avez pas les droits pour ajouter/modifier les fields"
       match:
-        update:
-          in_game: "Bienvenu dans la partie"
-          out_game: "Vous avez quitté la partie"
+        name: "Le Match"
+        in_game: "Bienvenu dans la partie"
+        out_game: "Vous avez quitté la partie"
       comment:
         playing:
           alert: "Seuls les sportizers participants peuvent écrire des commentaires"

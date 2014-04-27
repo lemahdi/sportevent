@@ -54,10 +54,15 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
   def update
     up_action = group_params[:update_action]
-    if up_action=="quit" || up_action=="join"
-      @group.users.delete(current_user) if up_action == "quit"
-      @group.users << current_user if up_action == "join"
-      message = I18n.t(up_action=="quit" ? :out_group : :in_group, scope: 'custom.controller.group', name: @group.name)
+    if up_action=="leave" || up_action=="join"
+      if up_action == "leave"
+        @group.users.delete(current_user)
+        message = I18n.t(:out_group, scope: 'custom.controller.group', name: @group.name)
+      else # join
+        @group.users << current_user
+        message = I18n.t(:in_group, scope: 'custom.controller.group', name: @group.name)
+      end
+      
       respond_to do |format|
         format.html { redirect_to user_groups_url(current_user), notice: message }
         format.json { render action: 'index', status: :updated }
