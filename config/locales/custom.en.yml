@@ -28,6 +28,7 @@ en:
       subscribe: "Subscribe"
       find: "Find"
       leave: "Leave"
+      join: "Join"
 
     noun:
       logout: "Logout"
@@ -37,6 +38,7 @@ en:
       update: "Updating"
       new: "New"
       warning: "Warning"
+      details: "Details"
 
     preposition:
       at: "at"
@@ -118,7 +120,6 @@ en:
         in_match: "Participate to Match"
         out_match: "Quit Match"
         planning: "On %{jour} at %{start}, on field %{field}"
-        details: "Details"
       field:
         give_name: "Give a name to this field"
         path_name: "Path name"
@@ -136,11 +137,15 @@ en:
           around: ".. km around"
       group:
         my_groups: "My Groups"
+        new_title: "Group"
       profile:
         home: "Profile"
         groups: "Groups"
         matches: "Matches"
         settings: "Settings"
+      management:
+        new_group: "New group"
+        join_group: "Join a group"
 
     controller:
       notice:
@@ -157,9 +162,9 @@ en:
         admin:
           alert: "You don't have rights to create/update fields"
       match:
-        update:
-          in_game: "Welcome to the game"
-          out_game: "You quit the game"
+        name: "Match"
+        in_game: "Welcome to the game"
+        out_game: "You quit the game"
       comment:
         playing:
           alert: "Only participant sportizers can write comments"
@@ -174,3 +179,7 @@ en:
         invite_subject: "Invitation to play Match"
         member:
           alert: "Only participants have the right to invite"
+      group:
+        name: "Group"
+        in_group: "You joined the group %{name}"
+        out_group: "You quit the group %{name}"

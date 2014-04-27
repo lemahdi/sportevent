@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407203918) do
+ActiveRecord::Schema.define(version: 20140426221200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140407203918) do
   end
 
   add_index "contracts", ["group_id"], name: "index_contracts_on_group_id"
+  add_index "contracts", ["user_id", "group_id"], name: "index_contracts_on_user_id_and_group_id", unique: true
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id"
 
   create_table "fields", force: true do |t|
@@ -56,6 +57,8 @@ ActiveRecord::Schema.define(version: 20140407203918) do
     t.datetime "updated_at"
   end
 
+  add_index "groups", ["name"], name: "index_groups_on_name", unique: true
+
   create_table "matches", force: true do |t|
     t.string   "start"
     t.integer  "duration"
@@ -75,6 +78,7 @@ ActiveRecord::Schema.define(version: 20140407203918) do
   end
 
   add_index "registres", ["match_id"], name: "index_registres_on_match_id"
+  add_index "registres", ["user_id", "match_id"], name: "index_registres_on_user_id_and_match_id", unique: true
   add_index "registres", ["user_id"], name: "index_registres_on_user_id"
 
   create_table "users", force: true do |t|
