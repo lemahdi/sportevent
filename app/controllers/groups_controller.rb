@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
   def find
     @group = Group.new
     if params && params[:group] && group_params[:name]
-      @groups = Group.where("name LIKE ? and id not in (select group_id from contracts where user_id=?)", "%#{group_params[:name]}%", "#{current_user.id}").paginate(page: params[:page], per_page: 10)
+      @groups = Group.where("name ~* ? AND id NOT IN (SELECT group_id FROM contracts WHERE user_id = ?)", ".*#{group_params[:name]}.*", "#{current_user.id}").paginate(page: params[:page], per_page: 10)
     end
   end
 

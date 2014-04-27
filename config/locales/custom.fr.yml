@@ -128,6 +128,7 @@ fr:
         in_match: "Participer au Match"
         out_match: "Quitter le Match"
         planning: "Le %{jour} à %{start}, sur le field %{field}"
+        field_name: "Nom du Field .."
       field:
         give_name: "Donnez un nom à ce field"
         path_name: "Nom de la voie"
@@ -154,6 +155,7 @@ fr:
       management:
         new_group: "Créer un groupe"
         join_group: "Rejoindre un groupe"
+        organize_match: "Organiser un Match"
 
     controller:
       notice:
