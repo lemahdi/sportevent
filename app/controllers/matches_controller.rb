@@ -114,7 +114,7 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
     respond_to do |format|
-      format.html { redirect_to user_matches_url(current_user) }
+      format.html { redirect_to match_params[:from]=="index" ? matches_url : user_matches_url(current_user) }
       format.json { head :no_content }
     end
   end
