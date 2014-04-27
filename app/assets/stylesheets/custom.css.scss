@@ -5,6 +5,7 @@ $blueLighter: rgba(0, 100, 200, 1);
 // $blueLighter: rgba(blue, 1);
 $grayLighter: rgba(190, 190, 190, 0.3);
 $grayDarker: rgba(190, 190, 190, 1);
+$greenLight: #5cb85c;
 
 @mixin box-sizing {
   -moz-box-sizing: border-box; 
@@ -114,6 +115,16 @@ textarea {
 
 .nowrap {
   white-space: nowrap;
+}
+
+#management_sidebar li {
+  a {
+    color: $greenLight;
+  }
+  &.active a {
+    color: white;
+    background-color: $greenLight;
+  }
 }
 
 /* typography */

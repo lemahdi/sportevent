@@ -1,5 +1,32 @@
-<h1>New group</h1>
+<% provide(:title, I18n.t(:new_group, scope: 'custom.view.management')) %>
 
-<%= render 'form' %>
+<div class="divider15"></div>
 
-<%= link_to 'Back', groups_path %>
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/management' %>
+  </div>
+
+  <div class="col-sm-7">
+    <div class="row">
+      <%= form_for(@group, url: user_groups_path(current_user), :html => { :method => :post }) do |f| %>
+
+        <!-- group_error_messages! -->
+        <%= render partial: 'layouts/errors', locals: { object: @group } %>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-7">
+          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: I18n.t(:nom, scope: 'custom.form') %>
+        </div>
+
+        <div class="col-sm-3">
+          <%= f.submit I18n.t(:save, scope: 'custom.verb'), class: "btn btn-success" %>
+        </div>
+
+        <div class="col-sm-1"></div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>

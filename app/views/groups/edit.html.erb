@@ -1,6 +1,23 @@
-<h1>Editing group</h1>
+<div class="divider15"></div>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/management' %>
+  </div>
 
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
+  <div class="col-sm-6">
+    <%= form_for(@group, url: user_group_path(current_user, @group), :html => { :method => :put })  do |f| %>
+
+      <!-- group_error_messages! -->
+      <%= render partial: 'layouts/errors', locals: { object: @group } %>
+
+      <br />
+      <%= f.label :name, I18n.t(:nom, scope: 'custom.form') %>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+
+      <br />
+      <%= f.submit I18n.t(:save, scope: 'custom.verb'), class: "btn btn-lg btn-success" %>
+      
+    <% end %>
+  </div>
+</div>

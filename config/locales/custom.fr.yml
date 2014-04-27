@@ -36,6 +36,7 @@ fr:
       subscribe: "Inscrivez-vous"
       find: "Chercher"
       leave: "Quitter"
+      join: "Rejoindre"
 
     noun:
       logout: "Déconnexion"
@@ -45,6 +46,7 @@ fr:
       update: "Mise à jour"
       new: "Nouveau"
       warning: "Attention"
+      details: "Détails"
 
     preposition:
       at: "à"
@@ -126,7 +128,6 @@ fr:
         in_match: "Participer au Match"
         out_match: "Quitter le Match"
         planning: "Le %{jour} à %{start}, sur le field %{field}"
-        details: "Détails"
       field:
         give_name: "Donnez un nom à ce field"
         path_name: "Nom de la voie"
@@ -144,11 +145,15 @@ fr:
           around: ".. km autour"
       group:
         my_groups: "Mes Groupes"
+        new_title: "Groupe"
       profile:
         home: "Profil"
         groups: "Groupes"
         matches: "Matchs"
         settings: "Paramètres"
+      management:
+        new_group: "Créer un groupe"
+        join_group: "Rejoindre un groupe"
 
     controller:
       notice:
@@ -165,9 +170,9 @@ fr:
         admin:
           alert: "Vous n'avez pas les droits pour ajouter/modifier les fields"
       match:
-        update:
-          in_game: "Bienvenu dans la partie"
-          out_game: "Vous avez quitté la partie"
+        name: "Le Match"
+        in_game: "Bienvenu dans la partie"
+        out_game: "Vous avez quitté la partie"
       comment:
         playing:
           alert: "Seuls les sportizers participants peuvent écrire des commentaires"
@@ -182,3 +187,7 @@ fr:
         invite_subject: "Invitation à jouer au Match"
         member:
           alert: "Seuls les participants ont le droit d'inviter au Match"
+      group:
+        name: "Groupe"
+        in_group: "Vous avez rejoint le groupe %{name}"
+        out_group: "Vous avez quitté le groupe %{name}"
