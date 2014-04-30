@@ -8,7 +8,7 @@
       <div class="col-md-3">
         <%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %>
         <div class="input-group" id="match_date">
-          <%= f.text_field :jour, class: "text-center form-control", "data-format" => "DD-MM-YYYY", value: Date.today.strftime('%d-%m-%Y') %>
+          <%= f.text_field :jour, class: "text-center form-control", "data-format" => "DD/MM/YYYY", value: Date.today.strftime('%d/%m/%Y') %>
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
