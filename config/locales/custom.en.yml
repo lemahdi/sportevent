@@ -131,6 +131,7 @@ en:
         latitude: "Latitude"
         longitude: "Longitude"
         coordinates: "Coordinates"
+        field_name: "Field's Name"
       home:
         carousel:
           photo1: "Do you need a partner?"

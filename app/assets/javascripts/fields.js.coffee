@@ -15,8 +15,8 @@ $(document).on 'ready page:load', ->
       if $("#field_infos").data("url")
         featureLayer = L.mapbox.featureLayer().loadURL($("#field_infos").data("url")).addTo(map)
 
+      # JSON request
       if $("#field_infos").data("geojson")
-        # matches::show
         featureLayer = L.mapbox.featureLayer($("#field_infos").data("geojson")).addTo(map)
         coord = $("#field_infos").data("geojson")[0]["geometry"]["coordinates"].reverse()
         map.setView(coord, $("#field_infos").data("zoom"))
@@ -24,10 +24,18 @@ $(document).on 'ready page:load', ->
       if $("#field_infos").data("zoom")
         map.setZoom($("#field_infos").data("zoom"))
 
+      # Search control
       if $("#field_infos").data("search") == "Y"
         map.addControl(L.mapbox.geocoderControl('lemahdi.hj5mcl72'))
 
     if $("#map_new_field")
+      marker = L.marker(new L.LatLng(0, 0), { draggable: true })
+      marker.addTo(map)
+
+      marker.on 'dragend', (e) ->
+        $("#latitude").text(marker.getLatLng().lat)
+        $("#longitude").text(marker.getLatLng().lng)
+
       map.on 'mousemove', (e) ->
         latlng = e.latlng
         coord = "(" + latlng.lat + "," + latlng.lng + ")"
@@ -37,6 +45,7 @@ $(document).on 'ready page:load', ->
       map.on 'click', (e) ->
         $("#latitude").text(e.latlng.lat)
         $("#longitude").text(e.latlng.lng)
+        marker.setLatLng(e.latlng)
 
     if featureLayer
       # Fit map to markers

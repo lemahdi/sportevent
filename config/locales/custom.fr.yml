@@ -139,6 +139,7 @@ fr:
         latitude: "Latitude"
         longitude: "Longitude"
         coordinates: "Coordonnées"
+        field_name: "Nom du Field"
       home:
         carousel:
           photo1: "Cherchez-vous un partenaire ?"
