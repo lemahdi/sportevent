@@ -19,4 +19,4 @@ $(document).ready ->
     if /.*\/users\/[0-9]+\/groups\/new$/.test(window.location.pathname)
       sidebar_elems.first().addClass("active")
     if /.*\/groups\/find/.test(window.location.pathname)
-      sidebar_elems.last().addClass("active")
+      $(sidebar_elems.get(1)).addClass("active")
