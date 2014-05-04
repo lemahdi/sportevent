@@ -39,6 +39,7 @@ en:
       new: "New"
       warning: "Warning"
       details: "Details"
+      all: "All"
 
     preposition:
       at: "at"
@@ -127,6 +128,8 @@ en:
         all_fields: "All Fields"
         how_save_field: "How to save a Field?"
         save_field: "Save Field"
+        latitude: "Latitude"
+        longitude: "Longitude"
       home:
         carousel:
           photo1: "Do you need a partner?"

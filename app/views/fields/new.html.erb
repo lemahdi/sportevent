@@ -1,6 +1,27 @@
 <% provide(:title, I18n.t(:save_field, scope: 'custom.view.field')) %>
 
-<h1><%= I18n.t(:post, scope: 'custom.verb') %></h1>
+</div>
 
-<%= render partial: 'form', locals: { from: "new" } %>
+<%= content_tag :div, id: "field_infos", data: { search: "Y", maptype: "new" } do %>
+<% end %>
 
+<div class="map_new_field">
+	<dl class="dl-horizontal">
+		<dt><%= I18n.t(:latitude, scope: 'custom.view.field') %></dt>
+		<dd><code id="latitude"></code></dd>
+
+		<dt><%= I18n.t(:longitude, scope: 'custom.view.field') %></dt>
+		<dd><code id="longitude"></code></dd>
+	</dl>
+	<div class="text-center">
+		<code id="mousemove"></code>
+	</div>
+</div>
+
+<div class="map_container">
+  <div id="map" class="map_with_all_fields" data-no-turbolink></div>
+</div>
+
+<div class="container">
+
+<!-- %= render partial: 'form', locals: { from: "new" } % -->
