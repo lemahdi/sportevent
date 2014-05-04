@@ -8,9 +8,16 @@ $(document).on 'ready page:load', ->
     map = L.mapbox.map('map', 'lemahdi.hj5mcl72')
     # Getting markers
     if $("#field_infos").data("url")
+      # index, show
       featureLayer = L.mapbox.featureLayer().loadURL($("#field_infos").data("url")).addTo(map)
-      map.setZoom($("#field_infos").data("zoom")) if $("#field_infos").data("zoom")
+      if $("#field_infos").data("zoom")
+        # show
+        map.setZoom($("#field_infos").data("zoom"))
+      else
+        # index
+        map.addControl(L.mapbox.geocoderControl('lemahdi.hj5mcl72'))
     else if $("#field_infos").data("geojson")
+      # matches::show
       featureLayer = L.mapbox.featureLayer($("#field_infos").data("geojson")).addTo(map)
       coord = $("#field_infos").data("geojson")[0]["geometry"]["coordinates"].reverse()
       map.setView(coord, $("#field_infos").data("zoom"))
