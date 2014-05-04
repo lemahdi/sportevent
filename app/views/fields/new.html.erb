@@ -5,32 +5,45 @@
 <%= content_tag :div, id: "field_infos", data: { search: "Y", maptype: "new" } do %>
 <% end %>
 
-<div class="map_new_field">
-	<table>
-		<tr>
-			<td><strong><%= I18n.t(:latitude, scope: 'custom.view.field') %></strong></td>
-			<td><code id="latitude"></code></td>
-		</tr>
+<%= form_for(@field) do |f| %>
 
-		<tr>
-			<td><strong><%= I18n.t(:longitude, scope: 'custom.view.field') %></strong></td>
-			<td><code id="longitude"></code></td>
-		</tr>
+  <!-- field_error_messages! -->
+  <%= render partial: 'layouts/errors', locals: { object: @field } %>
 
-		<tr>
-			<td><strong><%= I18n.t(:coordinates, scope: 'custom.view.field') %></strong></td>
-			<td><code id="coordinates" class="text-center"></code></td>
-		</tr>
-	</table>
+	<div class="map_new_field">
+		<table>
+			<tr>
+				<td><strong><%= f.label :latitude, I18n.t(:latitude, scope: 'custom.view.field') %></strong></td>
+				<td><code id="latitude"></code></td>
+			</tr>
 
-	<div class="divider15"></div>
+			<tr>
+				<td><strong><%= f.label :longitude, I18n.t(:longitude, scope: 'custom.view.field') %></strong></td>
+				<td><code id="longitude"></code></td>
+			</tr>
 
-	<div class="row">
-		<div class="col-sm-12">
-			<input type="text" class="form-control" placeholder="<%= I18n.t(:field_name, scope: 'custom.view.field') %>"></input>
-		</div>
+			<tr>
+				<td><strong><%= I18n.t(:coordinates, scope: 'custom.view.field') %></strong></td>
+				<td><code id="coordinates" class="text-center"></code></td>
+			</tr>
+		</table>
+
+		<div class="divider15"></div>
+
+		<div class="row">
+			<div class="col-sm-8">
+				<%= f.hidden_field :latitude, id: "hiddenlat" %>
+				<%= f.hidden_field :longitude, id: "hiddenlng" %>
+				<%= f.text_field :name, class: "form-control", placeholder: I18n.t(:field_name, scope: 'custom.view.field') %>
+			</div>
+
+			<div class="col-sm-4 actions">
+	      <%= f.submit I18n.t(:save, scope: 'custom.verb'), class: "btn btn-primary" %>
+	    </div>
+	  </div>
 	</div>
-</div>
+
+<% end %>
 
 <div class="map_container">
   <div id="map" class="map_with_all_fields" data-no-turbolink></div>

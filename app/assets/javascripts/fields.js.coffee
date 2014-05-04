@@ -28,13 +28,15 @@ $(document).on 'ready page:load', ->
       if $("#field_infos").data("search") == "Y"
         map.addControl(L.mapbox.geocoderControl('lemahdi.hj5mcl72'))
 
-    if $("#map_new_field")
+    if $("#field_infos").data("maptype") == "new"
       marker = L.marker(new L.LatLng(0, 0), { draggable: true })
       marker.addTo(map)
 
       marker.on 'dragend', (e) ->
         $("#latitude").text(marker.getLatLng().lat)
         $("#longitude").text(marker.getLatLng().lng)
+        $("#hiddenlat").val(marker.getLatLng().lat)
+        $("#hiddenlng").val(marker.getLatLng().lng)
 
       map.on 'mousemove', (e) ->
         latlng = e.latlng
@@ -46,6 +48,8 @@ $(document).on 'ready page:load', ->
         $("#latitude").text(e.latlng.lat)
         $("#longitude").text(e.latlng.lng)
         marker.setLatLng(e.latlng)
+        $("#hiddenlat").val(e.latlng.lat)
+        $("#hiddenlng").val(e.latlng.lng)
 
     if featureLayer
       # Fit map to markers
