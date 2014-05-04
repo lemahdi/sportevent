@@ -6,16 +6,22 @@
 <% end %>
 
 <div class="map_new_field">
-	<dl class="dl-horizontal">
-		<dt><%= I18n.t(:latitude, scope: 'custom.view.field') %></dt>
-		<dd><code id="latitude"></code></dd>
+	<table>
+		<tr>
+			<td><strong><%= I18n.t(:latitude, scope: 'custom.view.field') %></strong></td>
+			<td><code id="latitude"></code></td>
+		</tr>
 
-		<dt><%= I18n.t(:longitude, scope: 'custom.view.field') %></dt>
-		<dd><code id="longitude"></code></dd>
-	</dl>
-	<div class="text-center">
-		<code id="mousemove"></code>
-	</div>
+		<tr>
+			<td><strong><%= I18n.t(:longitude, scope: 'custom.view.field') %></strong></td>
+			<td><code id="longitude"></code></td>
+		</tr>
+
+		<tr>
+			<td><strong><%= I18n.t(:coordinates, scope: 'custom.view.field') %></strong></td>
+			<td><code id="coordinates" class="text-center"></code></td>
+		</tr>
+	</table>
 </div>
 
 <div class="map_container">

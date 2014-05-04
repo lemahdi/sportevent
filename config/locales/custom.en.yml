@@ -130,6 +130,7 @@ en:
         save_field: "Save Field"
         latitude: "Latitude"
         longitude: "Longitude"
+        coordinates: "Coordinates"
       home:
         carousel:
           photo1: "Do you need a partner?"

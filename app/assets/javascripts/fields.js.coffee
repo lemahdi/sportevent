@@ -29,7 +29,10 @@ $(document).on 'ready page:load', ->
 
     if $("#map_new_field")
       map.on 'mousemove', (e) ->
-        $("#"+e.type).text(e.containerPoint.toString() + ', ' + e.latlng.toString())
+        latlng = e.latlng
+        coord = "(" + latlng.lat + "," + latlng.lng + ")"
+        $("#coordinates").text(coord)
+        # $("#coordinates").text(e.containerPoint.toString() + ', ' + e.latlng.toString())
 
       map.on 'click', (e) ->
         $("#latitude").text(e.latlng.lat)

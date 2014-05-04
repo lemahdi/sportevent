@@ -138,6 +138,7 @@ fr:
         save_field: "Poster un Field"
         latitude: "Latitude"
         longitude: "Longitude"
+        coordinates: "Coordonnées"
       home:
         carousel:
           photo1: "Cherchez-vous un partenaire ?"
