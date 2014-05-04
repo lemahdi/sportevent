@@ -47,6 +47,7 @@ fr:
       new: "Nouveau"
       warning: "Attention"
       details: "Détails"
+      all: "Tous"
 
     preposition:
       at: "à"
@@ -128,12 +129,17 @@ fr:
         in_match: "Participer au Match"
         out_match: "Quitter le Match"
         planning: "Le %{jour} à %{start}, sur le field %{field}"
+        field_name: "Nom du Field .."
       field:
         give_name: "Donnez un nom à ce field"
         path_name: "Nom de la voie"
         all_fields: "Tous les Fields"
         how_save_field: "Comment enregistrer un Field ?"
         save_field: "Poster un Field"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        coordinates: "Coordonnées"
+        field_name: "Nom du Field"
       home:
         carousel:
           photo1: "Cherchez-vous un partenaire ?"
@@ -154,6 +160,7 @@ fr:
       management:
         new_group: "Créer un groupe"
         join_group: "Rejoindre un groupe"
+        organize_match: "Organiser un Match"
 
     controller:
       notice:

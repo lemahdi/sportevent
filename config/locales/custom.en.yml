@@ -39,6 +39,7 @@ en:
       new: "New"
       warning: "Warning"
       details: "Details"
+      all: "All"
 
     preposition:
       at: "at"
@@ -120,12 +121,17 @@ en:
         in_match: "Participate to Match"
         out_match: "Quit Match"
         planning: "On %{jour} at %{start}, on field %{field}"
+        field_name: "Field name .."
       field:
         give_name: "Give a name to this field"
         path_name: "Path name"
         all_fields: "All Fields"
         how_save_field: "How to save a Field?"
         save_field: "Save Field"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        coordinates: "Coordinates"
+        field_name: "Field's Name"
       home:
         carousel:
           photo1: "Do you need a partner?"
@@ -146,6 +152,7 @@ en:
       management:
         new_group: "New group"
         join_group: "Join a group"
+        organize_match: "Organize a Match"
 
     controller:
       notice:

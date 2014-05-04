@@ -9,7 +9,23 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.recent.asc("start").asc("jour").paginate(page: params[:page], per_page: 30)
+    @match = Match.new
+
+    is_jour = !params[:match].nil? && !match_params[:jour].nil? && !match_params[:jour].empty?
+    is_field = !params[:match].nil? && !match_params[:field_id].nil?
+    if !is_jour && !is_field
+      @matches = Match.recent.asc("start").asc("jour").paginate(page: params[:page], per_page: 30)
+    else
+      if is_jour && is_field
+        db_date = DateTime.strptime(match_params[:jour], "%d/%m/%Y").strftime("%m/%d/%Y")
+        @matches = Match.where("jour = ? AND field_id IN (SELECT id FROM fields WHERE name ~* ?)", db_date, ".*#{match_params[:field_id]}.*").recent.paginate(page: params[:page], per_page: 30)
+      elsif is_jour
+        db_date = DateTime.strptime(match_params[:jour], "%d/%m/%Y").strftime("%m/%d/%Y")
+        @matches = Match.where("jour = ?", db_date).recent.paginate(page: params[:page], per_page: 30)
+      elsif is_field
+        @matches = Match.where("field_id IN (SELECT id FROM fields WHERE name ~* ?)", ".*#{match_params[:field_id]}.*").recent.paginate(page: params[:page], per_page: 30)
+      end
+    end
 
     respond_to do |format|
       format.html { @matches }
@@ -114,7 +130,7 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
     respond_to do |format|
-      format.html { redirect_to user_matches_url(current_user) }
+      format.html { redirect_to match_params[:from]=="index" ? matches_url : user_matches_url(current_user) }
       format.json { head :no_content }
     end
   end

@@ -72,6 +72,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user.matches.each do |match|
+      match.destroy if match.users.size==1 && match.users.first==@user
+    end
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }

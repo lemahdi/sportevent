@@ -1,13 +1,34 @@
 <% provide(:title, 'Matchs') %>
 
-<h1><%= I18n.t(:match_list, scope: 'custom.view.match') %></h1>
+<!-- <h1><%= I18n.t(:match_list, scope: 'custom.view.match') %></h1> -->
+
+<div class="divider60"></div>
+
+<%= form_for(@match, url: matches_url, html: { method: :get }) do |f| %>
+  <div class="row text-center form-group">
+    <div class="col-md-2 col-md-offset-2">
+      <div class="input-group" id="match_date">
+        <%= f.text_field :jour, class: "text-center form-control", "data-format" => "DD/MM/YYYY", placeholder: I18n.t(:jour, scope: 'custom.form') %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <%= f.text_field :field_id, class: "form-control" , placeholder: I18n.t(:field_name, scope: 'custom.view.match') %>
+    </div>
+
+    <div class="col-md-2">
+    	<%= f.submit I18n.t(:find, scope: 'custom.verb'), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="divider60"></div>
 
 <%= will_paginate_helper @matches %>
 
 <div class="center hero-unit">
   <%= render 'table' %>
 </div>
-
-<br />
-
-<%= will_paginate_helper @matches %>
