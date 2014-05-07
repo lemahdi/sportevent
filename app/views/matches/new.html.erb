@@ -1,5 +1,50 @@
 <% provide(:title, I18n.t(:new_match, scope: 'custom.view.match')) %>
 
-<h1>Match</h1>
 
-<%= render partial: 'form' %>
+<div class="row">
+	<div class="col-sm-5">
+		<%= form_for(@match) do |f| %>
+
+			<!-- match_error_messages! -->
+	    <%= render partial: 'layouts/errors', locals: { object: @match } %>
+
+	    <dl class="dl-horizontal">
+	      <dt><%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %></dt>
+	      <dd>
+	      	<div class="input-group" id="match_date">
+	          <%= f.text_field :jour, class: "text-center form-control", "data-format" => "DD/MM/YYYY", value: Date.today.strftime('%d/%m/%Y') %>
+	          <span class="input-group-addon">
+	            <span class="glyphicon glyphicon-calendar"></span>
+	          </span>
+	        </div>
+	      </dd>
+
+	      <dt><%= f.label :start, "#{I18n.t(:start, scope: 'custom.form')} (hh:mm)" %></dt>
+	      <dd>
+	      	<div class="input-group" id="match_time">
+	          <%= f.text_field :start, class: "text-center form-control", value: Time.now.strftime('%H:%M') %>
+	          <span class="input-group-addon">
+	            <span class="glyphicon glyphicon-time"></span>
+	          </span>
+	        </div>
+	      </dd>
+
+	      <dt><%= f.label :duration, "#{I18n.t(:duration, scope: 'custom.form')} (min)" %></dt>
+	      <dd><%= f.text_field :duration, class: "text-center form-control", value: 1.hour/60 %></dd>
+
+	      <%= f.hidden_field :field_id, id: "fieldId" %>
+	    </dl>
+
+	    <%= f.submit I18n.t(:organize, scope: 'custom.verb'), class: "btn btn-lg btn-primary" %>
+		<% end %>
+	</div>
+
+	<div class="col-sm-7">
+		<div class="map_container">
+      <div id="map" class="map_for_match" data-no-turbolink></div>
+    </div>
+	</div>
+</div>
+<!-- <h1>Match</h1> -->
+
+<!-- %= render partial: 'form' % -->
