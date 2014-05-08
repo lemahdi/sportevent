@@ -1,5 +1,6 @@
 <% provide(:title, I18n.t(:new_match, scope: 'custom.view.match')) %>
 
+<div class="divider20"></div>
 
 <div class="row">
 	<div class="col-sm-5">
@@ -8,36 +9,52 @@
 			<!-- match_error_messages! -->
 	    <%= render partial: 'layouts/errors', locals: { object: @match } %>
 
-	    <dl class="dl-horizontal">
-	      <dt><%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %></dt>
-	      <dd>
+			<div class="row">
+	      <div class="col-sm-4"><%= f.label :jour, I18n.t(:jour, scope: 'custom.form') %></div>
+	      <div class="col-sm-6">
 	      	<div class="input-group" id="match_date">
 	          <%= f.text_field :jour, class: "text-center form-control", "data-format" => "DD/MM/YYYY", value: Date.today.strftime('%d/%m/%Y') %>
 	          <span class="input-group-addon">
 	            <span class="glyphicon glyphicon-calendar"></span>
 	          </span>
 	        </div>
-	      </dd>
+	      </div>
+	    </div>
 
-	      <dt><%= f.label :start, "#{I18n.t(:start, scope: 'custom.form')} (hh:mm)" %></dt>
-	      <dd>
+	    <br />
+
+			<div class="row">
+	      <div class="col-sm-4"><%= f.label :start, "#{I18n.t(:start, scope: 'custom.form')} (hh:mm)" %></div>
+	      <div class="col-sm-6">
 	      	<div class="input-group" id="match_time">
 	          <%= f.text_field :start, class: "text-center form-control", value: Time.now.strftime('%H:%M') %>
 	          <span class="input-group-addon">
 	            <span class="glyphicon glyphicon-time"></span>
 	          </span>
 	        </div>
-	      </dd>
+	      </div>
+	    </div>
 
-	      <dt><%= f.label :duration, "#{I18n.t(:duration, scope: 'custom.form')} (min)" %></dt>
-	      <dd><%= f.text_field :duration, class: "text-center form-control", value: 1.hour/60 %></dd>
+	    <br />
 
-	      <%= f.hidden_field :field_id, id: "fieldId" %>
-	    </dl>
+			<div class="row">
+	      <div class="col-sm-4"><%= f.label :duration, "#{I18n.t(:duration, scope: 'custom.form')} (min)" %></div>
+	      <div class="col-sm-6"><%= f.text_field :duration, class: "text-center form-control", value: 1.hour/60 %></div>
+	    </div>
 
-	    <%= f.submit I18n.t(:organize, scope: 'custom.verb'), class: "btn btn-lg btn-primary" %>
+			<br />
+	    <%= f.hidden_field :field_id, id: "fieldId" %>
+
+	    <div class="row">
+	    	<div class="col-sm-10">
+			    <%= f.submit I18n.t(:organize, scope: 'custom.verb'), class: "btn btn-lg btn-primary" %>
+			  </div>
+			</div>
 		<% end %>
 	</div>
+
+	<%= content_tag :div, id: "field_infos", data: { url: "/fields.json", search: "Y" } do %>
+	<% end %>
 
 	<div class="col-sm-7">
 		<div class="map_container">
@@ -45,6 +62,7 @@
     </div>
 	</div>
 </div>
+
 <!-- <h1>Match</h1> -->
 
 <!-- %= render partial: 'form' % -->

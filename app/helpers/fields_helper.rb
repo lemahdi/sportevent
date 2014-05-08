@@ -24,6 +24,7 @@ module FieldsHelper
           coordinates: [field.longitude, field.latitude]
         },
         properties: {
+          id: field.id,
           name: field.name,
           address: print_field(field),
           :'marker-color' => '#00607d',
