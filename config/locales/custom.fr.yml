@@ -79,6 +79,10 @@ fr:
       my_account: "Mon compte"
       profile: "Profil"
       management: "Gestion"
+      all_fields: "Tous les Fields"
+      new_field: "Enregistrer un Field"
+      all_matches: "Tous les Matchs"
+      new_match: "Organiser un Match"
 
     footer:
       help: "Aide"

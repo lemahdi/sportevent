@@ -71,6 +71,10 @@ en:
       my_account: "My account"
       profile: "Profile"
       management: "Management"
+      all_fields: "All Fields"
+      new_field: "Register a Field"
+      all_matches: "List Matchs"
+      new_match: "Organize a Match"
 
     footer:
       help: "Help"

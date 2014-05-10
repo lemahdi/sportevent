@@ -19,7 +19,7 @@
       <% is_member = @match.users.include?(current_user) %>
       <div class="col-md-5 caution">
         <%= form_for @match, url: match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do |f| %>
-          <%= f.hidden_field :participate, value: is_member ? "no" : "yes" %>
+          <%= f.hidden_field :update_action, value: is_member ? "leave" : "join" %>
           <% if is_member %>
             <%= f.submit I18n.t(:out_match, scope: 'custom.view.match'), class: "btn btn-md btn-default btn-danger" %>
           <% else %>

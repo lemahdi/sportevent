@@ -23,8 +23,8 @@
                 Fields <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to I18n.t(:all, scope: 'custom.noun'), fields_path, "data-no-turbolink" => true %></li>
-                <li><%= link_to I18n.t(:new, scope: 'custom.noun'), new_field_path %></li>
+                <li><%= link_to I18n.t(:all_fields, scope: 'custom.header'), fields_path, "data-no-turbolink" => true %></li>
+                <li><%= link_to I18n.t(:new_field, scope: 'custom.header'), new_field_path %></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -32,8 +32,8 @@
                 Matchs <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to I18n.t(:all, scope: 'custom.noun'), matches_path %></li>
-                <li><%= link_to I18n.t(:new, scope: 'custom.noun'), new_match_path %></li>
+                <li><%= link_to I18n.t(:all_matches, scope: 'custom.header'), matches_path %></li>
+                <li><%= link_to I18n.t(:new_match, scope: 'custom.header'), new_match_path %></li>
               </ul>
             </li>
             <li class="dropdown">
