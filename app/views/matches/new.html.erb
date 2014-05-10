@@ -42,8 +42,17 @@
 	      <div class="col-sm-6"><%= f.text_field :duration, class: "text-center form-control", value: 1.hour/60 %></div>
 	    </div>
 
-			<br />
-	    <%= f.hidden_field :field_id, id: "fieldId" %>
+	    <br />
+
+			<div class="row">
+	      <div class="col-sm-4"><%= f.label :field_id %></div>
+	      <div class="col-sm-6">
+	      	<input type="text" class="text-center form-control" disabled="true" id="fieldName" %>
+	    		<%= f.hidden_field :field_id, id: "fieldId" %>
+	      </div>
+	    </div>
+
+			<br /><br />
 
 	    <div class="row">
 	    	<div class="col-sm-10">

@@ -63,3 +63,5 @@ $(document).on 'ready page:load', ->
         map.panTo(e.layer.getLatLng())
         if $("#fieldId")
           $("#fieldId").val(e.layer.feature.properties.id)
+        if $("#fieldName")
+          $("#fieldName").val(e.layer.feature.properties.name)
