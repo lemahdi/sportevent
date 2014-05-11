@@ -10,5 +10,5 @@
   <strong>Début:</strong> <%= @match.start %><br/>
   <strong>Fin:</strong> <%= "#{match_end(@match)} (#{I18n.t(:duration, scope: 'custom.form')} #{@match.duration} minutes)" %><br/>
   <strong>Field:</strong> <%= @match.field.name %>
+  Vous voulez participer ? suivez ce <%= link_to "lien", "#{root_url}#{url_for(controller: 'matches', action: 'show', id: @match.id)}", "data-no-turbolink" => true %>.
 </p>
-
