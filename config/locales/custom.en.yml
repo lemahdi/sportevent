@@ -40,6 +40,7 @@ en:
       warning: "Warning"
       details: "Details"
       all: "All"
+      invitation: "Invitation"
 
     preposition:
       at: "at"
@@ -65,7 +66,6 @@ en:
       sujet: "Subject"
       participant: "Participants"
       comment: "Comments"
-      contact_all_others: "Contact all other members"
 
     header:
       my_account: "My account"
@@ -186,10 +186,11 @@ en:
         admin:
           alert: "Vous n'avez les droits pour supprimer les commentaires"
       contact:
-        sure_contact_all: "Are you sure you want to contact all members?"
+        sure_contact_all: "Are you sure you want to contact all group members?"
         invite_subject: "Invitation to play Match"
         member:
-          alert: "Only participants have the right to invite"
+          alert_match: "Only participants in the game have the right to invite"
+          alert_group: "Only group members are allowed to invite the group"
       group:
         name: "Group"
         in_group: "You joined the group %{name}"

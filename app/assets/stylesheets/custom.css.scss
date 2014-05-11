@@ -48,6 +48,10 @@ textarea {
   @include divide(20px);
 }
 
+.divider40 {
+  @include divide(40px);
+}
+
 .divider60 {
   @include divide(60px);
 }

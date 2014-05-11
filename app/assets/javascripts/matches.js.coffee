@@ -3,13 +3,19 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
-	$('#match_date').datetimepicker({
+	$("#match_date").datetimepicker({
     language: 'fr'
     pickTime: false
-  }) if $('#match_date').length > 0
+  }) if $("#match_date").length > 0
 
-$(document).on 'ready page:load', ->
-  $('#match_time').datetimepicker({
+  $("#match_time").datetimepicker({
     language: 'fr'
     pickDate: false
-  }) if $('#match_time').length > 0
+  }) if $("#match_time").length > 0
+
+  $("#selectedGroupId").on 'change', ->
+  	$("#groupId").val($("#selectedGroupId").val()) if $("#selectedGroupId").val() != ''
+
+  $("#sendMatchInvitToGroup").on 'click', ->
+  	# if $("#groupId").val() == ''
+  	alert "<%= I18n.t(:send, scope: 'custom.verb') %>"
