@@ -40,6 +40,7 @@ en:
       warning: "Warning"
       details: "Details"
       all: "All"
+      invitation: "Invitation"
 
     preposition:
       at: "at"
@@ -65,12 +66,15 @@ en:
       sujet: "Subject"
       participant: "Participants"
       comment: "Comments"
-      contact_all_others: "Contact all other members"
 
     header:
       my_account: "My account"
       profile: "Profile"
       management: "Management"
+      all_fields: "All Fields"
+      new_field: "Register a Field"
+      all_matches: "List Matchs"
+      new_match: "Organize a Match"
 
     footer:
       help: "Help"
@@ -182,10 +186,13 @@ en:
         admin:
           alert: "Vous n'avez les droits pour supprimer les commentaires"
       contact:
-        sure_contact_all: "Are you sure you want to contact all members?"
+        sure_contact_all: "This message will be sent to all group members who are not participating in the match, would you proceed?"
         invite_subject: "Invitation to play Match"
+        where_is_group: "Please choose a group before sending your message"
+        write_message: "Your message is empty"
         member:
-          alert: "Only participants have the right to invite"
+          alert_match: "Only participants in the game have the right to invite"
+          alert_group: "Only group members are allowed to invite the group"
       group:
         name: "Group"
         in_group: "You joined the group %{name}"

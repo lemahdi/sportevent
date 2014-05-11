@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+$(document).on 'ready page:load', ->
   if $('ul#profile_sidebar li').length > 0
     sidebar_elems = $('ul#profile_sidebar li')
     if /.*\/users\/[0-9]+$/.test(window.location.pathname)

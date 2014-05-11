@@ -19,7 +19,7 @@
       <% is_member = @match.users.include?(current_user) %>
       <div class="col-md-5 caution">
         <%= form_for @match, url: match_path(@match), method: @match.users.size==1 && is_member ? :delete : :put do |f| %>
-          <%= f.hidden_field :participate, value: is_member ? "no" : "yes" %>
+          <%= f.hidden_field :update_action, value: is_member ? "leave" : "join" %>
           <% if is_member %>
             <%= f.submit I18n.t(:out_match, scope: 'custom.view.match'), class: "btn btn-md btn-default btn-danger" %>
           <% else %>
@@ -32,8 +32,6 @@
   </div>
 
   <div class="col-md-7">
-    <br/><br/>
-
     <dl class="dl-horizontal">
       <dt><%= I18n.t(:jour, scope: 'custom.form') %></dt>
       <dd><%= @match.jour.strftime('%d-%m-%Y') %></dd>
@@ -51,34 +49,28 @@
       <dd><%= sportizers_name(@match) %></dd>
     </dl>
 
-    <br/><br/>
+    <div class="divider40"></div>
 
     <% if is_member %>
-      <div class="row">
-        <div class="col-md-12">
-          <strong><%= I18n.t(:contact_all_others, scope: 'custom.form') %></strong>
-        </div>
-      </div>
+      <dl class="dl-horizontal">
+        <dt><%= I18n.t(:invitation, scope: 'custom.noun') %></dt>
+        <dd>
+          <%= select_tag "groupIdSelect", options_for_select(current_user.groups.collect { |g| [ g.name, g.id ] }), { include_blank: true, class: "form-control input-sm" } %>
+        </dd>
+      </dl>
 
       <%= form_for Contact.new, url: contact_path, method: :put do |f| %>
+        <%= f.text_area :content, id: "matchInvitTextArea", class: "form-control" %>
 
-        <br/>
-        <div class="row">
-          <div class="col-md-12">
-            <!-- %= text_area_tag :content % -->
-            <%= f.text_area :content, class: "form-control" %>
-          </div>
-        </div>
-
+        <%= f.hidden_field :group_id, id: "groupIdHiddenField", value: 0 %>
         <%= f.hidden_field :match_id, value: @match.id %>
         <%= f.hidden_field :destination, value: "all" %>
 
         <div class="row">
           <div class="col-md-3">
-            <%= f.submit I18n.t(:send, scope: 'custom.verb'), class: "btn btn-md btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
+            <%= f.submit I18n.t(:send, scope: 'custom.verb'), id: "sendMatchInvitToGroupButton", class: "btn btn-md btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
           </div>
         </div>
-
       <% end %>
 
     <% end %>

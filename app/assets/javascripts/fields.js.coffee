@@ -28,6 +28,7 @@ $(document).on 'ready page:load', ->
       if $("#field_infos").data("search") == "Y"
         map.addControl(L.mapbox.geocoderControl('lemahdi.hj5mcl72'))
 
+    # New field page
     if $("#field_infos").data("maptype") == "new"
       marker = L.marker(new L.LatLng(0, 0), { draggable: true })
       marker.addTo(map)
@@ -60,3 +61,7 @@ $(document).on 'ready page:load', ->
       # Centering markers
       featureLayer.on 'click', (e) -> 
         map.panTo(e.layer.getLatLng())
+        if $("#fieldId")
+          $("#fieldId").val(e.layer.feature.properties.id)
+        if $("#fieldName")
+          $("#fieldName").val(e.layer.feature.properties.name)
