@@ -55,20 +55,20 @@
       <dl class="dl-horizontal">
         <dt><%= I18n.t(:invitation, scope: 'custom.noun') %></dt>
         <dd>
-          <%= select_tag "selectedGroupId", options_for_select(current_user.groups.collect { |g| [ g.name, g.id ] }), { include_blank: true, class: "form-control input-sm" } %>
+          <%= select_tag "groupIdSelect", options_for_select(current_user.groups.collect { |g| [ g.name, g.id ] }), { include_blank: true, class: "form-control input-sm" } %>
         </dd>
       </dl>
 
       <%= form_for Contact.new, url: contact_path, method: :put do |f| %>
-        <%= f.text_area :content, class: "form-control" %>
+        <%= f.text_area :content, id: "matchInvitTextArea", class: "form-control" %>
 
-        <%= f.hidden_field :group_id, id: "groupId", value: 0 %>
+        <%= f.hidden_field :group_id, id: "groupIdHiddenField", value: 0 %>
         <%= f.hidden_field :match_id, value: @match.id %>
         <%= f.hidden_field :destination, value: "all" %>
 
         <div class="row">
           <div class="col-md-3">
-            <%= f.submit I18n.t(:send, scope: 'custom.verb'), id: "sendMatchInvitToGroup", class: "btn btn-md btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
+            <%= f.submit I18n.t(:send, scope: 'custom.verb'), id: "sendMatchInvitToGroupButton", class: "btn btn-md btn-danger", data: { confirm: I18n.t(:sure_contact_all, scope: 'custom.controller.contact') } %>
           </div>
         </div>
       <% end %>

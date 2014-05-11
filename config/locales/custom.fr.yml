@@ -194,8 +194,10 @@ fr:
         admin:
           alert: "Vous n'avez les droits pour supprimer les commentaires"
       contact:
-        sure_contact_all: "Êtes vous sûre de vouloir contacter tous les membres du groupe ?"
+        sure_contact_all: "Ce message sera envoyé à tous les membres du groupe qui ne participent pas au match, voulez-vous continuer ?"
         invite_subject: "Invitation à jouer au Match"
+        where_is_group: "Veuillez choisir un groupe avant d'envoyer un message"
+        write_message: "Votre message est vide"
         member:
           alert_match: "Seuls les participants au Match ont le droit d'inviter"
           alert_group: "Seuls les membres du groupe ont le droit d'inviter le groupe"

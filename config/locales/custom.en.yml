@@ -186,8 +186,10 @@ en:
         admin:
           alert: "Vous n'avez les droits pour supprimer les commentaires"
       contact:
-        sure_contact_all: "Are you sure you want to contact all group members?"
+        sure_contact_all: "This message will be sent to all group members who are not participating in the match, would you proceed?"
         invite_subject: "Invitation to play Match"
+        where_is_group: "Please choose a group before sending your message"
+        write_message: "Your message is empty"
         member:
           alert_match: "Only participants in the game have the right to invite"
           alert_group: "Only group members are allowed to invite the group"

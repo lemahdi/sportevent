@@ -42,15 +42,9 @@ class ContactController < ApplicationController
     destination = contact_params[:destination]
 
     unless @contact.content.blank?
-      # if destination == "group"
-      #   reservation.rameurs.each do |rameur|
-      #     UserMailer.notify_group_email(@contact, rameur, reservation).deliver if rameur.id != current_user.id
-      #   end
-      # elsif destination == "all"
-        User.all.each do |u|
-          UserMailer.invite_play_match(@contact, match, u).deliver unless match.users.include?(u)
-        end
-      # end
+      group.users.each do |u|
+        UserMailer.invite_play_match(@contact, match, u).deliver unless match.users.include?(u)
+      end
 
       respond_to do |format|
         format.html { redirect_to match_path(match), notice: I18n.t(:msg_sent, scope: 'custom.controller.notice') }
