@@ -2,10 +2,10 @@ module FieldsHelper
 
 	def print_field(field)
 		place_name = field.street
-		if place_name!="" then
+		if place_name && !place_name.empty?
 	  	"#{place_name} - #{field.city}, #{field.country}"
 	  else
-	  	"#{field.name} - #{field.city}, #{field.country}"
+	  	"#{field.name}" + (field.city.nil? ? "" : " - #{field.city}") + (field.country.nil? ? "" : ", #{field.country}")
 	  end
 	end
 
@@ -24,6 +24,7 @@ module FieldsHelper
           coordinates: [field.longitude, field.latitude]
         },
         properties: {
+          id: field.id,
           name: field.name,
           address: print_field(field),
           :'marker-color' => '#00607d',

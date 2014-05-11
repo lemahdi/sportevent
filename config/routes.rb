@@ -1,18 +1,29 @@
 Sportevent::Application.routes.draw do
-  
-  get "home/index"
+
+  get 'home/index'
 
   scope "(:locale)", locale: /en|fr/ do
-    resources :matches do
+
+    resources :matches, except: [:index_user] do
       resources :comments, only: [:new, :create, :destroy]
     end
     resources :fields
     
-    devise_for :users, controllers: { registrations: "users/registrations", confirmations: "users/confirmations" }
+    devise_for :users, controllers: { registrations: 'users/registrations', confirmations: 'users/confirmations' }
     devise_scope :user do
-      put "/confirm" => "users/confirmations#confirm"
+      put '/confirm' => 'users/confirmations#confirm'
     end
-    resources :users, except: [:create, :new]
+
+    resources :users, except: [:new, :create] do
+      # resources :some_resource shallow: true => only: [:index, :new, :create]
+      resources :groups, except: [:show, :update, :destroy, :type, :find]
+
+      resources :matches, only: [:index_user]
+      get 'matches' => 'matches#index_user'
+    end
+
+    get 'groups/find' => 'groups#find'
+    resources :groups, only: [:show, :update, :destroy, :type, :find]
     
     # You can have the root of your site routed with "root"
     root to: 'home#index'

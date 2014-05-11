@@ -1,0 +1,39 @@
+<% provide(:title, I18n.t(:my_matches, scope: 'custom.view.group')) %>
+
+<div class="divider15"></div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/profile' %>
+  </div>
+
+  <div class="col-sm-9">
+    <% @matches.each do |match| %>
+      <div class="row well">
+        <div class="col-sm-6">
+          <%= I18n.t(:planning, scope: 'custom.view.match', jour: match.jour.strftime("%d/%m/%y"), start: match.start, field: match.field.name) %>
+        </div>
+
+        <div class="col-sm-3 nowrap">
+          <%= form_for match, url: match, method: match.sportizers.size==1 ? :delete : :patch do |f| %>
+            <%= f.hidden_field :update_action, value: "leave" %>
+              <%= f.hidden_field :from, value: "index_user" %>
+            <%= button_tag class: "btn btn-sm btn-default" do %>
+              <i class='fa fa-times-circle'></i> <%= I18n.t(:leave, scope: 'custom.verb') %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="col-sm-3 nowrap">
+          <a href="<%= match_path(match) %>" class="btn btn-sm btn-default">
+            <i class="fa fa-list"></i> <%= I18n.t(:details, scope: 'custom.noun') %>
+          </a>
+        </div>
+      </div>
+    <% end %>
+
+    <%= will_paginate_helper @matches %>
+  </div>
+</div>
+
+<br />

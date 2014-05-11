@@ -14,14 +14,30 @@
   }
 
   .map_with_all_fields {
-    height: 100%;
+    top: 5em;
+    left: 0;
+    bottom: 0;
     width: 100%;
-    min-height: 500px;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
   }
 
   .map_with_one_field {
     height: 100%;
     width: 100%;
     min-height: 400px;
+  }
+
+  .map_new_field {
+    position: absolute;
+    top: 5em;
+    right: 1em;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100;
+    width: 25em;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }

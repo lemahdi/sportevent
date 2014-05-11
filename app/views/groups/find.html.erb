@@ -1,0 +1,56 @@
+<% provide(:title, I18n.t(:my_groups, scope: 'custom.view.group')) %>
+
+<div class="divider15"></div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/management' %>
+  </div>
+
+  <div class="col-sm-9">
+    <div class="row">
+      <%= form_for(@group, url: groups_find_path, :html => { :method => :get })  do |f| %>
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-7">
+          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: I18n.t(:nom, scope: 'custom.form') %>
+        </div>
+        
+        <div class="col-sm-3">
+          <%= f.submit I18n.t(:find, scope: 'custom.verb'), class: "btn btn-success" %>
+        </div>
+
+        <div class="col-sm-1"></div>
+      <% end %>
+    </div>
+
+    <div class="divider20"></div>
+
+    <% unless @groups.nil? %>
+      <% @groups.each do |group| %>
+        <div class="row well">
+          <div class="col-sm-8">
+            <%= group.name %>
+          </div>
+
+          <div class="col-sm-2 nowrap">
+            <%= form_for group, url: group, method: :patch do |f| %>
+              <%= f.hidden_field :update_action, value: "join" %>
+              <%= button_tag class: "btn btn-sm btn-default" do %>
+                <i class='fa fa-sign-in'></i> <%= I18n.t(:join, scope: 'custom.verb') %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="col-sm-2 nowrap">
+            <a href="<%= group_path group %>" class="btn btn-sm btn-default">
+              <i class="fa fa-list"></i> <%= I18n.t(:details, scope: 'custom.noun') %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+
+      <%= will_paginate_helper @groups %>
+    <% end %>
+  </div>
+</div>

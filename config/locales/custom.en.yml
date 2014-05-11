@@ -27,6 +27,8 @@ en:
       contact: "Contact"
       subscribe: "Subscribe"
       find: "Find"
+      leave: "Leave"
+      join: "Join"
 
     noun:
       logout: "Logout"
@@ -36,6 +38,9 @@ en:
       update: "Updating"
       new: "New"
       warning: "Warning"
+      details: "Details"
+      all: "All"
+      invitation: "Invitation"
 
     preposition:
       at: "at"
@@ -61,12 +66,15 @@ en:
       sujet: "Subject"
       participant: "Participants"
       comment: "Comments"
-      contact_all_others: "Contact all other members"
 
     header:
       my_account: "My account"
       profile: "Profile"
-      settings: "Settings"
+      management: "Management"
+      all_fields: "All Fields"
+      new_field: "Register a Field"
+      all_matches: "List Matchs"
+      new_match: "Organize a Match"
 
     footer:
       help: "Help"
@@ -116,12 +124,18 @@ en:
         end_time: "End time"
         in_match: "Participate to Match"
         out_match: "Quit Match"
+        planning: "On %{jour} at %{start}, on field %{field}"
+        field_name: "Field name .."
       field:
         give_name: "Give a name to this field"
         path_name: "Path name"
         all_fields: "All Fields"
         how_save_field: "How to save a Field?"
         save_field: "Save Field"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        coordinates: "Coordinates"
+        field_name: "Field's Name"
       home:
         carousel:
           photo1: "Do you need a partner?"
@@ -131,6 +145,18 @@ en:
           sport: "Sport .."
           address: "Address .."
           around: ".. km around"
+      group:
+        my_groups: "My Groups"
+        new_title: "Group"
+      profile:
+        home: "Profile"
+        groups: "Groups"
+        matches: "Matches"
+        settings: "Settings"
+      management:
+        new_group: "New group"
+        join_group: "Join a group"
+        organize_match: "Organize a Match"
 
     controller:
       notice:
@@ -147,9 +173,9 @@ en:
         admin:
           alert: "You don't have rights to create/update fields"
       match:
-        update:
-          in_game: "Welcome to the game"
-          out_game: "You quit the game"
+        name: "Match"
+        in_game: "Welcome to the game"
+        out_game: "You quit the game"
       comment:
         playing:
           alert: "Only participant sportizers can write comments"
@@ -160,7 +186,14 @@ en:
         admin:
           alert: "Vous n'avez les droits pour supprimer les commentaires"
       contact:
-        sure_contact_all: "Are you sure you want to contact all members?"
+        sure_contact_all: "This message will be sent to all group members who are not participating in the match, would you proceed?"
         invite_subject: "Invitation to play Match"
+        where_is_group: "Please choose a group before sending your message"
+        write_message: "Your message is empty"
         member:
-          alert: "Only participants have the right to invite"
+          alert_match: "Only participants in the game have the right to invite"
+          alert_group: "Only group members are allowed to invite the group"
+      group:
+        name: "Group"
+        in_group: "You joined the group %{name}"
+        out_group: "You quit the group %{name}"

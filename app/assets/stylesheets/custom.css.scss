@@ -5,6 +5,7 @@ $blueLighter: rgba(0, 100, 200, 1);
 // $blueLighter: rgba(blue, 1);
 $grayLighter: rgba(190, 190, 190, 0.3);
 $grayDarker: rgba(190, 190, 190, 1);
+$greenLight: #5cb85c;
 
 @mixin box-sizing {
   -moz-box-sizing: border-box; 
@@ -45,6 +46,10 @@ textarea {
 
 .divider20 {
   @include divide(20px);
+}
+
+.divider40 {
+  @include divide(40px);
 }
 
 .divider60 {
@@ -112,15 +117,17 @@ textarea {
   }
 }
 
-// gmaps4rails bug fix: bad zoom buttons display
-#map_canvas {
-  label {
-    width: auto;
-    display:inline;
-  }
+.nowrap {
+  white-space: nowrap;
+}
 
-  img {
-    max-width: none;
+#management_sidebar li {
+  a {
+    color: $greenLight;
+  }
+  &.active a {
+    color: white;
+    background-color: $greenLight;
   }
 }
 

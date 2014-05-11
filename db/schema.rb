@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130928152748) do
+ActiveRecord::Schema.define(version: 20140504145719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20130928152748) do
   add_index "comments", ["match_id"], name: "index_comments_on_match_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "contracts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contracts", ["group_id"], name: "index_contracts_on_group_id"
+  add_index "contracts", ["user_id", "group_id"], name: "index_contracts_on_user_id_and_group_id", unique: true
+  add_index "contracts", ["user_id"], name: "index_contracts_on_user_id"
+
   create_table "fields", force: true do |t|
     t.string   "street"
     t.string   "city"
@@ -36,9 +47,17 @@ ActiveRecord::Schema.define(version: 20130928152748) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "gmaps"
-    t.string   "name",       default: "Trou Noir"
+    t.string   "name",       default: ""
     t.string   "timezone",   default: "UTC"
   end
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["name"], name: "index_groups_on_name", unique: true
 
   create_table "matches", force: true do |t|
     t.string   "start"
@@ -59,6 +78,7 @@ ActiveRecord::Schema.define(version: 20130928152748) do
   end
 
   add_index "registres", ["match_id"], name: "index_registres_on_match_id"
+  add_index "registres", ["user_id", "match_id"], name: "index_registres_on_user_id_and_match_id", unique: true
   add_index "registres", ["user_id"], name: "index_registres_on_user_id"
 
   create_table "users", force: true do |t|

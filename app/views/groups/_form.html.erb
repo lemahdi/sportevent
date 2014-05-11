@@ -1,0 +1,23 @@
+<div class="divider15"></div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/management' %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form_for(@group, url: source=="new" ? user_groups_path(current_user) : user_group_path(current_user, @group), :html => { :method => source=="new" ? :post : :put }) do |f| %>
+
+      <!-- group_error_messages! -->
+      <%= render partial: 'layouts/errors', locals: { object: @group } %>
+
+      <br />
+      <%= f.label :name, I18n.t(:nom, scope: 'custom.form') %>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+
+      <br />
+      <%= f.submit I18n.t(:save, scope: 'custom.verb'), class: "btn btn-lg btn-success" %>
+      
+    <% end %>
+  </div>
+</div>

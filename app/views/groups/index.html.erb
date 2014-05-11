@@ -1,0 +1,36 @@
+<% provide(:title, I18n.t(:my_groups, scope: 'custom.view.group')) %>
+
+<div class="divider15"></div>
+
+<div class="row">
+  <div class="col-sm-3">
+    <%= render 'layouts/profile' %>
+  </div>
+
+  <div class="col-sm-9">
+    <% @groups.each do |group| %>
+      <div class="row well">
+        <div class="col-sm-6">
+          <%= group.name %>
+        </div>
+
+        <div class="col-sm-3 nowrap">
+          <%= form_for group, url: group, method: group.users.size==1 ? :delete : :patch do |f| %>
+            <%= f.hidden_field :update_action, value: "leave" %>
+            <%= button_tag class: "btn btn-sm btn-default" do %>
+              <i class='fa fa-times-circle'></i> <%= I18n.t(:leave, scope: 'custom.verb') %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="col-sm-3 nowrap">
+          <a href="<%= group_path group %>" class="btn btn-sm btn-default">
+            <i class="fa fa-list"></i> <%= I18n.t(:details, scope: 'custom.noun') %>
+          </a>
+        </div>
+      </div>
+    <% end %>
+
+    <%= will_paginate_helper @groups %>
+  </div>
+</div>

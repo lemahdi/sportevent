@@ -24,7 +24,15 @@ class ContactController < ApplicationController
     match = Match.find_by_id(contact_params[:match_id])
     if !match.users.include?(current_user)
       respond_to do |format|
-        format.html { redirect_to matches_path, notice: I18n.t(:alert, scope: 'custom.controller.contact.member') and return }
+        format.html { redirect_to matches_path, notice: I18n.t(:alert_match, scope: 'custom.controller.contact.member') and return }
+        format.json { render action: 'index', status: :updated, location: match and return }
+     end
+    end
+
+    group = Group.find_by_id(contact_params[:group_id])
+    if !group.users.include?(current_user)
+      respond_to do |format|
+        format.html { redirect_to matches_path, notice: I18n.t(:alert_group, scope: 'custom.controller.contact.member') and return }
         format.json { render action: 'index', status: :updated, location: match and return }
      end
     end
@@ -34,15 +42,9 @@ class ContactController < ApplicationController
     destination = contact_params[:destination]
 
     unless @contact.content.blank?
-      # if destination == "group"
-      #   reservation.rameurs.each do |rameur|
-      #     UserMailer.notify_group_email(@contact, rameur, reservation).deliver if rameur.id != current_user.id
-      #   end
-      # elsif destination == "all"
-        User.all.each do |u|
-          UserMailer.invite_play_match(@contact, match, u).deliver unless match.users.include?(u)
-        end
-      # end
+      group.users.each do |u|
+        UserMailer.invite_play_match(@contact, match, u).deliver unless match.users.include?(u)
+      end
 
       respond_to do |format|
         format.html { redirect_to match_path(match), notice: I18n.t(:msg_sent, scope: 'custom.controller.notice') }
@@ -59,6 +61,6 @@ class ContactController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:nom, :email, :subject, :content, :destination, :match_id)
+      params.require(:contact).permit(:nom, :email, :subject, :content, :destination, :match_id, :group_id)
     end
 end

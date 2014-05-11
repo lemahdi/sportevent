@@ -35,6 +35,8 @@ fr:
       contact: "Contacter"
       subscribe: "Inscrivez-vous"
       find: "Chercher"
+      leave: "Quitter"
+      join: "Rejoindre"
 
     noun:
       logout: "Déconnexion"
@@ -44,6 +46,9 @@ fr:
       update: "Mise à jour"
       new: "Nouveau"
       warning: "Attention"
+      details: "Détails"
+      all: "Tous"
+      invitation: "Invitation"
 
     preposition:
       at: "à"
@@ -69,12 +74,15 @@ fr:
       sujet: "Sujet"
       participant: "Participants"
       comment: "Commentaires"
-      contact_all_others: "Contacter tous les autres membres"
 
     header:
       my_account: "Mon compte"
       profile: "Profil"
-      settings: "Paramètres"
+      management: "Gestion"
+      all_fields: "Tous les Fields"
+      new_field: "Enregistrer un Field"
+      all_matches: "Tous les Matchs"
+      new_match: "Organiser un Match"
 
     footer:
       help: "Aide"
@@ -124,12 +132,18 @@ fr:
         end_time: "Heure de fin"
         in_match: "Participer au Match"
         out_match: "Quitter le Match"
+        planning: "Le %{jour} à %{start}, sur le field %{field}"
+        field_name: "Nom du Field .."
       field:
         give_name: "Donnez un nom à ce field"
         path_name: "Nom de la voie"
         all_fields: "Tous les Fields"
         how_save_field: "Comment enregistrer un Field ?"
         save_field: "Poster un Field"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        coordinates: "Coordonnées"
+        field_name: "Nom du Field"
       home:
         carousel:
           photo1: "Cherchez-vous un partenaire ?"
@@ -139,6 +153,18 @@ fr:
           sport: "Sport .."
           address: "Adresse .."
           around: ".. km autour"
+      group:
+        my_groups: "Mes Groupes"
+        new_title: "Groupe"
+      profile:
+        home: "Profil"
+        groups: "Groupes"
+        matches: "Matchs"
+        settings: "Paramètres"
+      management:
+        new_group: "Créer un groupe"
+        join_group: "Rejoindre un groupe"
+        organize_match: "Organiser un Match"
 
     controller:
       notice:
@@ -155,9 +181,9 @@ fr:
         admin:
           alert: "Vous n'avez pas les droits pour ajouter/modifier les fields"
       match:
-        update:
-          in_game: "Bienvenu dans la partie"
-          out_game: "Vous avez quitté la partie"
+        name: "Le Match"
+        in_game: "Bienvenu dans la partie"
+        out_game: "Vous avez quitté la partie"
       comment:
         playing:
           alert: "Seuls les sportizers participants peuvent écrire des commentaires"
@@ -168,7 +194,14 @@ fr:
         admin:
           alert: "Vous n'avez les droits pour supprimer les commentaires"
       contact:
-        sure_contact_all: "Êtes vous sûre de vouloir contacter tous les membres ?"
+        sure_contact_all: "Ce message sera envoyé à tous les membres du groupe qui ne participent pas au match, voulez-vous continuer ?"
         invite_subject: "Invitation à jouer au Match"
+        where_is_group: "Veuillez choisir un groupe avant d'envoyer un message"
+        write_message: "Votre message est vide"
         member:
-          alert: "Seuls les participants ont le droit d'inviter au Match"
+          alert_match: "Seuls les participants au Match ont le droit d'inviter"
+          alert_group: "Seuls les membres du groupe ont le droit d'inviter le groupe"
+      group:
+        name: "Groupe"
+        in_group: "Vous avez rejoint le groupe %{name}"
+        out_group: "Vous avez quitté le groupe %{name}"
