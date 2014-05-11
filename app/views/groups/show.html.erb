@@ -14,10 +14,11 @@
 			<div class="row">
 				<% (0..3).each do |j| %>
 					<div class="col-sm-2 text-center">
-						<% if i*4+j < nb %>
-							<%= gravatar_for(@users[i+j]) %>
+						<% index = i*4 + j %>
+						<% if index < nb %>
+							<%= gravatar_for(@users[index]) %>
 							<br />
-							<%= @users[i+j].nom + " " + @users[i+j].prenom %>
+							<%= @users[index].nom + " " + @users[index].prenom %>
 						<% end %>
 					</div>
 				<% end %>
