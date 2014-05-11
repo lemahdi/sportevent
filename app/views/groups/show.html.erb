@@ -15,7 +15,7 @@
 				<% (0..3).each do |j| %>
 					<div class="col-sm-2 text-center">
 						<% index = i*4 + j %>
-						<% if index < nb %>
+						<% unless @users[index].nil? %>
 							<%= gravatar_for(@users[index]) %>
 							<br />
 							<%= @users[index].nom + " " + @users[index].prenom %>
