@@ -7,14 +7,14 @@
     <%= render 'layouts/profile' %>
   </div>
 
-  <div class="col-sm-7">
+  <div class="col-sm-9">
     <% @groups.each do |group| %>
       <div class="row well">
-        <div class="col-sm-8">
+        <div class="col-sm-6">
           <%= group.name %>
         </div>
 
-        <div class="col-sm-2 nowrap">
+        <div class="col-sm-3 nowrap">
           <%= form_for group, url: group, method: group.users.size==1 ? :delete : :patch do |f| %>
             <%= f.hidden_field :update_action, value: "leave" %>
             <%= button_tag class: "btn btn-sm btn-default" do %>
@@ -23,7 +23,7 @@
           <% end %>
         </div>
 
-        <div class="col-sm-2 nowrap">
+        <div class="col-sm-3 nowrap">
           <a href="<%= group_path group %>" class="btn btn-sm btn-default">
             <i class="fa fa-list"></i> <%= I18n.t(:details, scope: 'custom.noun') %>
           </a>
